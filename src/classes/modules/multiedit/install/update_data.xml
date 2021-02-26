@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE isys [
+        <!ELEMENT isys (info|queries)*>
+        <!ELEMENT info (title|version|requirement|directory|revision|release)*>
+        <!ELEMENT title (#PCDATA)>
+        <!ELEMENT version (#PCDATA)>
+        <!ELEMENT requirement (revision|version)*>
+        <!ELEMENT revision (#PCDATA)>
+        <!ELEMENT directory (#PCDATA)>
+        <!ELEMENT release (#PCDATA)>
+        <!ELEMENT queries (query)*>
+        <!ELEMENT query (id|title|check|errmsg|sql)*>
+        <!ELEMENT id (#PCDATA)>
+        <!ELEMENT check (#PCDATA)>
+        <!ATTLIST check ident CDATA #REQUIRED>
+        <!ELEMENT errmsg (#PCDATA)>
+        <!ELEMENT sql (exec)*>
+        <!ELEMENT exec (#PCDATA)>
+        <!ATTLIST exec ident CDATA #REQUIRED>
+        ]>
+<isys>
+    <info>
+        <title>Multiedit</title>
+        <version>1.12</version>
+        <release>2018-31-12</release>
+    </info>
+    <queries>
+        <query>
+            <id>1</id>
+            <title>Module entry for multiedit</title>
+            <check ident="C_VALUE_EXISTS">SELECT isys_module__id FROM isys_module WHERE isys_module__const = 'C__MODULE__MULTIEDIT';</check>
+            <sql>
+                <exec ident="false">
+                    INSERT INTO `isys_module` (`isys_module__title`, `isys_module__identifier`, `isys_module__const`, `isys_module__date_install`, `isys_module__class`, `isys_module__persistent`, `isys_module__status`, `isys_module__parent`, `isys_module__icon`)
+                    VALUES
+                    ('LC__MODULE__MULTIEDIT', 'multiedit', 'C__MODULE__MULTIEDIT', NOW(), 'isys_module_multiedit', 1, 2, 2, 'images/icons/silk/table_edit.png');
+                </exec>
+            </sql>
+        </query>
+
+        <query>
+            <id>2</id>
+            <title>Adding category multiedit</title>
+            <check ident="C_VALUE_EXISTS">SELECT isysgui_catg__id FROM isysgui_catg WHERE isysgui_catg__const = 'C__CATG__MULTIEDIT';</check>
+            <sql>
+                <exec ident="false">
+                    INSERT INTO `isysgui_catg` (`isysgui_catg__isys_tree_group__id`, `isysgui_catg__type`, `isysgui_catg__title`, `isysgui_catg__description`, `isysgui_catg__const`, `isysgui_catg__source_table`, `isysgui_catg__class_name`, `isysgui_catg__sort`, `isysgui_catg__parent`, `isysgui_catg__list_multi_value`, `isysgui_catg__property`, `isysgui_catg__search`, `isysgui_catg__status`, `isysgui_catg__standard`, `isysgui_catg__overview`)
+                    VALUES
+                    (NULL, 1, 'LC__MODULE__MULTIEDIT_CATEGORY', NULL, 'C__CATG__MULTIEDIT', 'isys_catg_virtual', 'isys_cmdb_dao_category_g_multiedit', 10, NULL, 0, 0, 0, 2, 1, 0);
+                </exec>
+            </sql>
+        </query>
+
+        <query>
+            <id>3</id>
+            <title>Updating multiedit authentication</title>
+            <check ident="C_VALUE_EXISTS">SELECT isys_auth__id FROM isys_auth WHERE isys_auth__path = 'MULTIEDIT' AND isys_auth__isys_module__id != (SELECT isys_module__id FROM isys_module WHERE isys_module__const = 'C__MODULE__MULTIEDIT');</check>
+            <sql>
+                <exec ident="true">
+                    UPDATE isys_auth
+                    SET isys_auth__isys_module__id = (SELECT isys_module__id FROM isys_module WHERE isys_module__const = 'C__MODULE__MULTIEDIT')
+                    WHERE
+                    isys_auth__path = 'MULTIEDIT' AND isys_auth__isys_module__id != (SELECT isys_module__id FROM isys_module WHERE isys_module__const = 'C__MODULE__MULTIEDIT');
+                </exec>
+            </sql>
+        </query>
+    </queries>
+</isys>

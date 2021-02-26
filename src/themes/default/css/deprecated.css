@@ -1,0 +1,49 @@
+.button, /* @deprecated  Use btn */
+.slim, /* @deprecated  Use btn-small */
+.verysmall, /* @deprecated  @todo Use explicit width (via style) for special cases */
+.small, /* @deprecated  Use input-mini @todo Check, if "input-mini" shall remain */
+.normal, /* @deprecated  Use input-small @todo Check, if "input-small" shall remain */
+.large, /* @deprecated */
+.inputText, /* @deprecated  Use input */
+.inputDialog, /* @deprecated  Use input */
+.inputTextarea, /* @deprecated  Use input */
+.inputLinkList, /* @deprecated  Use input */
+.inputFile, /* @deprecated  Use input-file */
+.bold, /* @deprecated  Use text-bold */
+.underline, /* @deprecated  Use text-underline */
+.strike, /* @deprecated  Use text-strike */
+.toolbar, /* @deprecated  Use <BUTTON.btn> or <A.btn> instead of <A> inside a <DIV.toolbar> */
+.black, /* @deprecated  Use text-black */
+.grey, /* @deprecated  Use text-grey */
+.muted, /* @deprecated  Use box-grey */
+.border-ccc, /* @deprecated  Use border-grey */
+.whitebg, /* @deprecated  Use bg-white */
+.red, /* @deprecated  Use text-red, bg-red or box-red */
+.error, /* @deprecated  Use box-red */
+.green, /* @deprecated  Use text-green, bg-green or box-green */
+.note, /* @deprecated  Use box-green */
+.success, /* @deprecated  Use box-green */
+.blue, /* @deprecated  Use text-blue, bg-blue or box-blue */
+.info, /* @deprecated  Use box-blue */
+.yellow, /* @deprecated  Use text-yellow, bg-yellow or box-yellow */
+.warning /* @deprecated  Use box-yellow */
+{
+    /* Create some "eye-catching" visuals, to find the usage of these classes */
+}
+
+/* Deprecated Please use "btn btn-small" */
+a.button.slim,
+input.button.slim,
+button.button.slim {
+    padding: 2px 4px 2px 2px;
+    line-height: 12px;
+}
+
+/* Deprecated Please use "btn btn-small" */
+a.button.slim img,
+input.button.slim img,
+button.button.slim img {
+    height: 14px;
+    margin-top: -1px !important;
+    vertical-align: middle;
+}

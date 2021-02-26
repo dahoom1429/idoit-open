@@ -1,0 +1,163 @@
+.arrowsprite {
+    background: url('[{$dir_images}]/downarrow.png');
+    background-repeat: no-repeat;
+    background-position: bottom;
+    height: 10px;
+    width: 10px;
+    top: 25px;
+    position: absolute;
+    z-index: 999;
+    left: 335px;
+}
+
+#mainMenu {
+    display: inline-block;
+    line-height: 25px;
+    color: #9b9b9b;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 1px 0 0 0;
+    padding: 0;
+}
+
+#mainMenu li {
+    list-style-type: none;
+    float: left;
+    margin-left: 10px;
+    font-weight: bold;
+    text-align: center;
+    min-width: 92px;
+    max-width: 125px;
+    padding-left: 2px;
+    padding-right: 2px;
+    position: relative;
+    display: inline;
+}
+
+#mainMenu li a {
+    color: #cccccc;
+    text-shadow: 0 1px 0 #000000;
+    font-weight: bold;
+    font-size: 11px;
+    text-align: center;
+}
+
+#mainMenu li a:hover {
+    color: #cc0000;
+}
+
+#mainMenu li.active {
+    background-color: #eeeeee;
+    background: -moz-linear-gradient(#eeeeee, #999999);
+    background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #999999), color-stop(1, #eeeeee));
+    background: -webkit-linear-gradient(#eeeeee, #999999);
+    background: -o-linear-gradient(#eeeeee, #999999);
+    background: -ms-linear-gradient(#eeeeee, #999999);
+    background: linear-gradient(#eeeeee, #999999);
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #222222;
+}
+
+#mainMenu li.active a {
+    color: #000000;
+    text-shadow: 0 1px 0 #ffffff;
+}
+
+#mainMenu li.active a:hover {
+    color: #cc0000;
+}
+
+/* Styles for the new module drop-down */
+
+#module-dropdown {
+    position: fixed;
+    width: 180px;
+    border: 1px solid #888888;
+    border-top: 0;
+    margin: 5px 0 0 -15px;
+    -moz-box-shadow: 1px 2px 4px #444444;
+    -webkit-box-shadow: 1px 2px 4px #444444;
+    box-shadow: 1px 2px 4px #444444;
+    z-index: 1010;
+    background-color: #eeeeee;
+    background: -moz-linear-gradient(#eeeeee, #cccccc);
+    background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #cccccc), color-stop(1, #eeeeee));
+    background: -webkit-linear-gradient(#eeeeee, #cccccc);
+    background: -o-linear-gradient(#eeeeee, #cccccc);
+    background: -ms-linear-gradient(#eeeeee, #cccccc);
+    background: linear-gradient(#eeeeee, #cccccc);
+}
+
+#module-dropdown-closer {
+    position: absolute;
+    right: 2px;
+    top: 2px;
+}
+
+#module-dropdown-closer img {
+    cursor: pointer;
+}
+
+#module-dropdown ul {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#module-dropdown ul li a {
+    padding: 4px;
+    line-height: 15px;
+    display: block;
+}
+
+#module-dropdown ul li.nondisabled:hover {
+    background: #ffffff;
+}
+
+#module-dropdown ul li.disabled {
+    color: #000000;
+    opacity: 0.5;
+}
+
+#module-dropdown ul li.disabled a:hover {
+    color: inherit;
+    text-decoration: none;
+    cursor: default;
+}
+
+#module-dropdown ul li img.module-icon {
+    display: block;
+    float: left;
+    width: 16px;
+    height: 16px;
+    margin-right: 7px;
+}
+
+#module-dropdown ul li.active {
+    background: #ffffff;
+}
+
+#module-dropdown ul.moduleChilds {
+    width: 150px;
+    border: 1px solid #888888;
+    border-top: 0;
+    -moz-box-shadow: 1px 2px 4px #444444;
+    -webkit-box-shadow: 1px 2px 4px #444444;
+    box-shadow: 1px 2px 4px #444444;
+    z-index: 1001;
+    background-color: #eeeeee;
+    background: -moz-linear-gradient(#eeeeee, #cccccc);
+    background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #cccccc), color-stop(1, #eeeeee));
+    background: -webkit-linear-gradient(#eeeeee, #cccccc);
+    background: -o-linear-gradient(#eeeeee, #cccccc);
+    background: -ms-linear-gradient(#eeeeee, #cccccc);
+    background: linear-gradient(#eeeeee, #cccccc);
+    position: absolute;
+}
+
+#module-dropdown ul.moduleChilds a:hover {
+    background: #ffffff;
+}

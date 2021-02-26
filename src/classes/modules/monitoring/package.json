@@ -1,0 +1,20 @@
+{
+  "title": "Monitoring",
+  "name": "LC__MONITORING",
+  "identifier": "monitoring",
+  "author": "Synetics GmbH",
+  "version": "1.0",
+  "description": "Monitoring add-on for i-doit.",
+  "type": "core",
+  "icon": "images/icons/silk/monitor.png",
+  "files": [],
+  "sql-tables": [],
+  "requirements": {
+    "core": ">= 1.11"
+  },
+  "dependencies": {
+    "php": [
+      "sockets"
+    ]
+  }
+}

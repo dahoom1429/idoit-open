@@ -1,0 +1,91 @@
+th.sort-header {
+    cursor: pointer;
+    position: relative;
+}
+
+th.sort-header::-moz-selection,
+th.sort-header::selection {
+    background: transparent;
+}
+
+table th.sort-header:after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    margin-top: 7px;
+    border-width: 0 4px 4px;
+    border-style: solid;
+    border-color: #404040 transparent;
+    visibility: hidden;
+}
+
+table th.sort-header:hover:after {
+    visibility: visible;
+}
+
+table th.sort-up:after,
+table th.sort-down:after,
+table th.sort-down:hover:after {
+    visibility: visible;
+    opacity: 0.4;
+}
+
+table th.sort-up:after {
+    border-bottom: none;
+    border-width: 4px 4px 0;
+}
+
+#multiEditLoader.inactive {
+    display: none;
+}
+
+#multiEditLoader.active {
+    display: block;
+}
+
+.multiedit-table-header {
+    position: absolute;
+    z-index: 999;
+    left: 0px;
+    width: 100%;
+}
+
+#multiEditContainer {
+    height: calc(100% - 245px);
+    overflow-y: auto;
+}
+
+#multiedit-config {
+    min-height: 70px;
+}
+
+.multiedit-display-container {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.multiedit-td-object-title {
+    min-width: 150px;
+    max-width: 150px;
+}
+
+.multiedit-table-td {
+    min-width: 300px !important;
+    max-width: 320px !important;
+    overflow-x: visible !important;
+}
+
+.multiedit-table-tr-changeall {
+    height: 35px;
+}
+
+.multiedit-td-object-title-info-id, .multiedit-td-object-title-info-sysid {
+    font-size: 9px;
+}
+
+.multiedit-td-action {
+    min-width: 30px;
+    max-width: 30px;
+    width: 30px;
+}

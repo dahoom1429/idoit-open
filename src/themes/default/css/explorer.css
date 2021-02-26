@@ -1,0 +1,63 @@
+#explorerWrapper {
+    padding: 10px 0 10px 10px;
+    background-color: white;
+    vertical-align: middle;
+}
+
+a.nodeLink {
+    text-decoration: none;
+    color: #333333;
+    font-weight: bold;
+}
+
+a.nodeLink:hover {
+    color: #777777;
+}
+
+#infoWidgetWrapper,
+.infoWidgetWrapper {
+    border-bottom: 1px solid #888888;
+    height: 50px;
+    -moz-box-shadow: 10px 10px 5px #888888;
+    -webkit-box-shadow: 10px 10px 5px #888888;
+    box-shadow: 0 1px 8px #888888;
+    padding: 5px 5px 22px 5px;
+}
+
+#infoWidgetWrapper,
+.infoWidgetWrapper .infoTable {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#infoWidgetWrapper,
+.infoWidgetWrapper .infoTable td {
+    padding-right: 10px;
+}
+
+#infoWidgetWrapper,
+.infoWidgetWrapper .infoTable td.bold {
+    white-space: nowrap;
+}
+
+.widget .infoWidgetWrapper .infoTable {
+    font-size: 10px;
+}
+
+.widget .infoWidgetWrapper h2.fr {
+    font-size: 11px;
+}
+
+@media (max-width: 1250px) {
+    #infoWidgetWrapper,
+    .infoWidgetWrapper .infoTable td.bold {
+        display: none;
+    }
+}
+
+#cmdb-explorer-loading {
+    position: absolute;
+    right: 10px;
+    top: 90px;
+    z-index: 9999;
+}

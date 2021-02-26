@@ -1,0 +1,283 @@
+#object-type-hider,
+#category-hider {
+    position: absolute;
+    background: #ffffff;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 20;
+}
+
+#object-type-hider div,
+#category-hider div {
+    position: absolute;
+    top: 45%;
+    text-align: center;
+    margin: 0 40px;
+}
+
+#qcw table {
+    width: 100%;
+    max-width: 990px;
+}
+
+#qcw hr {
+    margin: 20px 0;
+}
+
+#qcw td {
+    vertical-align: top;
+    width: 310px;
+    position: relative;
+}
+
+#qcw td.spacer {
+    width: 20px;
+}
+
+#qcw td.rsaquo {
+    width: 60px;
+    padding: 200px 10px;
+    text-align: center;
+}
+
+#qcw .container {
+    background: #ffffff;
+    border: 1px solid #cccccc;
+}
+
+#main-configuration .container {
+    width: 290px;
+}
+
+#profile-configuration .container {
+    width: 480px;
+}
+
+#qcw h3 {
+    border-bottom: #b7b7b7 1px solid;
+}
+
+#qcw h3 img {
+    float: right;
+}
+
+#qcw ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 438px;
+    position: relative;
+    overflow-y: auto;
+    border-bottom: #cccccc 1px solid;
+}
+
+#qcw li {
+    position: relative;
+    border-top: #eeeeee 1px solid;
+    padding: 5px;
+    height: 20px;
+}
+
+#qcw li:first-of-type {
+    border-top: none;
+}
+
+#qcw li.filtered {
+    display: none;
+}
+
+#qcw li button {
+    opacity: 0.2;
+}
+
+#qcw li span {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#qcw li span.title {
+    width: 205px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#qcw li span.counter {
+    position: absolute;
+    right: 35px;
+    top: 8px;
+}
+
+#qcw li.selfdefined span.title,
+#popup-qcw li.selfdefined span.title {
+    font-style: italic;
+}
+
+#obj_type_list li,
+#obj_type_group_list li {
+    cursor: pointer;
+}
+
+#qcw li:hover,
+#qcw li:hover span.counter {
+    background: #e0e0e0;
+}
+
+#qcw li:hover span.counter {
+    /* This will simulate a gradient */
+    box-shadow: -5px 0 4px #e0e0e0;
+}
+
+#qcw li:hover button {
+    opacity: 1;
+}
+
+#qcw li.active,
+#qcw li.active:hover span.counter {
+    background: #eeeeee;
+    font-weight: bold;
+}
+
+#qcw li.active:hover span.counter {
+    /* This will simulate a gradient */
+    box-shadow: -5px 0 4px #eeeeee;
+}
+
+#qcw .handle {
+    background: transparent url('[{$dir_images}]icons/hatch.gif');
+    width: 8px;
+    height: 18px;
+    float: left;
+    cursor: ns-resize;
+    margin-right: 4px;
+}
+
+#qcw #objtypegroup_name,
+#qcw #objtype_name {
+    display: inline-block;
+    max-width: 170px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+/* === POPUP STYLES === */
+#popup-qcw * {
+    box-sizing: border-box;
+}
+
+#popup-qcw .list,
+#popup-qcw .editor {
+    position: relative;
+    float: left;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+#popup-qcw .editor-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.8);
+    box-sizing: border-box;
+    text-align: center;
+    padding-top: 40px;
+}
+
+#popup-qcw label {
+    height: auto;
+}
+
+#popup-qcw .list {
+    width: 60%;
+}
+
+#popup-qcw .editor {
+    width: 40%;
+    border-left: 1px solid #cccccc;
+    padding: 5px;
+}
+
+#popup-qcw .list ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+#popup-qcw .list li {
+    padding: 5px;
+    border-bottom: 1px solid #cccccc;
+    height: 30px;
+}
+
+#popup-qcw .list li.selected {
+    background: #f0f0f0;
+}
+
+#popup-qcw .list li.not-assigned {
+    background: #f5f5f5;
+    color: #888888;
+}
+
+#popup-qcw .list li:hover {
+    background: #eeeeee;
+}
+
+#popup-qcw .list li button {
+    opacity: 0.2;
+}
+
+#popup-qcw .list li button[data-action="toggle-visibility"] {
+    opacity: 0;
+}
+
+#popup-qcw .list li:hover button {
+    opacity: 1;
+}
+
+#popup-qcw .list li:hover button[disabled] {
+    opacity: 0.5;
+}
+
+#popup-qcw .list li:last-of-type {
+    border-bottom: none;
+}
+
+#popup-qcw .list li span {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#popup-qcw span.title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 345px;
+}
+
+#popup-qcw span.title span {
+    color: #999999;
+    margin-top: -2px;
+    margin-left: 5px;
+}
+
+#popup-qcw #profile-table th:last-of-type,
+#popup-qcw #profile-table td:last-of-type {
+    width: 60px !important;
+    text-align: center;
+}
+
+#popup-qcw .qq-upload-drop-area,
+#popup-qcw .qq-upload-extra-drop-area {
+    left: auto;
+    top: -30px;
+    padding: 5px 0;
+    height: 64px;
+}

@@ -1,0 +1,119 @@
+parameters:
+    service.title: 'i-doit'
+    log.path: '/log/system'
+    language: 'en'
+services:
+    event_dispatcher:
+        class: Symfony\Component\EventDispatcher\EventDispatcher
+        public: true
+    request:
+        class: Symfony\Component\HttpFoundation\Request
+        factory: ['Symfony\Component\HttpFoundation\Request', createFromGlobals]
+        lazy: true
+        public: true
+    signals:
+        class: isys_component_signalcollection
+        factory: ['isys_component_signalcollection', get_instance]
+        lazy:  true
+        public: true
+    database_system:
+        class: isys_component_database_proxy
+        public: true
+    database:
+        class: isys_component_database_proxy
+        public: true
+    cmdb_dao:
+        class: isys_cmdb_dao
+        arguments: ['@database']
+        lazy: true
+        public: true
+    settingsDbSystem:
+        class: idoit\Component\Settings\DbSystem
+        factory: ['idoit\Component\Settings\DbSystem', factory]
+        public: true
+    settingsSystem:
+        class: idoit\Component\Settings\System
+        factory: ['idoit\Component\Settings\System', factory]
+        arguments: ['@database_system']
+        lazy: true
+        public: true
+    settingsTenant:
+        class: idoit\Component\Settings\Tenant
+        factory: ['idoit\Component\Settings\Tenant', factory]
+        arguments: ['@database_system', '@session']
+        lazy: true
+        public: true
+    settingsUser:
+        class: idoit\Component\Settings\User
+        factory: ['idoit\Component\Settings\User', factory]
+        arguments: ['@database']
+        lazy: true
+        public: true
+    session:
+        class: isys_component_session
+        factory: ['isys_component_session', instance]
+        arguments: ['@isys_module_ldap']
+        lazy: true
+        public: true
+    template:
+        class: isys_component_template
+        factory: ['isys_component_template', instance]
+        lazy: true
+        public: true
+    notify:
+        class: dstuecken\Notify\NotificationCenter
+        factory: ['dstuecken\Notify\NotificationCenter', factory]
+        lazy:  true
+        public: true
+        calls:
+            - [addHandler, ['@notify.SmartyHandler']]
+            - [addHandler, ['@notify.HeaderHandler']]
+    locales:
+        class: isys_locale
+        factory: ['isys_locale', factory]
+        arguments: ['@database', '@session']
+        lazy: true
+        public: true
+    moduleManager:
+        class: isys_module_manager
+        arguments: ['@database']
+        lazy: true
+        public: true
+    logger:
+        class: idoit\Component\Logger
+        factory: ['idoit\Component\Logger', factory]
+        arguments: ['%service.title%', '%log.path%']
+        lazy: true
+        public: true
+    notify.SmartyHandler:
+        class: dstuecken\Notify\Handler\SmartyHandler
+        arguments: ['@template']
+        lazy: true
+        public: false
+    notify.HeaderHandler:
+        class: dstuecken\Notify\Handler\HeaderHandler
+        arguments: ['%service.title%']
+        lazy: true
+        public: false
+    isys_module_ldap:
+        class: isys_module_ldap
+        lazy: true
+        public: false
+    language:
+        class: isys_component_template_language_manager
+        arguments: ['%language%']
+        public: true
+    components.registry:
+        class: idoit\Component\Registry\Registry
+        public: true
+    htmlpurifier_config:
+        class: HTMLPurifier_Config
+        factory: ['HTMLPurifier_Config', createDefault]
+        calls:
+            - [set, ['Core.Encoding', 'UTF-8']]
+        lazy:  true
+        public: true
+    htmlpurifier:
+        class: HTMLPurifier
+        arguments: ['@htmlpurifier_config']
+        public: true

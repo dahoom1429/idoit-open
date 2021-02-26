@@ -1,0 +1,1655 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="ReportingServer" targetNamespace="http://www.jdisc.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.jdisc.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.jdisc.com" elementFormDefault="unqualified" targetNamespace="http://www.jdisc.com" version="1.0">
+<xs:element name="getCustomReport" type="tns:getCustomReport"/>
+<xs:element name="getCustomReportResponse" type="tns:getCustomReportResponse"/>
+<xs:element name="getCustomReports" type="tns:getCustomReports"/>
+<xs:element name="getCustomReportsResponse" type="tns:getCustomReportsResponse"/>
+<xs:element name="getDeviceTypes" type="tns:getDeviceTypes"/>
+<xs:element name="getDeviceTypesResponse" type="tns:getDeviceTypesResponse"/>
+<xs:element name="getOsFamilies" type="tns:getOsFamilies"/>
+<xs:element name="getOsFamiliesResponse" type="tns:getOsFamiliesResponse"/>
+<xs:element name="getScalarReport" type="tns:getScalarReport"/>
+<xs:element name="getScalarReportResponse" type="tns:getScalarReportResponse"/>
+<xs:element name="getSubDeviceTypes" type="tns:getSubDeviceTypes"/>
+<xs:element name="getSubDeviceTypesResponse" type="tns:getSubDeviceTypesResponse"/>
+<xs:element name="getTableReport" type="tns:getTableReport"/>
+<xs:element name="getTableReportResponse" type="tns:getTableReportResponse"/>
+<xs:element name="searchDevice" type="tns:searchDevice"/>
+<xs:element name="searchDeviceResponse" type="tns:searchDeviceResponse"/>
+<xs:complexType name="getOsFamilies">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="getOsFamiliesResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="osFamilies" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getTableReport">
+<xs:sequence>
+<xs:element minOccurs="0" name="sessionId" type="tns:sessionId"/>
+<xs:element minOccurs="0" name="reportName" type="xs:string"/>
+<xs:element name="timeoutInMillis" type="xs:long"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="selectors" type="tns:reportFilter"/>
+<xs:element minOccurs="0" name="genericFilters" type="tns:condition"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="sorting" type="tns:sortEntry"/>
+<xs:element minOccurs="0" name="paging" type="tns:paging"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="sessionId">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+<xs:element name="userId" type="xs:int"/>
+<xs:element minOccurs="0" name="clientHostname" type="xs:string"/>
+<xs:element minOccurs="0" name="username" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="reportFilter">
+<xs:sequence>
+<xs:element minOccurs="0" name="field" type="tns:reportField"/>
+<xs:element minOccurs="0" name="filterValue" type="xs:anyType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="reportField">
+<xs:sequence>
+<xs:element minOccurs="0" name="fieldId" type="xs:string"/>
+<xs:element minOccurs="0" name="fieldName" type="xs:string"/>
+<xs:element name="columnPosition" type="xs:int"/>
+<xs:element minOccurs="0" name="type" type="tns:reportFieldType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType abstract="true" name="condition">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="sortEntry">
+<xs:sequence>
+<xs:element minOccurs="0" name="field" type="tns:reportField"/>
+<xs:element name="isAscending" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="paging">
+<xs:sequence>
+<xs:element name="start" type="xs:int"/>
+<xs:element name="end" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getTableReportResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="tableReport" type="tns:tableReportingResult"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="tableReportingResult">
+<xs:complexContent>
+<xs:extension base="tns:reportingResult">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="column" type="tns:reportField"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="row" type="tns:tableReportingRowResult"/>
+<xs:element name="totalRowCount" type="xs:int"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="reportingResult">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="filters" nillable="true" type="tns:reportFilter"/>
+<xs:element minOccurs="0" name="status" type="tns:webServiceStatus"/>
+<xs:element minOccurs="0" name="title" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="tableReportingRowResult">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="value" type="xs:anyType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType abstract="true" name="number">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType abstract="true" name="ipAddress">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="vector">
+<xs:complexContent>
+<xs:extension base="tns:abstractList">
+<xs:sequence/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType abstract="true" name="abstractList">
+<xs:complexContent>
+<xs:extension base="tns:abstractCollection">
+<xs:sequence/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType abstract="true" name="abstractCollection">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="nullObject">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="ip4Address">
+<xs:complexContent>
+<xs:extension base="tns:ipAddress">
+<xs:sequence>
+<xs:element name="addr" type="xs:long"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ip4Network">
+<xs:sequence>
+<xs:element minOccurs="0" name="subnetMask" type="tns:ip4SubnetMask"/>
+<xs:element minOccurs="0" name="baseAddress" type="tns:ip4Address"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ip4SubnetMask">
+<xs:complexContent>
+<xs:extension base="tns:ip4Address">
+<xs:sequence/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ip4Range">
+<xs:sequence>
+<xs:element minOccurs="0" name="from" type="tns:ip4Address"/>
+<xs:element minOccurs="0" name="to" type="tns:ip4Address"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType abstract="true" name="listValue">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="ipAddressList">
+<xs:complexContent>
+<xs:extension base="tns:listValue">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="addressList" nillable="true" type="tns:ipAddress"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="hostnameList">
+<xs:complexContent>
+<xs:extension base="tns:listValue">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="hostnameList" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="genericListValue">
+<xs:complexContent>
+<xs:extension base="tns:listValue">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="list" nillable="true" type="xs:anyType"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ip4AddressList">
+<xs:complexContent>
+<xs:extension base="tns:listValue">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="addressList" nillable="true" type="tns:ip4Address"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ip6Address">
+<xs:complexContent>
+<xs:extension base="tns:ipAddress">
+<xs:sequence>
+<xs:element minOccurs="0" name="addrArr" type="xs:base64Binary"/>
+<xs:element name="scopeId" type="xs:int"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="ip6Network">
+<xs:sequence>
+<xs:element minOccurs="0" name="baseAddress" type="tns:ip6Address"/>
+<xs:element name="prefix" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType final="extension restriction" name="inet6Address">
+<xs:complexContent>
+<xs:extension base="tns:inetAddress">
+<xs:sequence/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="inetAddress">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="timestampValue">
+<xs:sequence>
+<xs:element minOccurs="0" name="ts" type="xs:dateTime"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="bitsPerSecond">
+<xs:complexContent>
+<xs:extension base="tns:baseNumber">
+<xs:sequence>
+<xs:element name="speed" type="xs:long"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType abstract="true" name="baseNumber">
+<xs:complexContent>
+<xs:extension base="tns:number">
+<xs:sequence/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="memorySizeKb">
+<xs:complexContent>
+<xs:extension base="tns:baseNumber">
+<xs:sequence>
+<xs:element name="memorySizeInKb" type="xs:long"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="memorySizeMb">
+<xs:complexContent>
+<xs:extension base="tns:baseNumber">
+<xs:sequence>
+<xs:element name="memorySizeInMb" type="xs:long"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="mhzClockSpeed">
+<xs:complexContent>
+<xs:extension base="tns:baseNumber">
+<xs:sequence>
+<xs:element name="clockSpeed" type="xs:long"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="percentValue">
+<xs:complexContent>
+<xs:extension base="tns:baseNumber">
+<xs:sequence>
+<xs:element name="value" type="xs:double"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="duration">
+<xs:complexContent>
+<xs:extension base="tns:number">
+<xs:sequence>
+<xs:element name="milliSecondComponent" type="xs:int"/>
+<xs:element name="secondComponent" type="xs:int"/>
+<xs:element name="minuteComponent" type="xs:int"/>
+<xs:element name="hourComponent" type="xs:int"/>
+<xs:element name="dayComponent" type="xs:int"/>
+<xs:element name="duration" type="xs:long"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="shortFormattedDuration">
+<xs:complexContent>
+<xs:extension base="tns:duration">
+<xs:sequence/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="majorMinorVersion">
+<xs:sequence>
+<xs:element minOccurs="0" name="majorVersion" type="xs:int"/>
+<xs:element minOccurs="0" name="minorVersion" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="discoveryProtocolStatus">
+<xs:sequence>
+<xs:element minOccurs="0" name="message" type="xs:string"/>
+<xs:element minOccurs="0" name="status" type="tns:discoveryProtocolStatusEnum"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="scalarReportingResult">
+<xs:complexContent>
+<xs:extension base="tns:reportingResult">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="column" type="tns:reportField"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="value" type="xs:anyType"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="searchDevice">
+<xs:sequence>
+<xs:element minOccurs="0" name="sessionId" type="tns:sessionId"/>
+<xs:element name="timeoutInMillis" type="xs:long"/>
+<xs:element minOccurs="0" name="nameOrIp" type="xs:string"/>
+<xs:element minOccurs="0" name="genericFilters" type="tns:condition"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="sorting" type="tns:sortEntry"/>
+<xs:element minOccurs="0" name="paging" type="tns:paging"/>
+<xs:element minOccurs="0" name="caseSensitive" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="searchDeviceResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="tableReport" type="tns:tableReportingResult"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getDeviceTypes">
+<xs:sequence>
+<xs:element name="recursive" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getDeviceTypesResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="deviceTypes" type="tns:deviceType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getCustomReports">
+<xs:sequence>
+<xs:element minOccurs="0" name="sessionId" type="tns:sessionId"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getCustomReportsResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="customReports" type="tns:customReportInfoResult"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="customReportInfoResult">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="globalReports" type="tns:customReport"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="groupReports" type="tns:customReport"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="privateReports" type="tns:customReport"/>
+<xs:element minOccurs="0" name="status" type="tns:webServiceStatus"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="customReport">
+<xs:sequence>
+<xs:element minOccurs="0" name="id" type="xs:int"/>
+<xs:element minOccurs="0" name="name" type="xs:string"/>
+<xs:element minOccurs="0" name="description" type="xs:string"/>
+<xs:element name="isFolder" type="xs:boolean"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="children" type="tns:customReport"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getSubDeviceTypes">
+<xs:sequence>
+<xs:element minOccurs="0" name="parentType" type="tns:deviceType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getSubDeviceTypesResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="subTypes" type="tns:deviceType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getScalarReport">
+<xs:sequence>
+<xs:element minOccurs="0" name="sessionId" type="tns:sessionId"/>
+<xs:element minOccurs="0" name="reportName" type="xs:string"/>
+<xs:element name="timeoutInMillis" type="xs:long"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="selectors" type="tns:reportFilter"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getScalarReportResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="scalarReport" type="tns:scalarReportingResult"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getCustomReport">
+<xs:sequence>
+<xs:element minOccurs="0" name="sessionId" type="tns:sessionId"/>
+<xs:element name="reportId" type="xs:int"/>
+<xs:element name="timeoutInMillis" type="xs:long"/>
+<xs:element minOccurs="0" name="genericFilters" type="tns:condition"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="sorting" type="tns:sortEntry"/>
+<xs:element minOccurs="0" name="paging" type="tns:paging"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getCustomReportResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="customReport" type="tns:tableReportingResult"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="andCondition">
+<xs:complexContent>
+<xs:extension base="tns:condition">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="condition" type="tns:condition"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="matchesRegexCondition">
+<xs:complexContent>
+<xs:extension base="tns:condition">
+<xs:sequence>
+<xs:element minOccurs="0" name="filter" type="tns:reportFilter"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="lessThanCondition">
+<xs:complexContent>
+<xs:extension base="tns:condition">
+<xs:sequence>
+<xs:element minOccurs="0" name="filter" type="tns:reportFilter"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="containsCaseInsensitiveCondition">
+<xs:complexContent>
+<xs:extension base="tns:condition">
+<xs:sequence>
+<xs:element minOccurs="0" name="filter" type="tns:reportFilter"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="greaterThanEqualCondition">
+<xs:complexContent>
+<xs:extension base="tns:condition">
+<xs:sequence>
+<xs:element minOccurs="0" name="filter" type="tns:reportFilter"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="notCondition">
+<xs:complexContent>
+<xs:extension base="tns:condition">
+<xs:sequence>
+<xs:element minOccurs="0" name="condition" type="tns:condition"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="greaterThanCondition">
+<xs:complexContent>
+<xs:extension base="tns:condition">
+<xs:sequence>
+<xs:element minOccurs="0" name="filter" type="tns:reportFilter"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="lessEqualThanCondition">
+<xs:complexContent>
+<xs:extension base="tns:condition">
+<xs:sequence>
+<xs:element minOccurs="0" name="filter" type="tns:reportFilter"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="equalsCondition">
+<xs:complexContent>
+<xs:extension base="tns:condition">
+<xs:sequence>
+<xs:element minOccurs="0" name="filter" type="tns:reportFilter"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="containsCondition">
+<xs:complexContent>
+<xs:extension base="tns:condition">
+<xs:sequence>
+<xs:element minOccurs="0" name="filter" type="tns:reportFilter"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="orCondition">
+<xs:complexContent>
+<xs:extension base="tns:condition">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="condition" type="tns:condition"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:simpleType name="reportFieldType">
+<xs:restriction base="xs:string">
+<xs:enumeration value="ContentField"/>
+<xs:enumeration value="FilterField"/>
+<xs:enumeration value="IdField"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="webServiceStatus">
+<xs:restriction base="xs:string">
+<xs:enumeration value="Success"/>
+<xs:enumeration value="InvalidArgument"/>
+<xs:enumeration value="InvalidUser"/>
+<xs:enumeration value="InvalidPassword"/>
+<xs:enumeration value="InsufficientRights"/>
+<xs:enumeration value="InvalidSession"/>
+<xs:enumeration value="Failure"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="ip6AddressType">
+<xs:restriction base="xs:string">
+<xs:enumeration value="AnyLocalAddress"/>
+<xs:enumeration value="IPv4CompatibleAddress"/>
+<xs:enumeration value="IP6To4Address"/>
+<xs:enumeration value="IPv4MappedAddress"/>
+<xs:enumeration value="IanaGlobalAddress"/>
+<xs:enumeration value="LinkLocalAddress"/>
+<xs:enumeration value="SiteLocalAddress"/>
+<xs:enumeration value="UniqueLocalAddress"/>
+<xs:enumeration value="MulticastGlobalAddress"/>
+<xs:enumeration value="MulticastNodeLocalAddress"/>
+<xs:enumeration value="MulticastLinkLocalAddress"/>
+<xs:enumeration value="MulticastSiteLocalAddress"/>
+<xs:enumeration value="MulticastOrgLocalAddress"/>
+<xs:enumeration value="LoopbackAddress"/>
+<xs:enumeration value="UnspecifiedAddress"/>
+<xs:enumeration value="Other"/>
+<xs:enumeration value="MulticastAddress"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="deviceType">
+<xs:restriction base="xs:string">
+<xs:enumeration value="AllDevices"/>
+<xs:enumeration value="NetworkingDevice"/>
+<xs:enumeration value="Hub"/>
+<xs:enumeration value="Router"/>
+<xs:enumeration value="Switch"/>
+<xs:enumeration value="RoutingSwitch"/>
+<xs:enumeration value="Firewall"/>
+<xs:enumeration value="AccessPoint"/>
+<xs:enumeration value="Modem"/>
+<xs:enumeration value="Analyser"/>
+<xs:enumeration value="Gateway"/>
+<xs:enumeration value="Concentrator"/>
+<xs:enumeration value="Bridge"/>
+<xs:enumeration value="Repeater"/>
+<xs:enumeration value="PortServer"/>
+<xs:enumeration value="ConsoleSwitch"/>
+<xs:enumeration value="ConsoleServer"/>
+<xs:enumeration value="BladeSwitch"/>
+<xs:enumeration value="ServerNetSwitch"/>
+<xs:enumeration value="BladeServerNetSwitch"/>
+<xs:enumeration value="InfiniBandSwitch"/>
+<xs:enumeration value="BladeInfiniBandSwitch"/>
+<xs:enumeration value="OpticalSwitch"/>
+<xs:enumeration value="PatchField"/>
+<xs:enumeration value="VPNRouter"/>
+<xs:enumeration value="AccessPointController"/>
+<xs:enumeration value="LoadBalancer"/>
+<xs:enumeration value="DeviceConnector"/>
+<xs:enumeration value="Computer"/>
+<xs:enumeration value="ClientComputer"/>
+<xs:enumeration value="Server"/>
+<xs:enumeration value="RackServer"/>
+<xs:enumeration value="BladeServer"/>
+<xs:enumeration value="Desktop"/>
+<xs:enumeration value="Laptop"/>
+<xs:enumeration value="PDAThinClient"/>
+<xs:enumeration value="MiniTower"/>
+<xs:enumeration value="Tower"/>
+<xs:enumeration value="DTC"/>
+<xs:enumeration value="MediaServer"/>
+<xs:enumeration value="TerminalServer"/>
+<xs:enumeration value="Workstation"/>
+<xs:enumeration value="Terminal"/>
+<xs:enumeration value="XTerminal"/>
+<xs:enumeration value="VirtualComputer"/>
+<xs:enumeration value="VMwareInstance"/>
+<xs:enumeration value="MiniTowerServer"/>
+<xs:enumeration value="TowerServer"/>
+<xs:enumeration value="MSVMInstance"/>
+<xs:enumeration value="ThinClient"/>
+<xs:enumeration value="SolarisZone"/>
+<xs:enumeration value="IBMLPar"/>
+<xs:enumeration value="IntegrityVM"/>
+<xs:enumeration value="MSHyperVInstance"/>
+<xs:enumeration value="XenInstance"/>
+<xs:enumeration value="KVMInstance"/>
+<xs:enumeration value="VMwareManagementAppliance"/>
+<xs:enumeration value="SunVirtualBoxInstance"/>
+<xs:enumeration value="VirtualIronInstance"/>
+<xs:enumeration value="ParallelsInstance"/>
+<xs:enumeration value="BladeWorkstation"/>
+<xs:enumeration value="SolarisLDom"/>
+<xs:enumeration value="PizzaBox"/>
+<xs:enumeration value="ImagingAndPrinting"/>
+<xs:enumeration value="Printer"/>
+<xs:enumeration value="Scanner"/>
+<xs:enumeration value="Fax"/>
+<xs:enumeration value="PrintServer"/>
+<xs:enumeration value="MultifunctionalDevice"/>
+<xs:enumeration value="Projector"/>
+<xs:enumeration value="DigitalSender"/>
+<xs:enumeration value="BarcodeScanner"/>
+<xs:enumeration value="ReceiptPrinter"/>
+<xs:enumeration value="CardPrinter"/>
+<xs:enumeration value="StorageDevice"/>
+<xs:enumeration value="TapeLibrary"/>
+<xs:enumeration value="FibreChannelHub"/>
+<xs:enumeration value="FibreChannelSwitch"/>
+<xs:enumeration value="FibreChannelBridge"/>
+<xs:enumeration value="FibreChannelAnalyser"/>
+<xs:enumeration value="DiskArray"/>
+<xs:enumeration value="TapeDrive"/>
+<xs:enumeration value="FibreChannelRouter"/>
+<xs:enumeration value="BackupDevice"/>
+<xs:enumeration value="BladeStorageDevice"/>
+<xs:enumeration value="BladeDiskArray"/>
+<xs:enumeration value="BladeTapeDrive"/>
+<xs:enumeration value="FibreChannelGateway"/>
+<xs:enumeration value="FibreChannelConverter"/>
+<xs:enumeration value="BladeFibreChannelSwitch"/>
+<xs:enumeration value="SASSwitch"/>
+<xs:enumeration value="BladeSASSwitch"/>
+<xs:enumeration value="NAS"/>
+<xs:enumeration value="DiskArrayController"/>
+<xs:enumeration value="IPTelephonyDevice"/>
+<xs:enumeration value="IPPhone"/>
+<xs:enumeration value="IPVoiceGateway"/>
+<xs:enumeration value="ManagementDevice"/>
+<xs:enumeration value="BladeEnclosure"/>
+<xs:enumeration value="WlanController"/>
+<xs:enumeration value="UnassignedDevice"/>
+<xs:enumeration value="NoAgentDevice"/>
+<xs:enumeration value="UnknownDevice"/>
+<xs:enumeration value="PowerDevice"/>
+<xs:enumeration value="UPS"/>
+<xs:enumeration value="PDU"/>
+<xs:enumeration value="PowerSupply"/>
+<xs:enumeration value="BladePowerSupply"/>
+<xs:enumeration value="Rack"/>
+<xs:enumeration value="Appliance"/>
+<xs:enumeration value="SecurityAppliance"/>
+<xs:enumeration value="WANAppliance"/>
+<xs:enumeration value="PrintServerAppliance"/>
+<xs:enumeration value="WebCachingAppliance"/>
+<xs:enumeration value="VpnAppliance"/>
+<xs:enumeration value="VideoCommunication"/>
+<xs:enumeration value="VideoTelephone"/>
+<xs:enumeration value="VideoConferencingDevice"/>
+<xs:enumeration value="Monitor"/>
+<xs:enumeration value="IOModule"/>
+<xs:enumeration value="BladeIOModule"/>
+<xs:enumeration value="ClusterService"/>
+<xs:enumeration value="VeritasClusterService"/>
+<xs:enumeration value="ServiceGuardClusterPackage"/>
+<xs:enumeration value="CardReader"/>
+<xs:enumeration value="PinPad"/>
+<xs:enumeration value="IndustrialControlSystem"/>
+<xs:enumeration value="FieldBusController"/>
+<xs:enumeration value="AutomationController"/>
+<xs:enumeration value="EnvironmentMonitor"/>
+<xs:enumeration value="CommunicationController"/>
+<xs:enumeration value="MultifunctionalTerminal"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="deviceRole">
+<xs:restriction base="xs:string">
+<xs:enumeration value="PrimaryDomainController"/>
+<xs:enumeration value="BackupDomainController"/>
+<xs:enumeration value="DNSServer"/>
+<xs:enumeration value="DatabaseServer"/>
+<xs:enumeration value="WebServer"/>
+<xs:enumeration value="VirtualServer"/>
+<xs:enumeration value="DirectoryService"/>
+<xs:enumeration value="GlobalCatalog"/>
+<xs:enumeration value="KerberosKeyDistributionCenter"/>
+<xs:enumeration value="TimeService"/>
+<xs:enumeration value="DomainController"/>
+<xs:enumeration value="ApplicationServer"/>
+<xs:enumeration value="MailServer"/>
+<xs:enumeration value="StorageManagement"/>
+<xs:enumeration value="TerminalServices"/>
+<xs:enumeration value="VirtualizationManagement"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="directoryType">
+<xs:restriction base="xs:string">
+<xs:enumeration value="Container"/>
+<xs:enumeration value="OrganizationalUnit"/>
+<xs:enumeration value="DNSDomain"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="interfaceStatus">
+<xs:restriction base="xs:string">
+<xs:enumeration value="Up"/>
+<xs:enumeration value="Down"/>
+<xs:enumeration value="Testing"/>
+<xs:enumeration value="Unknown"/>
+<xs:enumeration value="Dormant"/>
+<xs:enumeration value="NotPresent"/>
+<xs:enumeration value="LowerLayerDown"/>
+<xs:enumeration value="NonOperational"/>
+<xs:enumeration value="Unreachable"/>
+<xs:enumeration value="Disconnected"/>
+<xs:enumeration value="Connecting"/>
+<xs:enumeration value="Connected"/>
+<xs:enumeration value="Operational"/>
+<xs:enumeration value="Initialize"/>
+<xs:enumeration value="Backup"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="interfaceType">
+<xs:restriction base="xs:string">
+<xs:enumeration value="unknown"/>
+<xs:enumeration value="other"/>
+<xs:enumeration value="regular1822"/>
+<xs:enumeration value="hdh1822"/>
+<xs:enumeration value="ddnX25"/>
+<xs:enumeration value="rfc877x25"/>
+<xs:enumeration value="ethernetCsmacd"/>
+<xs:enumeration value="iso88023Csmacd"/>
+<xs:enumeration value="iso88024TokenBus"/>
+<xs:enumeration value="iso88025TokenRing"/>
+<xs:enumeration value="iso88026Man"/>
+<xs:enumeration value="starLan"/>
+<xs:enumeration value="proteon10Mbit"/>
+<xs:enumeration value="proteon80Mbit"/>
+<xs:enumeration value="hyperchannel"/>
+<xs:enumeration value="fddi"/>
+<xs:enumeration value="lapb"/>
+<xs:enumeration value="sdlc"/>
+<xs:enumeration value="ds1"/>
+<xs:enumeration value="e1"/>
+<xs:enumeration value="basicISDN"/>
+<xs:enumeration value="primaryISDN"/>
+<xs:enumeration value="propPointToPointSerial"/>
+<xs:enumeration value="ppp"/>
+<xs:enumeration value="softwareLoopback"/>
+<xs:enumeration value="eon"/>
+<xs:enumeration value="ethernet3Mbit"/>
+<xs:enumeration value="nsip"/>
+<xs:enumeration value="slip"/>
+<xs:enumeration value="ultra"/>
+<xs:enumeration value="ds3"/>
+<xs:enumeration value="sip"/>
+<xs:enumeration value="frameRelay"/>
+<xs:enumeration value="rs232"/>
+<xs:enumeration value="para"/>
+<xs:enumeration value="arcnet"/>
+<xs:enumeration value="arcnetPlus"/>
+<xs:enumeration value="atm"/>
+<xs:enumeration value="miox25"/>
+<xs:enumeration value="sonet"/>
+<xs:enumeration value="x25ple"/>
+<xs:enumeration value="iso88022llc"/>
+<xs:enumeration value="localTalk"/>
+<xs:enumeration value="smdsDxi"/>
+<xs:enumeration value="frameRelayService"/>
+<xs:enumeration value="v35"/>
+<xs:enumeration value="hssi"/>
+<xs:enumeration value="hippi"/>
+<xs:enumeration value="modem"/>
+<xs:enumeration value="aal5"/>
+<xs:enumeration value="sonetPath"/>
+<xs:enumeration value="sonetVT"/>
+<xs:enumeration value="smdsIcip"/>
+<xs:enumeration value="propVirtual"/>
+<xs:enumeration value="propMultiplexor"/>
+<xs:enumeration value="ieee80212"/>
+<xs:enumeration value="fibreChannel"/>
+<xs:enumeration value="hippiInterface"/>
+<xs:enumeration value="frameRelayInterconnect"/>
+<xs:enumeration value="aflane8023"/>
+<xs:enumeration value="aflane8025"/>
+<xs:enumeration value="cctEmul"/>
+<xs:enumeration value="fastEther"/>
+<xs:enumeration value="isdn"/>
+<xs:enumeration value="v11"/>
+<xs:enumeration value="v36"/>
+<xs:enumeration value="g703at64k"/>
+<xs:enumeration value="g703at2mb"/>
+<xs:enumeration value="qllc"/>
+<xs:enumeration value="fastEtherFX"/>
+<xs:enumeration value="channel"/>
+<xs:enumeration value="ieee80211"/>
+<xs:enumeration value="ibm370parChan"/>
+<xs:enumeration value="escon"/>
+<xs:enumeration value="dlsw"/>
+<xs:enumeration value="isdns"/>
+<xs:enumeration value="isdnu"/>
+<xs:enumeration value="lapd"/>
+<xs:enumeration value="ipSwitch"/>
+<xs:enumeration value="rsrb"/>
+<xs:enumeration value="atmLogical"/>
+<xs:enumeration value="ds0"/>
+<xs:enumeration value="ds0Bundle"/>
+<xs:enumeration value="bsc"/>
+<xs:enumeration value="async"/>
+<xs:enumeration value="cnr"/>
+<xs:enumeration value="iso88025Dtr"/>
+<xs:enumeration value="eplrs"/>
+<xs:enumeration value="arap"/>
+<xs:enumeration value="propCnls"/>
+<xs:enumeration value="hostPad"/>
+<xs:enumeration value="termPad"/>
+<xs:enumeration value="frameRelayMPI"/>
+<xs:enumeration value="x213"/>
+<xs:enumeration value="adsl"/>
+<xs:enumeration value="radsl"/>
+<xs:enumeration value="sdsl"/>
+<xs:enumeration value="vdsl"/>
+<xs:enumeration value="iso88025CRFPInt"/>
+<xs:enumeration value="myrinet"/>
+<xs:enumeration value="voiceEM"/>
+<xs:enumeration value="voiceFXO"/>
+<xs:enumeration value="voiceFXS"/>
+<xs:enumeration value="voiceEncap"/>
+<xs:enumeration value="voiceOverIp"/>
+<xs:enumeration value="atmDxi"/>
+<xs:enumeration value="atmFuni"/>
+<xs:enumeration value="atmIma"/>
+<xs:enumeration value="pppMultilinkBundle"/>
+<xs:enumeration value="ipOverCdlc"/>
+<xs:enumeration value="ipOverClaw"/>
+<xs:enumeration value="stackToStack"/>
+<xs:enumeration value="virtualIpAddress"/>
+<xs:enumeration value="mpc"/>
+<xs:enumeration value="ipOverAtm"/>
+<xs:enumeration value="iso88025Fiber"/>
+<xs:enumeration value="tdlc"/>
+<xs:enumeration value="gigabitEthernet"/>
+<xs:enumeration value="hdlc"/>
+<xs:enumeration value="lapf"/>
+<xs:enumeration value="v37"/>
+<xs:enumeration value="x25mlp"/>
+<xs:enumeration value="x25huntGroup"/>
+<xs:enumeration value="trasnpHdlc"/>
+<xs:enumeration value="interleave"/>
+<xs:enumeration value="fast"/>
+<xs:enumeration value="ip"/>
+<xs:enumeration value="docsCableMaclayer"/>
+<xs:enumeration value="docsCableDownstream"/>
+<xs:enumeration value="docsCableUpstream"/>
+<xs:enumeration value="a12MppSwitch"/>
+<xs:enumeration value="tunnel"/>
+<xs:enumeration value="coffee"/>
+<xs:enumeration value="ces"/>
+<xs:enumeration value="atmSubInterface"/>
+<xs:enumeration value="l2vlan"/>
+<xs:enumeration value="l3ipvlan"/>
+<xs:enumeration value="l3ipxvlan"/>
+<xs:enumeration value="digitalPowerline"/>
+<xs:enumeration value="mediaMailOverIp"/>
+<xs:enumeration value="dtm"/>
+<xs:enumeration value="dcn"/>
+<xs:enumeration value="ipForward"/>
+<xs:enumeration value="msdsl"/>
+<xs:enumeration value="ieee1394"/>
+<xs:enumeration value="ifgsn"/>
+<xs:enumeration value="dvbRccMacLayer"/>
+<xs:enumeration value="dvbRccDownstream"/>
+<xs:enumeration value="dvbRccUpstream"/>
+<xs:enumeration value="atmVirtual"/>
+<xs:enumeration value="mplsTunnel"/>
+<xs:enumeration value="srp"/>
+<xs:enumeration value="voiceOverAtm"/>
+<xs:enumeration value="voiceOverFrameRelay"/>
+<xs:enumeration value="idsl"/>
+<xs:enumeration value="compositeLink"/>
+<xs:enumeration value="ss7SigLink"/>
+<xs:enumeration value="propWirelessP2P"/>
+<xs:enumeration value="frForward"/>
+<xs:enumeration value="rfc1483"/>
+<xs:enumeration value="usb"/>
+<xs:enumeration value="ieee8023adLag"/>
+<xs:enumeration value="bgppolicyaccounting"/>
+<xs:enumeration value="frf16MfrBundle"/>
+<xs:enumeration value="h323Gatekeeper"/>
+<xs:enumeration value="h323Proxy"/>
+<xs:enumeration value="mpls"/>
+<xs:enumeration value="mfSigLink"/>
+<xs:enumeration value="hdsl2"/>
+<xs:enumeration value="shdsl"/>
+<xs:enumeration value="ds1FDL"/>
+<xs:enumeration value="pos"/>
+<xs:enumeration value="dvbAsiIn"/>
+<xs:enumeration value="dvbAsiOut"/>
+<xs:enumeration value="plc"/>
+<xs:enumeration value="nfas"/>
+<xs:enumeration value="tr008"/>
+<xs:enumeration value="gr303RDT"/>
+<xs:enumeration value="gr303IDT"/>
+<xs:enumeration value="isup"/>
+<xs:enumeration value="propDocsWirelessMaclayer"/>
+<xs:enumeration value="propDocsWirelessDownstream"/>
+<xs:enumeration value="propDocsWirelessUpstream"/>
+<xs:enumeration value="hiperlan2"/>
+<xs:enumeration value="propBWAp2Mp"/>
+<xs:enumeration value="sonetOverheadChannel"/>
+<xs:enumeration value="digitalWrapperOverheadChannel"/>
+<xs:enumeration value="aal2"/>
+<xs:enumeration value="radioMAC"/>
+<xs:enumeration value="atmRadio"/>
+<xs:enumeration value="imt"/>
+<xs:enumeration value="mvl"/>
+<xs:enumeration value="reachDSL"/>
+<xs:enumeration value="frDlciEndPt"/>
+<xs:enumeration value="atmVciEndPt"/>
+<xs:enumeration value="opticalChannel"/>
+<xs:enumeration value="opticalTransport"/>
+<xs:enumeration value="propAtm"/>
+<xs:enumeration value="voiceOverCable"/>
+<xs:enumeration value="infiniband"/>
+<xs:enumeration value="teLink"/>
+<xs:enumeration value="q2931"/>
+<xs:enumeration value="virtualTg"/>
+<xs:enumeration value="sipTg"/>
+<xs:enumeration value="sipSig"/>
+<xs:enumeration value="docsCableUpstreamChannel"/>
+<xs:enumeration value="econet"/>
+<xs:enumeration value="pon155"/>
+<xs:enumeration value="pon622"/>
+<xs:enumeration value="bridge"/>
+<xs:enumeration value="linegroup"/>
+<xs:enumeration value="voiceEMFGD"/>
+<xs:enumeration value="voiceFGDEANA"/>
+<xs:enumeration value="voiceDID"/>
+<xs:enumeration value="mpegTransport"/>
+<xs:enumeration value="sixToFour"/>
+<xs:enumeration value="gtp"/>
+<xs:enumeration value="pdnEtherLoop1"/>
+<xs:enumeration value="pdnEtherLoop2"/>
+<xs:enumeration value="opticalChannelGroup"/>
+<xs:enumeration value="homepna"/>
+<xs:enumeration value="gfp"/>
+<xs:enumeration value="ciscoISLvlan"/>
+<xs:enumeration value="actelisMetaLOOP"/>
+<xs:enumeration value="fcipLink"/>
+<xs:enumeration value="rpr"/>
+<xs:enumeration value="qam"/>
+<xs:enumeration value="lmp"/>
+<xs:enumeration value="cblVectaStar"/>
+<xs:enumeration value="docsCableMCmtsDownstream"/>
+<xs:enumeration value="adsl2"/>
+<xs:enumeration value="macSecControlledIF"/>
+<xs:enumeration value="macSecUncontrolledIF"/>
+<xs:enumeration value="aviciOpticalEther"/>
+<xs:enumeration value="atmbond"/>
+<xs:enumeration value="voiceFGDOS"/>
+<xs:enumeration value="mocaVersion1"/>
+<xs:enumeration value="ieee80216WMAN"/>
+<xs:enumeration value="adsl2plus"/>
+<xs:enumeration value="dvbRcsMacLayer"/>
+<xs:enumeration value="dvbTdm"/>
+<xs:enumeration value="dvbRcsTdma"/>
+<xs:enumeration value="vrrpVirtualInterface"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="duplexMode">
+<xs:restriction base="xs:string">
+<xs:enumeration value="Unknown"/>
+<xs:enumeration value="AutoNegotiation"/>
+<xs:enumeration value="HalfDuplex"/>
+<xs:enumeration value="FullDuplex"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="ip4RangeType">
+<xs:restriction base="xs:string">
+<xs:enumeration value="DiscoveryRange"/>
+<xs:enumeration value="ExclusionRange"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="memoryType">
+<xs:restriction base="xs:string">
+<xs:enumeration value="RAM"/>
+<xs:enumeration value="ROM"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="serviceFailureAction">
+<xs:restriction base="xs:string">
+<xs:enumeration value="None"/>
+<xs:enumeration value="Restart"/>
+<xs:enumeration value="Reboot"/>
+<xs:enumeration value="RunCommand"/>
+<xs:enumeration value="NotifyUser"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="serviceStartupMode">
+<xs:restriction base="xs:string">
+<xs:enumeration value="Automatic"/>
+<xs:enumeration value="Manual"/>
+<xs:enumeration value="Disabled"/>
+<xs:enumeration value="Undefined"/>
+<xs:enumeration value="Boot"/>
+<xs:enumeration value="System"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="serviceStatus">
+<xs:restriction base="xs:string">
+<xs:enumeration value="Running"/>
+<xs:enumeration value="StartPending"/>
+<xs:enumeration value="Stopped"/>
+<xs:enumeration value="StopPending"/>
+<xs:enumeration value="Paused"/>
+<xs:enumeration value="PausePending"/>
+<xs:enumeration value="ContinuePending"/>
+<xs:enumeration value="Undefined"/>
+<xs:enumeration value="Degraded"/>
+<xs:enumeration value="Disabled"/>
+<xs:enumeration value="Maintenance"/>
+<xs:enumeration value="Uninitialized"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="softwareInstanceType">
+<xs:restriction base="xs:string">
+<xs:enumeration value="Database"/>
+<xs:enumeration value="WebServer"/>
+<xs:enumeration value="ApplicationServer"/>
+<xs:enumeration value="JEEApplication"/>
+<xs:enumeration value="JEEWebApplication"/>
+<xs:enumeration value="JBossServiceArchive"/>
+<xs:enumeration value="JAR"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="deviceCapability">
+<xs:restriction base="xs:string">
+<xs:enumeration value="canRoute"/>
+<xs:enumeration value="canSwitch"/>
+<xs:enumeration value="canPrint"/>
+<xs:enumeration value="canScan"/>
+<xs:enumeration value="canFax"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="discoveredUserRole">
+<xs:restriction base="xs:string">
+<xs:enumeration value="LoggedOnUser"/>
+<xs:enumeration value="User"/>
+<xs:enumeration value="LastLoggedOnUser"/>
+<xs:enumeration value="ProcessUser"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="snmpForwardingFlag">
+<xs:restriction base="xs:string">
+<xs:enumeration value="forwarding"/>
+<xs:enumeration value="notForwarding"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="discoveryProtocol">
+<xs:restriction base="xs:string">
+<xs:enumeration value="SNMPv1"/>
+<xs:enumeration value="SNMPv2"/>
+<xs:enumeration value="SNMPv3"/>
+<xs:enumeration value="WMI"/>
+<xs:enumeration value="Telnet"/>
+<xs:enumeration value="SSH"/>
+<xs:enumeration value="TelnetBannerDetection"/>
+<xs:enumeration value="SMBAnonymous"/>
+<xs:enumeration value="SMB"/>
+<xs:enumeration value="HTTP"/>
+<xs:enumeration value="WBEM"/>
+<xs:enumeration value="RemoteLogin"/>
+<xs:enumeration value="RemoteLoginAdmin"/>
+<xs:enumeration value="NetBIOSAnonymous"/>
+<xs:enumeration value="VMWareVIM"/>
+<xs:enumeration value="DNS"/>
+<xs:enumeration value="HTTPS"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="discoveryProtocolStatusEnum">
+<xs:restriction base="xs:string">
+<xs:enumeration value="NoPassword"/>
+<xs:enumeration value="Disabled"/>
+<xs:enumeration value="NotTested"/>
+<xs:enumeration value="Success"/>
+<xs:enumeration value="AccessDenied"/>
+<xs:enumeration value="RpcAccessDenied"/>
+<xs:enumeration value="WbemAccessDenied"/>
+<xs:enumeration value="WbemInvalidNamespace"/>
+<xs:enumeration value="WbemInvalidParameter"/>
+<xs:enumeration value="WbemOutOfMemory"/>
+<xs:enumeration value="WbenTransportFailure"/>
+<xs:enumeration value="WbenBadQuery"/>
+<xs:enumeration value="CannotConnect"/>
+<xs:enumeration value="Timeout"/>
+<xs:enumeration value="ProtocolNotSupported"/>
+<xs:enumeration value="UnknownTelnetBanner"/>
+<xs:enumeration value="COMError"/>
+<xs:enumeration value="Failure"/>
+<xs:enumeration value="InvalidNamespace"/>
+<xs:enumeration value="TransportFailure"/>
+<xs:enumeration value="OutOfMemory"/>
+<xs:enumeration value="CimOperationNotSupported"/>
+<xs:enumeration value="CimInvalidArgument"/>
+<xs:enumeration value="CimInvalidClass"/>
+<xs:enumeration value="CimInvalidNamespace"/>
+<xs:enumeration value="CimInvalidQuery"/>
+<xs:enumeration value="CimPropertyNoSuchProperty"/>
+<xs:enumeration value="CimQueryLanguageNotSupported"/>
+<xs:enumeration value="PortUnreachable"/>
+<xs:enumeration value="DeviceUnavailable"/>
+<xs:enumeration value="DeviceNotInDatabase"/>
+<xs:enumeration value="NoData"/>
+<xs:enumeration value="CannotCreateXMLParser"/>
+<xs:enumeration value="UnsupportedCharacterSet"/>
+<xs:enumeration value="XmlParseError"/>
+<xs:enumeration value="IOFailure"/>
+<xs:enumeration value="CannotResolveHostname"/>
+<xs:enumeration value="CorruptData"/>
+<xs:enumeration value="CannotCreateTempSessionDir"/>
+<xs:enumeration value="CannotStartShell"/>
+<xs:enumeration value="NotImplemented"/>
+<xs:enumeration value="UUEncodeMissing"/>
+<xs:enumeration value="FileNotFound"/>
+<xs:enumeration value="UUDecodeMissing"/>
+<xs:enumeration value="RpcServerUnavailable"/>
+<xs:enumeration value="GlobalCatalogRequired"/>
+<xs:enumeration value="VMwareComNotInstalled"/>
+<xs:enumeration value="SnmpV3UnsupportedSecurityLevel"/>
+<xs:enumeration value="SnmpV3NotInTimeWindows"/>
+<xs:enumeration value="SnmpV3UnkonwnUserNames"/>
+<xs:enumeration value="SnmpV3UnkonwnEngineId"/>
+<xs:enumeration value="SnmpV3DecryptionError"/>
+<xs:enumeration value="IPv6NotSupported"/>
+<xs:enumeration value="WmiQueriesFailed"/>
+<xs:enumeration value="LogonFailure"/>
+<xs:enumeration value="NotLicensed"/>
+<xs:enumeration value="UnameFailed"/>
+<xs:enumeration value="BadNetworkPath"/>
+<xs:enumeration value="NetNameDeleted"/>
+<xs:enumeration value="ServerServiceNotStarted"/>
+<xs:enumeration value="WorkstationServiceNotStarted"/>
+<xs:enumeration value="ServiceNotStarted"/>
+<xs:enumeration value="ClassNotRegistered"/>
+<xs:enumeration value="TrustedRelationshipFailure"/>
+<xs:enumeration value="ServiceRequestTimeout"/>
+<xs:enumeration value="AccountDisabled"/>
+<xs:enumeration value="AccountLockedOut"/>
+<xs:enumeration value="PasswordMustChange"/>
+<xs:enumeration value="ServiceDisabled"/>
+<xs:enumeration value="SessionCredentialConflict"/>
+<xs:enumeration value="NetLogonServiceNotStarted"/>
+<xs:enumeration value="NoLogonServers"/>
+<xs:enumeration value="ConnectionLost"/>
+<xs:enumeration value="InvalidUrl"/>
+<xs:enumeration value="ParsingFailure"/>
+<xs:enumeration value="OnlyCLIInterfaceSupported"/>
+<xs:enumeration value="RootAccessRequired"/>
+<xs:enumeration value="DeviceNotFound"/>
+<xs:enumeration value="UnsupportedDevice"/>
+<xs:enumeration value="PasswordMissing"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="deviceGroupType">
+<xs:restriction base="xs:string">
+<xs:enumeration value="Simple"/>
+<xs:enumeration value="Network"/>
+<xs:enumeration value="Domain"/>
+<xs:enumeration value="Root"/>
+<xs:enumeration value="Directory"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="discoveredUserType">
+<xs:restriction base="xs:string">
+<xs:enumeration value="InteractiveLogon"/>
+<xs:enumeration value="TerminalServices"/>
+<xs:enumeration value="TerminalServicesICA"/>
+<xs:enumeration value="TerminalServicesRDP"/>
+<xs:enumeration value="Daemon"/>
+<xs:enumeration value="Service"/>
+<xs:enumeration value="Batch"/>
+<xs:enumeration value="Ssh"/>
+<xs:enumeration value="Telnet"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="clusterType">
+<xs:restriction base="xs:string">
+<xs:enumeration value="VeritasCluster"/>
+<xs:enumeration value="ServiceGuard"/>
+<xs:enumeration value="MicrosoftCluster"/>
+<xs:enumeration value="OracleRAC"/>
+<xs:enumeration value="SolarisCluster"/>
+<xs:enumeration value="RedHatCluster"/>
+<xs:enumeration value="VRRPCluster"/>
+<xs:enumeration value="HSRPCluster"/>
+<xs:enumeration value="CitrixXenServerCluster"/>
+<xs:enumeration value="VMwareCluster"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="clusterServiceStatus">
+<xs:restriction base="xs:string">
+<xs:enumeration value="Running"/>
+<xs:enumeration value="Stopped"/>
+<xs:enumeration value="Joining"/>
+<xs:enumeration value="Paused"/>
+<xs:enumeration value="Pausing"/>
+<xs:enumeration value="Starting"/>
+<xs:enumeration value="Stopping"/>
+<xs:enumeration value="Continuing"/>
+<xs:enumeration value="RunningPartial"/>
+<xs:enumeration value="StoppingPartial"/>
+<xs:enumeration value="StartingPartial"/>
+<xs:enumeration value="PausingPartial"/>
+<xs:enumeration value="StoppedPartial"/>
+<xs:enumeration value="ContinuingPartial"/>
+<xs:enumeration value="Blocked"/>
+<xs:enumeration value="Failed"/>
+<xs:enumeration value="Failing"/>
+<xs:enumeration value="FailWait"/>
+<xs:enumeration value="Reconfiguring"/>
+<xs:enumeration value="ReconfigureWait"/>
+<xs:enumeration value="Maintenance"/>
+<xs:enumeration value="Changing"/>
+<xs:enumeration value="HaltWait"/>
+<xs:enumeration value="RelocateWait"/>
+<xs:enumeration value="Disabled"/>
+<xs:enumeration value="Unknown"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:complexType final="#all" name="numberArray">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:number"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType final="#all" name="ipAddressArray">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:ipAddress"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType final="#all" name="ip4AddressArray">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:ip4Address"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType final="#all" name="ip4NetworkArray">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:ip4Network"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType final="#all" name="ip4RangeArray">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:ip4Range"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType final="#all" name="ip4SubnetMaskArray">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:ip4SubnetMask"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType final="#all" name="ip6AddressArray">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:ip6Address"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType final="#all" name="ip6AddressTypeArray">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:ip6AddressType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType final="#all" name="ip6NetworkArray">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:ip6Network"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType final="#all" name="inet6AddressArray">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:inet6Address"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType final="#all" name="timestampValueArray">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:timestampValue"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType final="#all" name="bitsPerSecondArray">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:bitsPerSecond"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType final="#all" name="memorySizeKbArray">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:memorySizeKb"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType final="#all" name="memorySizeMbArray">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:memorySizeMb"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType final="#all" name="mhzClockSpeedArray">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:mhzClockSpeed"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType final="#all" name="percentValueArray">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:percentValue"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType final="#all" name="durationArray">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:duration"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType final="#all" name="shortFormattedDurationArray">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:shortFormattedDuration"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType final="#all" name="majorMinorVersionArray">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:majorMinorVersion"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType final="#all" name="deviceTypeArray">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:deviceType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType final="#all" name="deviceRoleArray">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:deviceRole"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType final="#all" name="directoryTypeArray">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:directoryType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType final="#all" name="interfaceStatusArray">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:interfaceStatus"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType final="#all" name="interfaceTypeArray">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:interfaceType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType final="#all" name="ip4RangeTypeArray">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:ip4RangeType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType final="#all" name="memoryTypeArray">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:memoryType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType final="#all" name="serviceFailureActionArray">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:serviceFailureAction"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType final="#all" name="serviceStartupModeArray">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:serviceStartupMode"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType final="#all" name="serviceStatusArray">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:serviceStatus"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType final="#all" name="softwareInstanceTypeArray">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:softwareInstanceType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType final="#all" name="deviceCapabilityArray">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:deviceCapability"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType final="#all" name="discoveredUserRoleArray">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:discoveredUserRole"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType final="#all" name="snmpForwardingFlagArray">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:snmpForwardingFlag"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType final="#all" name="discoveryProtocolArray">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:discoveryProtocol"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType final="#all" name="discoveryProtocolStatusArray">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:discoveryProtocolStatus"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType final="#all" name="discoveryProtocolStatusEnumArray">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:discoveryProtocolStatusEnum"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType final="#all" name="deviceGroupTypeArray">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:deviceGroupType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType final="#all" name="discoveredUserTypeArray">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:discoveredUserType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType final="#all" name="clusterTypeArray">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:clusterType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType final="#all" name="clusterServiceStatusArray">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:clusterServiceStatus"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://jaxb.dev.java.net/array" version="1.0">
+<xs:complexType final="#all" name="longArray">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType final="#all" name="intArray">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType final="#all" name="stringArray">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getDeviceTypes">
+    <wsdl:part name="parameters" element="tns:getDeviceTypes">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDeviceTypesResponse">
+    <wsdl:part name="parameters" element="tns:getDeviceTypesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCustomReportsResponse">
+    <wsdl:part name="parameters" element="tns:getCustomReportsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSubDeviceTypes">
+    <wsdl:part name="parameters" element="tns:getSubDeviceTypes">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="searchDeviceResponse">
+    <wsdl:part name="parameters" element="tns:searchDeviceResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCustomReports">
+    <wsdl:part name="parameters" element="tns:getCustomReports">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCustomReportResponse">
+    <wsdl:part name="parameters" element="tns:getCustomReportResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getScalarReport">
+    <wsdl:part name="parameters" element="tns:getScalarReport">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getOsFamiliesResponse">
+    <wsdl:part name="parameters" element="tns:getOsFamiliesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getScalarReportResponse">
+    <wsdl:part name="parameters" element="tns:getScalarReportResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getOsFamilies">
+    <wsdl:part name="parameters" element="tns:getOsFamilies">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCustomReport">
+    <wsdl:part name="parameters" element="tns:getCustomReport">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTableReportResponse">
+    <wsdl:part name="parameters" element="tns:getTableReportResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTableReport">
+    <wsdl:part name="parameters" element="tns:getTableReport">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSubDeviceTypesResponse">
+    <wsdl:part name="parameters" element="tns:getSubDeviceTypesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="searchDevice">
+    <wsdl:part name="parameters" element="tns:searchDevice">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ReportingWebService">
+    <wsdl:operation name="getOsFamilies">
+      <wsdl:input name="getOsFamilies" message="tns:getOsFamilies">
+    </wsdl:input>
+      <wsdl:output name="getOsFamiliesResponse" message="tns:getOsFamiliesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTableReport">
+      <wsdl:input name="getTableReport" message="tns:getTableReport">
+    </wsdl:input>
+      <wsdl:output name="getTableReportResponse" message="tns:getTableReportResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchDevice">
+      <wsdl:input name="searchDevice" message="tns:searchDevice">
+    </wsdl:input>
+      <wsdl:output name="searchDeviceResponse" message="tns:searchDeviceResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDeviceTypes">
+      <wsdl:input name="getDeviceTypes" message="tns:getDeviceTypes">
+    </wsdl:input>
+      <wsdl:output name="getDeviceTypesResponse" message="tns:getDeviceTypesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCustomReports">
+      <wsdl:input name="getCustomReports" message="tns:getCustomReports">
+    </wsdl:input>
+      <wsdl:output name="getCustomReportsResponse" message="tns:getCustomReportsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSubDeviceTypes">
+      <wsdl:input name="getSubDeviceTypes" message="tns:getSubDeviceTypes">
+    </wsdl:input>
+      <wsdl:output name="getSubDeviceTypesResponse" message="tns:getSubDeviceTypesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getScalarReport">
+      <wsdl:input name="getScalarReport" message="tns:getScalarReport">
+    </wsdl:input>
+      <wsdl:output name="getScalarReportResponse" message="tns:getScalarReportResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCustomReport">
+      <wsdl:input name="getCustomReport" message="tns:getCustomReport">
+    </wsdl:input>
+      <wsdl:output name="getCustomReportResponse" message="tns:getCustomReportResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ReportingServerSoapBinding" type="tns:ReportingWebService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getOsFamilies">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getOsFamilies">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getOsFamiliesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTableReport">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getTableReport">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getTableReportResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchDevice">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="searchDevice">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="searchDeviceResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDeviceTypes">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getDeviceTypes">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getDeviceTypesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCustomReports">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getCustomReports">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getCustomReportsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSubDeviceTypes">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getSubDeviceTypes">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getSubDeviceTypesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getScalarReport">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getScalarReport">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getScalarReportResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCustomReport">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getCustomReport">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getCustomReportResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ReportingServer">
+    <wsdl:port name="ReportingWebServicePort" binding="tns:ReportingServerSoapBinding">
+      <soap:address location="http://localhost:9090/ReportingWebServicePort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

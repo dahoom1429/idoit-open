@@ -1,0 +1,1 @@
+Ihnen wurde ein neuer Task von [{$g_initiator.fullname}] zugewiesen.

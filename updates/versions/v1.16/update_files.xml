@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE isys [
+        <!ELEMENT isys (info|delete)*>
+        <!ELEMENT info (title|version|requirement|directory|revision|release)*>
+        <!ELEMENT title (#PCDATA)>
+        <!ELEMENT version (#PCDATA)>
+        <!ELEMENT requirement (revision|version)*>
+        <!ELEMENT revision (#PCDATA)>
+        <!ELEMENT directory (#PCDATA)>
+        <!ELEMENT release (#PCDATA)>
+        <!ELEMENT delete (file|dir)*>
+        <!ELEMENT file (#PCDATA)>
+        <!ELEMENT dir (#PCDATA)>
+        ]>
+<isys>
+    <info>
+        <title>i-doit v1.16</title>
+        <version>1.16</version>
+        <requirement>
+            <revision>202011500</revision>
+            <version>1.15</version>
+        </requirement>
+        <directory>v1.16</directory>
+        <revision>202011600</revision>
+        <release>2021-01-18</release>
+    </info>
+    <delete>
+        <!-- Remove old / unused styles -->
+        <file>src/themes/default/css/multiselect.css</file>
+        <file>src/themes/default/css/mod_search.css</file>
+
+        <!-- See ID-7738 - remove intro js -->
+        <file>src/themes/default/css/introjs.css</file>
+        <file>src/tools/js/introjs/introjs.css</file>
+        <file>src/tools/js/introjs/introjs.min.css</file>
+        <file>src/tools/js/introjs/introjs.js</file>
+        <file>src/tools/js/introjs/introjs.min.js</file>
+        <dir>src/tools/js/introjs</dir>
+    </delete>
+</isys>

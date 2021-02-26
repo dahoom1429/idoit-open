@@ -1,0 +1,38 @@
+.popup {
+    border: 1px solid #222222;
+    background-color: #ffffff;
+}
+
+.popup * {
+    box-sizing: border-box;
+}
+
+.popup .popup-header {
+    position: relative;
+    width: 100%;
+    height: 33px;
+    text-shadow: 0 1px 0 #ffffff;
+    background: url("[{$dir_images}]gradient.png") repeat-x scroll 0 0 #dddddd;
+    border-bottom: 1px solid #888888;
+    padding: 8px;
+}
+
+.popup .popup-content {
+    position: absolute;
+    top: 33px;
+    right: 0;
+    bottom: 35px;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.popup .popup-footer {
+    position: absolute;
+    width: 100%;
+    height: 35px;
+    bottom: 0;
+    background: #eeeeee;
+    border-top: 1px solid #888888;
+    padding: 5px;
+}

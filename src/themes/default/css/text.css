@@ -1,0 +1,73 @@
+/*****************************/
+/* Text reset                */
+/*****************************/
+.text-reset {
+    color: #000000;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    font-size: 11px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1.3;
+}
+
+/*****************************/
+/* Styles                    */
+/*****************************/
+
+/* @deprecated  Use text-bold */
+.bold { font-weight: bold !important; }
+/* @deprecated  Use text-underline */
+.underline { text-decoration: underline !important; }
+/* @deprecated  Use text-strike */
+.strike { text-decoration: line-through !important; }
+/* @deprecated Use text-left */
+.left { text-align: left; }
+/* @deprecated Use text-center */
+.center { text-align: center; }
+/* @deprecated Use text-right */
+.right { text-align: right; }
+/* @deprecated Use text-justify */
+.justify { text-align: justify; }
+/* @deprectated Use text-shadow-white */
+.text-shadow { text-shadow: 0 1px 0 #ffffff; cursor: default; }
+
+.text-normal { font-weight: normal !important; }
+.text-bold { font-weight: bold !important; }
+.text-underline { text-decoration: underline !important; }
+.text-strike { text-decoration: line-through !important; }
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-justify { text-align: justify; }
+.text-shadow-white { text-shadow: 0 1px 0 #ffffff; }
+.text-shadow-black { text-shadow: 0 1px 0 #000000; }
+.text-monospace,
+.font-monospace { font-family: Courier New, Lucida Console, Monospace, Monaco, sans-serif, serif; }
+
+/*****************************/
+/* Colors                    */
+/*****************************/
+
+/* @deprecated  Use text-black */
+.black { color: #000000 !important; }
+/* @deprecated  Use text-grey */
+.grey { color: #999999 !important; }
+/* @deprecated  Use text-red */
+.red { color: #aa0000 !important; }
+/* @deprecated  Use text-green */
+.green { color: #009900 !important; }
+/* @deprecated  Use text-blue */
+.blue { color: #486278 !important; }
+/* @deprecated  Use text-yellow */
+.yellow { color: #926c07 !important; }
+
+.text-black { color: #000000 !important; }
+.text-darkgrey { color: #555555 !important; }
+.text-grey { color: #999999 !important; }
+.text-lightgrey { color: #cccccc; }
+.text-white { color: #ffffff; }
+.text-red { color: #aa0000 !important; }
+.text-green { color: #009900 !important; }
+.text-blue { color: #486278 !important; }
+.text-yellow { color: #926c07 !important; }

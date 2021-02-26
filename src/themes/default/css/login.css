@@ -1,0 +1,45 @@
+/*------------------------------------------------------------------------*
+ * Login                                                                  *
+ *------------------------------------------------------------------------*/
+#loginInnerArea {
+    margin: 100px auto;
+    width: 500px;
+    border: 1px solid #cccccc;
+}
+
+#loginMessages {
+    text-align: center;
+}
+
+#loginInnerArea label,
+#loginInnerArea input,
+#loginInnerArea select {
+    font-size: 13px;
+}
+
+#loginContent {
+    padding: 15px;
+    min-height: 120px;
+}
+
+#loginTable td {
+    padding: 4px;
+}
+
+#loginContent .button {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+#login_error {
+    text-align: left;
+    width: 500px;
+    margin: 50px auto;
+    z-index: 500;
+    overflow: auto;
+}
+
+#login_error div {
+    background-color: #ffa1a1;
+    border-bottom: 1px solid #ff4343;
+}

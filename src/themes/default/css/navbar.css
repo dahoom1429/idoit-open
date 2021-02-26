@@ -1,0 +1,81 @@
+#navBar {
+    border-bottom: 1px solid #888888;
+    background-color: #ffffff;
+    padding: 5px;
+    height: 25px;
+    white-space: nowrap;
+}
+
+#navBar #cSpanRecFilter {
+    display: inline-block;
+    position: absolute;
+    right: 5px;
+    margin: -3px;
+    padding: 4px 0 0 30px;
+
+    /* IE10 Consumer Preview */
+    background-image: -ms-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 14.000000000000002%);
+    /* Mozilla Firefox */
+    background-image: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 14.000000000000002%);
+    /* Opera */
+    background-image: -o-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 14.000000000000002%);
+    /* Webkit (Safari/Chrome 10) */
+    background-image: -webkit-gradient(linear, left top, right top, color-stop(0, rgba(38, 38, 38, 0)), color-stop(0.14, rgba(255, 255, 255, 1)));
+    /* Webkit (Chrome 11+) */
+    background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 11%);
+    /* W3C Markup, IE10 Release Preview */
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 14.000000000000002%);
+}
+#navBar .right {
+    text-align: right;
+}
+
+#navBar .right input {
+    vertical-align: top;
+}
+
+.navbar_item,
+.navbar_item_inactive {
+    float: left;
+    display: block;
+    padding: 3px;
+    border: 1px solid transparent;
+    color: #000000;
+    margin: 1px;
+}
+
+#contentHeader .navbar_item,
+#contentHeader .navbar_item_inactive {
+    margin-top: -2px;
+}
+
+.navbar_item {
+    cursor: pointer;
+}
+
+.navbar_item_inactive {
+    cursor: default;
+    opacity: .5;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    filter: alpha(opacity=50);
+}
+
+.navbar_item span {
+    cursor: pointer;
+}
+
+.navbar_item:hover {
+    border: 1px solid #bbbbbb;
+    color: #cc0000;
+    text-shadow: 0 1px 0 #ffffff;
+    border-radius: 2px;
+    background: #dddddd url('[{$dir_images}]/gradient.png') repeat-x;
+}
+
+.navbar_item img,
+.navbar_item_inactive img {
+    height: 16px;
+    width: 16px;
+    margin-right: 3px;
+    vertical-align: middle;
+}

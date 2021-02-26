@@ -1,0 +1,195 @@
+.btn {
+    padding: 4px 3px 6px;
+    border: 1px solid #aaaaaa;
+    background: #dddddd url('[{$dir_images}]gradient.png') repeat-x;
+    text-shadow: 0 1px 0 #ffffff;
+    border-radius: 2px;
+    color: #000000;
+    cursor: pointer;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    display: inline-block;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    /* This is used for A-tag buttons */
+    text-decoration: none;
+    /* This is used to display all boxes the same height */
+    box-sizing: border-box;
+    height: 24px;
+    /* This is a "reset", so all buttons get the same font-size, line-height and font */
+    font-size: 11px;
+    line-height: 13px;
+    font-family: Tahoma, Geneva, Helvetica, sans-serif;
+    /* A little animation for hover, active, colors, ... */
+    -webkit-transition: all 250ms;
+    -moz-transition: all 250ms;
+    -o-transition: all 250ms;
+    transition: all 250ms;
+}
+
+.btn img {
+    margin-top: -2px;
+    height: 16px;
+    vertical-align: middle;
+}
+
+.btn span,
+.btn strong,
+.btn em {
+    vertical-align: baseline;
+}
+
+/* Block styling */
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+/* Special CSS for removing the dotted lines inside buttons (Firefox) */
+.btn::-moz-focus-inner {
+    border: 0;
+}
+
+/* Different button states */
+.btn:hover,
+.btn.hover {
+    border-color: #bbbbbb;
+    background-color: #eeeeee;
+    color: #cc0000;
+}
+
+.btn:active,
+.btn.active {
+    /* We use transform/translate instead of positioning the button relative + top and left styling for absolute styled buttons */
+    -webkit-transform: translate(1px, 1px);
+    -ms-transform: translate(1px, 1px);
+    transform: translate(1px, 1px);
+}
+
+.btn.disabled,
+.btn.disabled:hover,
+.btn.disabled:focus,
+.btn.disabled:active,
+.btn[disabled],
+.btn[disabled]:hover,
+.btn[disabled]:focus,
+.btn[disabled]:active {
+    top: 0;
+    left: 0;
+    color: #000000;
+    opacity: .5;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    filter: alpha(opacity=50);
+    cursor: default;
+}
+
+/* === Implementing some button sizes ======================== */
+
+/* = MINI ======================== */
+.btn.btn-mini {
+    padding: 1px 0;
+    height: 15px;
+}
+
+.btn.btn-mini img {
+    margin-top: -2px;
+    height: 11px;
+}
+
+.btn.btn-mini span,
+.btn.btn-mini strong,
+.btn.btn-mini em {
+    font-size: 10px;
+    line-height: 9px;
+}
+
+/* = SMALL ======================= */
+.btn.btn-small {
+    padding: 2px;
+    height: 20px;
+}
+
+.btn.btn-small img {
+    height: 14px;
+    margin-top: 0;
+}
+
+.btn.btn-small span,
+.btn.btn-small strong,
+.btn.btn-small em {
+    line-height: 12px;
+    font-size: 10px;
+}
+
+/* = LARGE ======================= */
+.btn.btn-large {
+    height: 28px;
+    padding: 6px 6px 7px;
+    font-size: 13px;
+}
+
+/* === Implementing some button colors ======================== */
+
+/* = TRANSPARENT as in Navbarbuttons === */
+.btn.btn-transparent {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.btn.btn-transparent:hover,
+.btn.btn-transparent.hover {
+    background-color: #eeeeee;
+    border-color: #bbbbbb;
+    color: #cc0000;
+}
+
+/* = GREEN ============================= */
+.btn.btn-green {
+    background-color: #acf097;
+    border-color: #81b970;
+}
+
+.btn.btn-green:hover,
+.btn.btn-green.hover {
+    background-color: #b9ffa4;
+    color: #385524;
+}
+
+/* = BLUE ============================== */
+.btn.btn-blue {
+    background-color: #b2d1f0;
+    border-color: #7b99b9;
+}
+
+.btn.btn-blue:hover,
+.btn.btn-blue.hover {
+    background-color: #b8dcff;
+    color: #414d55;
+}
+
+/* = RED =============================== */
+.btn.btn-red {
+    background-color: #f0a19e;
+    border-color: #b97775;
+}
+
+.btn.btn-red:hover,
+.btn.btn-red.hover {
+    background-color: #ffaca9;
+    color: #553534;
+}
+
+/* = YELLOW ============================ */
+.btn.btn-yellow {
+    background-color: #edf081;
+    border-color: #e8d452;
+}
+
+.btn.btn-yellow:hover,
+.btn.btn-yellow.hover {
+    background-color: #fcff88;
+    color: #535523;
+}

@@ -1,0 +1,23 @@
+--------------------------------------------------
+i-doit %VERSION%
+--------------------------------------------------
+Update for Version: %LASTVERSION%
+Date: %DATE%
+--------------------------------------------------
+
+EN:
+ Just copy the "updates" directory to your i-doit 
+ directory or extract it and navigate to 
+ http://yourserver/idoit/updates to proceed the update.
+
+yourserver: IP address of your i-doit server
+idoit:      WWW path of your i-doit
+
+DE:
+ Kopieren oder entpacken Sie das Verzeichnis "updates" in Ihren
+ i-doit Ordner und wechseln Sie auf die Seite:
+ http://ihrserver/idoit/updates um das update
+ auszuführen.
+ 
+ihrserver: IP-Adresse ihres i-doit Servers
+idoit:     WWW-Verzeichnis, in dem sich Ihr i-doit befindet

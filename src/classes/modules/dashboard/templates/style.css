@@ -1,0 +1,66 @@
+#widget-container .widget {
+    position: relative;
+    display: block;
+    border: 1px solid #cccccc;
+    margin-bottom: 10px;
+    background: #ffffff;
+    min-height: 38px;
+}
+
+#widget-container .widget .loader {
+    background: #dddddd;
+    padding: 20px;
+    opacity: 0.6;
+}
+
+#widget-container .widget blockquote {
+    margin-left: 30px;
+}
+
+#widget-container .widget h3 {
+    line-height: 18px;
+}
+
+#widget-container .widget div.widget-title {
+    font-weight: normal;
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    display: none;
+}
+
+#widget-container .widget:hover .widget-title {
+    display: block;
+}
+
+#widget-container .widget .widget-title strong,
+#widget-container .widget .widget-title button {
+    box-sizing: border-box;
+    display: block;
+    float: left;
+    height: 22px;
+    margin-left: 5px;
+    font-size: 11px;
+    padding: 4px 4px 0 4px;
+    border: 1px solid #888888;
+}
+
+#widget-container #result-left,
+#widget-container #result-right {
+    position: relative;
+    display: block;
+    width: 49.5%;
+}
+
+* + html #widget-container #result-left,
+* + html #widget-container #result-right {
+    width: 49%;
+}
+
+#widget-container .widget table.stats-table td {
+    padding: 2px;
+}
+
+#widget-container .widget table.stats-table td:first-child {
+    text-align: right;
+}

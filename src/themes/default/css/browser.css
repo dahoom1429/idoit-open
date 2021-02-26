@@ -1,0 +1,52 @@
+div.tree {
+    padding: 5px;
+    vertical-align: top;
+    overflow: auto;
+    height: 350px;
+}
+
+#object_details {
+    width: 100%;
+}
+
+/* Styles for connection-/category-browser. */
+#objectList.left {
+    width: 52.5%;
+    overflow: auto;
+}
+
+#portList.right {
+    margin-left: 5px;
+    width: 46.5%;
+    overflow: auto;
+}
+
+#createObjectTitle, #createObjectType {
+    width: 220px;
+}
+
+/* Styles for browser selection sorting */
+.browser-selection-sorter {
+    background: #ffffff;
+}
+
+.browser-selection-sorter ul {
+    margin: 0;
+    list-style: none;
+}
+
+.browser-selection-sorter ul li {
+    margin: 2px;
+    padding: 3px;
+    background: #eeeeee;
+}
+
+.browser-selection-sorter ul li span.handle {
+    background: url('[{$dir_images}]icons/hatch.gif');
+    cursor: ns-resize;
+}
+
+.browser-selection-sorter .controls {
+    border-top: 1px solid #888888;
+    background: #eeeeee;
+}

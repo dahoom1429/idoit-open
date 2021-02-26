@@ -1,0 +1,21 @@
+{
+    "name":         "LDAP",
+    "identifier":   "ldap",
+    "author":       "Synetics GmbH",
+    "version":      "1.1",
+    "description":  "LDAP Authentification",
+    "type":         "core",
+    "files":        [
+        "dao/",
+        "isys_module_ldap.class.php",
+        "isys_module_ldap_autoload.class.php",
+        "init.php"
+    ],
+    "sql-tables":   [],
+    "requirements": {
+        "core": ">= 1.0"
+    },
+    "dependencies": {
+        "php":   ["json", "mysqli", "spl", "ldap"]
+    }
+}

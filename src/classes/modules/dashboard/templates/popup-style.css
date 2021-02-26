@@ -1,0 +1,50 @@
+#widget-popup-overlay {
+    background: none repeat scroll 0 0 #000000;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1050;
+}
+
+#widget-popup {
+    position: relative;
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+#widget-popup #widget-popup-config-container table.contentTable td.key {
+    width: 150px;
+}
+
+#widget-popup #widget-popup-config-container table.contentTable .chosen-container .chosen-results {
+    max-height: 150px;
+}
+
+/* Some special rules for the configuration popup */
+#widget-popup
+#widget-config-popup,
+#widget-config-popup ul#widget-config-list {
+    position: relative;
+}
+
+#widget-config-popup ul#widget-config-list {
+    list-style: none;
+    margin: 0;
+    height: 270px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+#widget-config-popup ul#widget-config-list li {
+    background: #eeeeee;
+    border-bottom: 1px solid #b7b7b7;
+    padding: 5px;
+}
+
+#widget-config-popup .handle {
+    background: url('[{$dir_images}]icons/hatch.gif');
+    cursor: ns-resize;
+}

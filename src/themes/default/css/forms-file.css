@@ -1,0 +1,13 @@
+/* Special case for file upload fields */
+.input-file {
+    cursor: pointer !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.input-file:focus,
+input[type="file"]:focus {
+    box-shadow: none !important;
+    border: none !important;
+}

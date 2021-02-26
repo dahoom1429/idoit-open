@@ -1,0 +1,342 @@
+div.browserContent {
+    height: 100%;
+    overflow: auto;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+ul.browser-tabs {
+    height: 26px;
+    list-style: none;
+    border-bottom: 1px solid #888888;
+    padding-top: 8px;
+    font-size: 10px;
+    padding-left: 0;
+}
+
+.popup ul.browser-tabs {
+    height: 35px;
+}
+
+ul.browser-tabs li {
+    float: left;
+    font-weight: bold
+}
+
+ul.browser-tabs a {
+    float: left;
+    padding: 5px 8px;
+    margin-left: 6px;
+    text-decoration: none;
+    height: 15px;
+    color: #555555;
+}
+
+.popup ul.browser-tabs a {
+    height: 27px;
+}
+
+ul.browser-tabs li.disabled a {
+    color: #999999;
+}
+
+ul.browser-tabs a:hover {
+    color: #000000;
+}
+
+ul.browser-tabs a.active {
+    background-color: #ffffff;
+    border: 1px solid #888888;
+    border-bottom: 1px solid transparent !important;
+    color: #333333;
+}
+
+.browser-content {
+    font-size: 9px;
+}
+
+.browser-content .chosen-container {
+    font-size: 11px;
+}
+
+.browser-content .browser-tab-content {
+    background-color: #ffffff;
+    /* LF: This margin will prevent the browser content from floating around, when the browser zoom is set to <100% */
+    margin-top: 1px;
+}
+
+/* ---------------------------------- */
+/* Taborder styles */
+/* ---------------------------------- */
+
+.prototools-table {
+    width: 100%;
+    text-align: left;
+    border-spacing: 0;
+    margin-top: 5px;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    table-layout: fixed;
+}
+
+.prototools-table td,
+.prototools-table th {
+    border-right: 1px solid #d6d6d6;
+    padding: 1px 3px 1px 3px;
+    line-height: 18px;
+    white-space: nowrap;
+    position: relative; /* ID-1110 */
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.prototools-table th {
+    border-bottom: 1px solid #cccccc;
+    background: #dddddd url('images/gradient.png') repeat-x;
+    text-shadow: 0 1px 0 #ffffff;
+    line-height: 20px;
+    font-size: 10px;
+    cursor: default;
+}
+
+.prototools-table tr.line0 {
+    background-color: #ffffff;
+}
+
+.prototools-table tr.line1 {
+    background-color: #f3f3f3;
+}
+
+.prototools-table tr.on {
+    background-color: #eeeeee;
+    cursor: pointer;
+}
+
+.prototools-table tr.selected {
+    background-color: #dddddd;
+    cursor: pointer;
+}
+
+.prototools-table tr.selected td {
+    font-weight: bold;
+}
+
+div.prototools-pager {
+    margin: 0 10px 10px;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+div.prototools-pager .currentpage {
+    padding-left: 5px;
+    padding-right: 5px;
+    font-weight: bold;
+}
+
+div.prototools-pager .totalpages {
+    padding: 0;
+}
+
+div.prototools-pager a {
+    margin: 0 3px;
+    cursor: default;
+    padding: 2px 4px 2px 4px;
+    text-shadow: none;
+}
+
+.prototools-table th.desc {
+    background: #dddddd url('images/list/desc.gif') no-repeat right center;
+    user-select: none;
+}
+
+.prototools-table th.asc {
+    background: #dddddd url('images/list/asc.gif') no-repeat right center;
+    border-right: 1px solid #d6d6d6;
+}
+
+/* @todo  Remove these ASAP, they are currently used for the object browser filters */
+div.prototools-options {
+    float: right;
+    margin-right: 10px;
+}
+
+/* @deprecated Is this still being used? */
+div.prototools-options input,
+div.prototools-options select {
+    border: 1px solid #cccccc;
+    margin: 0 0 5px 5px;
+    padding: 2px;
+}
+
+/* ---------------------------------- */
+
+td.toolbar a {
+    font-weight: bold;
+    display: block;
+    padding: 0;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+#browser-content .overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+#leftPane > div {
+    position: absolute;
+    top: 0;
+    bottom: 35px;
+    width: 185px;
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#leftPane h3 {
+    margin: 0;
+    border-bottom: 1px;
+    background-color: #ffffff;
+    cursor: default;
+    width: 185px;
+}
+
+#leftPane ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 185px;
+}
+
+#leftPane ul li {
+    padding: 8px 0 8px 20px;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+#leftPane ul li:hover {
+    background-color: #fafafa;
+}
+
+#leftPane ul li.selected,
+#leftPane ul li.selected:hover {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+#leftPane ul li.selected-objects {
+    position: absolute;
+    bottom: 0;
+    padding: 8px 10px;
+    width: 175px;
+    margin: 5px;
+    border: 1px solid #dddddd;
+    box-shadow: 0 0 6px -3px rgba(0, 0, 0, .5);
+    text-align: center;
+}
+
+#rightPane {
+    padding-left: 10px;
+}
+
+#preselectionLoader {
+    text-align: center;
+    padding-top: 270px;
+}
+
+#selectionTab {
+    float: right;
+    margin-right: 10px;
+}
+
+#ajaxLoader {
+    float: right;
+}
+
+#ajaxLoader img {
+    padding: 5px 8px;
+    vertical-align: middle;
+}
+
+#latestLog {
+    width: 680px;
+    overflow: hidden;
+    text-align: right;
+    margin-right: 10px;
+    margin-top: 3px;
+}
+
+#new-object,
+#new-objectgroup {
+    position: absolute;
+    z-index: 9999;
+    width: 380px;
+    background-color: #fff;
+    border: 1px solid #444;
+}
+
+.browserContent .groups {
+    padding: 7px 0 6px 10px;
+}
+
+.browserContent table tr td span.quickinfo {
+    display: none;
+    /* Below: Changes for ID-1110 */
+    position: absolute;
+    right: 3px;
+    top: 4px;
+}
+
+.browserContent table tr:hover td span.quickinfo {
+    display: block;
+}
+
+.browserContent div.toolbar {
+    margin: 12px 6px;
+}
+
+#objectSearch {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 36px;
+    bottom: 0;
+}
+
+.emptyPageMessage {
+    text-align: center;
+    margin-top: 180px;
+    font-size: 22px;
+    font-weight: bold;
+    width: 60%;
+    margin-left: 20%;
+}
+
+#rightsError {
+    position: absolute;
+    z-index: 9999;
+    width: 350px;
+    left: 50%;
+    margin-left: -175px;
+    top: 70px;
+}
+
+.object-browser-content-area {
+    position: absolute;
+    width: 100%;
+    top: 33px;
+    bottom: 35px;
+}

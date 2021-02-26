@@ -1,0 +1,1 @@
+[{$g_processors}] accepted the task [{$g_task}] on [{$smarty.now|date_format:"%d.%m.%Y"}] at [{$smarty.now|date_format:"%H:%M:%S"}].

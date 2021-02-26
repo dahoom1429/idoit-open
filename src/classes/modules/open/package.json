@@ -1,0 +1,23 @@
+{
+  "name": "OPEN",
+  "identifier": "open",
+  "author": "synetics GmbH",
+  "version": "-",
+  "description": "i-doit open module",
+  "type": "core",
+  "files": [
+    "init.php",
+    "package.json"
+  ],
+  "sql-tables": [],
+  "requirements": {
+    "core": ">= 1.11"
+  },
+  "dependencies": {
+    "php": [
+      "json",
+      "mysqli",
+      "spl"
+    ]
+  }
+}

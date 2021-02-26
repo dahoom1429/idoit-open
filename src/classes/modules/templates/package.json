@@ -1,0 +1,28 @@
+{
+  "title": "Templates",
+  "name": "LC__UNIVERSAL__TEMPLATE",
+  "identifier": "templates",
+  "author": "synetics GmbH",
+  "version": "-",
+  "description": "",
+  "type": "core",
+  "files": [
+    "isys_module_templates_autoload.class.php",
+    "init.php",
+    "isys_module_templates.class.php",
+    "auth/isys_auth_templates.class.php",
+    "auth",
+    "dao/isys_templates_dao.class.php",
+    "dao",
+    "lang/en.inc.php",
+    "lang/de.inc.php",
+    "lang"
+  ],
+  "sql-tables": [],
+  "requirements": {
+    "core": ">= 1.11"
+  },
+  "dependencies": {
+    "php": []
+  }
+}

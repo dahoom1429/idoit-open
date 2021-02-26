@@ -1,0 +1,11 @@
+services:
+ idoit.search.index.engine.mysql:
+  class: idoit\Module\Search\Index\Engine\Mysql
+  arguments:
+   - '@database'
+ idoit.search.index.manager:
+  class: idoit\Module\Search\Index\Manager
+  arguments:
+   - '@idoit.search.index.engine.mysql'
+   - '@event_dispatcher'
+  lazy: true

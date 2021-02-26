@@ -1,0 +1,9 @@
+<?php
+
+return PhpCsFixer\Config::create()
+    ->setRiskyAllowed(false)
+    ->setRules([
+        '@PSR2'        => true,
+        'line_ending'  => false,
+        'array_syntax' => ['syntax' => 'short'],
+    ]);

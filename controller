@@ -1,0 +1,16 @@
+#!/bin/sh
+
+## This file is a component of the i-doit framework
+## Website: http://www.i-doit.org/
+## Licence: http://www.gnu.org/licenses/agpl-3.0.html GNU AGPLv3
+## Copyright: synetics GmbH
+
+IDOIT_PATH=$(dirname $0)
+
+PHP=$(which php)
+
+test ! -x $PHP && echo "PHP executable not found." && exit 1
+
+cd $IDOIT_PATH
+
+$PHP controller.php $@

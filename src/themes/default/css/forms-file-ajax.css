@@ -1,0 +1,17 @@
+/* Special case for file upload fields */
+.input-file-ajax {
+    position: relative !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.input-file-ajax .qq-upload-button {
+    cursor: pointer;
+}
+
+.input-file-ajax button {
+    position: absolute;
+    top: 0;
+    left: 0;
+}

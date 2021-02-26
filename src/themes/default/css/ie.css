@@ -1,0 +1,45 @@
+/* Internet Explorer Style */
+
+/* display:inline-block hacks */
+#navBar #cSpanRecFilter {
+    zoom: 1; /* IE7 */
+    *display: inline; /* IE7 */
+}
+
+div.logo-top-left {
+    zoom: 1; /* IE7 */
+    *display: inline; /* IE7 */
+}
+#mainMenu {
+    zoom: 1; /* IE7 */
+    *display: inline; /* IE7 */
+}
+
+/* Breadcrumb inline block */
+#breadcrumb li a {
+    zoom: 1; /* IE7 */
+    *display: inline; /* IE7 */
+}
+
+/* Fixed navbar height */
+* + html #navBar {
+    height: 25px;
+}
+
+/* New money-appendix style */
+.money-appendix strong.money-sign {
+    /* IE6, IE7, IE8, IE9 */
+    top: -9px \9;
+}
+
+@media all and (-ms-high-contrast: none) {
+    /* IE10 */
+    .money-appendix strong.money-sign {
+        top: -9px !important;
+    }
+
+    /* IE11 */
+    *::-ms-backdrop, .money-appendix strong.money-sign {
+        top: -9px !important;
+    }
+}

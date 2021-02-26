@@ -1,0 +1,31 @@
+.exception {
+    background-color: #ffdddd;
+    border: 1px solid #ff4343;
+    color: #701719;
+    overflow: auto;
+}
+
+#exception {
+    position: absolute;
+    top: 20%;
+    left: 25%;
+    right: 25%;
+    bottom: 20%;
+    background: #ffdddd;
+    border: 1px solid #ff4343;
+    color: #701719;
+    z-index: 9999;
+    overflow: auto;
+}
+
+#exception #message {
+    margin: 5px;
+}
+
+#exception .header {
+    font-weight: bolder;
+    background-color: #ffa1a1;
+    border-bottom: 1px solid #ff4343;
+    padding: 5px;
+    margin: 0;
+}

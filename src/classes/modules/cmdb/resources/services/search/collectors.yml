@@ -1,0 +1,9 @@
+services:
+ idoit.cmdb.search.index.category_collector:
+  class: idoit\Module\Cmdb\Search\Index\Data\CategoryCollector
+  arguments:
+   - '@database'
+   - []
+   - []
+  tags:
+  - 'idoit.search.index.data.collector'

@@ -1,0 +1,421 @@
+body {
+    font-family: Tahoma, Verdana, sans-serif;
+    font-size: 11px;
+}
+
+a {
+    text-decoration: underline;
+    color: #0000ff;
+    cursor: pointer;
+}
+
+ol,
+code {
+    margin: 20px;
+    font-size: 12px;
+    border: dotted #000000 1px;
+    background-color: #eeeeff;
+}
+
+#mainContainer {
+    border: 1px #777777 solid;
+    width: 1000px;
+    margin: 50px auto;
+}
+
+#mainTable {
+    width: 100%;
+    height: 100%;
+}
+
+#mainMenu {
+    vertical-align: top;
+    width: 220px;
+    background-color: #dddddd;
+    font-size: 11px;
+    border-right: 1px #777777 solid;
+}
+
+div.mainMenuButton {
+    vertical-align: middle;
+    height: 22px;
+    padding-top: 6px;
+    background-color: #dddddd;
+    cursor: default;
+    font-size: 9pt;
+    font-weight: bold;
+}
+
+div.mainMenuButton:hover {
+    background-color: #eeeeee;
+}
+
+div.mainMenuButton img {
+    padding-left: 3px;
+    padding-right: 3px;
+    margin-top: -3px;
+    margin-right: 3px;
+    vertical-align: middle;
+}
+
+div.mainMenuButtonActive {
+    background-color: #777777 !important;
+    text-shadow: 0 1px #000000;
+    color: #ffffff;
+}
+
+#mainContent {
+    background-color: #eeeeee;
+    height: 450px;
+    padding: 5px;
+    vertical-align: top;
+    font-size: 11px;
+}
+
+#content {
+    height: 440px;
+    overflow: auto;
+    padding-right: 5px;
+}
+
+#mainContentInner {
+    overflow: auto;
+}
+
+#mainDialog {
+    background-color: #eeeeee;
+    text-align: right;
+    padding-right: 10px;
+}
+
+#mainCopyright {
+    background-color: #dddddd;
+    text-align: center;
+    font-size: 9px;
+    border-right: 1px solid #777777;
+}
+
+#mainBanner {
+    background: url(images/banner.png) right no-repeat;
+    background-color: #ffffff;
+    height: 70px;
+    padding-top: 2px;
+    border-bottom: 1px #777777 solid;
+}
+
+h2 {
+    border-bottom: 1px #777777 solid;
+    margin: 0;
+    font-size: 125%;
+}
+
+h3 {
+    border-bottom: 1px #777777 solid;
+}
+
+a.button,
+input.button,
+button.button {
+    padding: 5px 3px 5px 3px;
+    border: 1px solid #aaaaaa;
+    background: #dddddd url('../images/gradient.png') repeat-x;
+    text-shadow: 0 1px 0 #ffffff;
+    border-radius: 2px;
+    color: #000000;
+    cursor: pointer;
+}
+
+a.button::-moz-focus-inner,
+input.button::-moz-focus-inner,
+button.button::-moz-focus-inner {
+    border: 0;
+}
+
+a.button {
+    display: inline-block;
+}
+
+a.button.slim,
+input.button.slim,
+button.button.slim {
+    padding: 2px;
+}
+
+a.button:hover,
+a.button:focus,
+input.button:hover,
+input.button:focus,
+button.button:hover,
+input.button:focus {
+    border: 1px solid #bbbbbb;
+    background: #eeeeee;
+    color: #cc0000;
+}
+
+a.button.disabled,
+a.button.disabled:hover,
+a.button.disabled:focus,
+a.button.disabled:active,
+input.button.disabled,
+input.button.disabled:hover,
+input.button.disabled:focus,
+input.button.disabled:active,
+button.button.disabled,
+button.button.disabled:hover,
+button.button.disabled:focus,
+button.button.disabled:active {
+    top: 0;
+    left: 0;
+    color: #000000;
+    background: #dddddd url('../images/gradient.png') repeat-x;
+    opacity: .5;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    filter: alpha(opacity=50);
+}
+
+a.button:active,
+input.button:active,
+button.button:active {
+    top: 1px;
+    left: 1px;
+    position: relative;
+}
+
+button.button img,
+button.button span {
+    vertical-align: middle;
+}
+
+a.button img,
+a.button span {
+    vertical-align: top;
+}
+
+table.info {
+    font-size: 8pt;
+    clear: both;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+
+.block {
+    display: block;
+}
+
+.exception,
+.box-red {
+    background-color: #ffdddd !important;
+    border: 1px solid #ff4343 !important;
+    color: #500000 !important;
+}
+
+.box-yellow {
+    background-color: #fffb99;
+    border: 1px solid #88853c;
+    color: #88853c;
+}
+
+.box-blue {
+    background-color: #d4ecff;
+    border: 1px solid #486278;
+    color: #486278;
+}
+
+td.key {
+    font-weight: bold;
+}
+
+.filelist {
+    border: 1px solid #777777;
+    background-color: #eeeeee;
+    padding: 10px;
+}
+
+.filelist legend {
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+.message {
+    border: 1px solid #cccccc;
+    padding: 5px;
+    cursor: default;
+}
+
+/* @deprecated  Simply use a STRONG tag. */
+.bold {
+    font-weight: bold;
+}
+
+.grey,
+.text-grey {
+    color: #888888;
+}
+
+.red,
+.text-red {
+    color: #cc0000;
+}
+
+.green,
+.text-green {
+    color: #00cc00;
+}
+
+.p10 {
+    padding: 10px;
+}
+
+.indent {
+    margin-left: 20px;
+    display: block;
+}
+
+.superindent {
+    margin-left: 40px;
+}
+
+.loadingTable {
+    position: absolute;
+    top: 290px;
+    text-align: center;
+    width: 750px;
+}
+
+table.listing {
+    border: 1px solid #cccccc;
+    border-right: none;
+    width: 100%;
+}
+
+table.listing th, table.listing td {
+    text-align: left;
+    padding: 2px 4px 2px 4px;
+    line-height: 25px;
+}
+
+table.listing th {
+    background-color: #e4e4e4;
+    line-height: 20px;
+    cursor: default;
+    border-right: 1px solid #cccccc;
+    border-bottom: 1px solid #999999;
+    text-shadow: 0 1px 0 #ffffff;
+}
+
+table.listing th a {
+    text-decoration: none;
+    color: #dd3333;
+}
+
+table.listing th a:hover {
+    color: #666666;
+}
+
+table.listing td {
+    border-right: 1px solid #dddddd;
+}
+
+table.listing tr.odd {
+    background-color: #f4f4f4;
+}
+
+table.listing tr.even {
+    background-color: #ffffff;
+}
+
+table.listing tr.sortbottom td {
+    background-color: #cccccc;
+    font-weight: bold;
+}
+
+table.listing tr:hover {
+    background-color: #eeeeee;
+}
+
+.changelog {
+    position: absolute;
+    left: 50%;
+    top: 15%
+}
+
+.innerchangelog {
+    position: relative;
+    left: -50%;
+    width: 850px;
+    border: 1px solid #cccccc;
+    background-color: #eeeeee;
+    box-shadow: 0 4px 23px 5px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0 4px 23px 5px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0, 0, 0, 0.15);
+    -ms-box-shadow: 0 4px 23px 5px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0, 0, 0, 0.15);
+    color: #333333;
+}
+
+.header {
+    font-weight: bold;
+    border-bottom: 1px #cccccc solid;
+    padding: 5px;
+}
+
+.header_left {
+    float: left;
+}
+
+.header_right {
+    text-align: right;
+    float: right;
+    width: 50px;
+    font-size: 0.8em;
+}
+
+.bottom {
+    padding: 5px;
+    background-color: #dddddd;
+    overflow: auto;
+    max-height: 400px;
+}
+
+.p5 {
+    padding: 5px;
+}
+
+/*
+==============================================
+fadeIn
+==============================================
+*/
+
+.fadeIn {
+    animation-name: fadeIn;
+    -webkit-animation-name: fadeIn;
+
+    animation-duration: .6s;
+    -webkit-animation-duration: .6s;
+
+    animation-timing-function: ease-in-out;
+    -webkit-animation-timing-function: ease-in-out;
+
+    visibility: visible !important;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0.0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0.0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

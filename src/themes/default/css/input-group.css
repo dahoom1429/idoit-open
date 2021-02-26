@@ -1,0 +1,89 @@
+/*------------------------------------------------------------------------*/
+/* Input Group                                                            */
+/*------------------------------------------------------------------------*/
+
+.input-group {
+    position: relative;
+    display: table !important;
+    border-collapse: separate;
+    float: left;
+    border-spacing: 0;
+}
+
+.input-group * {
+    box-sizing: border-box;
+}
+
+.input-group .input,
+.input-group .input-group-addon {
+    display: table-cell;
+}
+
+.input-group .input-group-addon {
+    width: 1%;
+    min-width: 25px;
+    height: 24px;
+    white-space: nowrap;
+    vertical-align: middle;
+    text-align: center;
+    background: #dddddd url("[{$dir_images}]gradient.png") repeat-x scroll 0 0;
+    padding: 3px;
+    border-top: 1px solid #aaaaaa;
+    border-right: 1px solid #aaaaaa;
+    border-bottom: 1px solid #aaaaaa;
+    line-height: 0;
+}
+
+/* Special styling for addons, that are positioned as first child */
+.input-group .input-group-addon:first-child {
+    border-left: 1px solid #aaaaaa;
+    border-right: none;
+}
+
+.input-group .input-group-addon.input-group-addon-clickable:hover {
+    background: #eeeeee;
+    cursor: pointer;
+}
+
+.input-group [disabled].input-group-addon.input-group-addon-clickable,
+.input-group [disabled="disabled"].input-group-addon.input-group-addon-clickable,
+.input-group .disabled.input-group-addon.input-group-addon-clickable {
+    background: #dddddd;
+    cursor: default;
+    opacity: 0.5;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    filter: alpha(opacity=50);
+}
+
+.input-group .input-group-addon.input-group-addon-unstyled {
+    border: none;
+    background: transparent;
+}
+
+/* This can be used for two fields next to each other (calendar + time). The two (or more) fields need inline styles which add up to exactly 100% width! */
+.input-group .input.input-group-addon {
+    width: 30%;
+    background: #fbfbfb;
+    border-left: none
+}
+
+.input-group .input.input-group-addon[readonly] {
+    background: #eeeeee;
+}
+
+.input-group .input,
+.input-group .chosen-container {
+    position: relative;
+    float: left;
+    width: 100%;
+    margin-bottom: 0;
+    line-height: 16px;
+}
+
+/* Special style for buttons inside a input group addon */
+.input-group .input-group-addon .btn {
+    border: none;
+    background: transparent;
+    padding: 0;
+    height: auto;
+}

@@ -1,0 +1,378 @@
+/* Classes for floating */
+.fl { float: left; }
+.fr { float: right; }
+.cl { clear: left; }
+.cr { clear: right; }
+.cb { clear: both; }
+
+/* Classes for margin */
+.m0 { margin: 0 !important; }
+.m5 { margin: 5px !important; }
+.m10 { margin: 10px !important; }
+.m15 { margin: 15px !important; }
+.m20 { margin: 20px !important; }
+
+.ml0 { margin-left: 0 !important; }
+.ml5 { margin-left: 5px !important; }
+.ml10 { margin-left: 10px !important; }
+.ml15 { margin-left: 15px !important; }
+.ml20 { margin-left: 20px !important; }
+
+.mr0 { margin-right: 0 !important; }
+.mr5 { margin-right: 5px !important; }
+.mr10 { margin-right: 10px !important; }
+.mr15 { margin-right: 15px !important; }
+.mr20 { margin-right: 20px !important; }
+
+.mt0 { margin-top: 0 !important; }
+.mt5 { margin-top: 5px !important; }
+.mt10 { margin-top: 10px !important; }
+.mt15 { margin-top: 15px !important; }
+.mt20 { margin-top: 20px !important; }
+
+.mb0 { margin-bottom: 0 !important; }
+.mb5 { margin-bottom: 5px !important; }
+.mb10 { margin-bottom: 10px !important; }
+.mb15 { margin-bottom: 15px !important; }
+.mb20 { margin-bottom: 20px !important; }
+
+/* Classes for padding */
+.p0 { padding: 0 !important; }
+.p5 { padding: 5px !important; }
+.p10 { padding: 10px !important; }
+.p15 { padding: 15px !important; }
+.p20 { padding: 20px !important; }
+
+.pl0 { padding-left: 0 !important; }
+.pl5 { padding-left: 5px !important; }
+.pl10 { padding-left: 10px !important; }
+.pl15 { padding-left: 15px !important; }
+.pl20 { padding-left: 20px !important; }
+
+.pr0 { padding-right: 0 !important; }
+.pr5 { padding-right: 5px !important; }
+.pr10 { padding-right: 10px !important; }
+.pr15 { padding-right: 15px !important; }
+.pr20 { padding-right: 20px !important; }
+
+.pt0 { padding-top: 0 !important; }
+.pt5 { padding-top: 5px !important; }
+.pt10 { padding-top: 10px !important; }
+.pt15 { padding-top: 15px !important; }
+.pt20 { padding-top: 20px !important; }
+
+.pb0 { padding-bottom: 0 !important; }
+.pb5 { padding-bottom: 5px !important; }
+.pb10 { padding-bottom: 10px !important; }
+.pb15 { padding-bottom: 15px !important; }
+.pb20 { padding-bottom: 20px !important; }
+
+.display-block { display: block; }
+.display-inline { display: inline; }
+.display-none, .hide { display: none !important; }
+
+/* Classes for scrolling */
+.overflow-auto { overflow: auto; }
+.overflow-scroll { overflow: scroll; }
+
+/* Classes for alignment */
+.vat, table td.vat { vertical-align: top !important; }
+.vam { vertical-align: middle; margin-top: -2px; }
+.vab { vertical-align: bottom; }
+
+/* Classes for tables with two, three, four or five columns */
+table.two-col th,
+table.two-col td {
+    width: 50%;
+}
+
+table.three-col th,
+table.three-col td {
+    width: 33%;
+}
+
+table.four-col th,
+table.four-col td {
+    width: 25%;
+}
+
+table.five-col th,
+table.five-col td {
+    width: 20%;
+}
+
+.w100 {
+    width: 100%;
+}
+
+.h100 {
+    height: 100%;
+}
+
+table.padding td {
+    padding: 2px;
+}
+
+table.spacing {
+    border-spacing: 2px;
+    border-collapse: separate;
+}
+
+table.no-border-spacing {
+    border-spacing: 0;
+}
+
+/* @todo  Find usage and assign the width if necessary. The "275px" should not be part of this definition! */
+.box {
+    width: 275px;
+    border: 1px solid #b7b7b7;
+    background: #ffffff;
+}
+
+.box * {
+    vertical-align: middle;
+}
+
+.toolbar a {
+    padding: 5px 3px 5px 3px;
+    border: 1px solid #cccccc;
+    background: #dddddd url('[{$dir_images}]/gradient.png') repeat-x;
+    text-shadow: 0 1px 0 #ffffff;
+    border-radius: 2px;
+    color: #000000;
+}
+
+.toolbar a:hover,
+.toolbar a:active {
+    border: 1px solid #bbbbbb;
+    background: #eeeeee;
+    color: #0000aa
+}
+
+.toolbar a.inactive {
+    cursor: default;
+    opacity: 0.5;
+}
+
+.no-user-select {
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.user-selectable {
+    -webkit-user-select: text !important;
+    -moz-user-select: text !important;
+    -ms-user-select: text !important;
+    user-select: text !important;
+}
+
+.gradient {
+    background: #dddddd url('[{$dir_images}]/gradient.png') repeat-x;
+}
+
+.blur {
+    -webkit-filter: grayscale(90%) blur(2px);
+    -moz-filter: grayscale(90%) blur(2px);
+    -ms-filter: grayscale(90%) blur(2px);
+    -o-filter: grayscale(90%) blur(2px);
+    filter: grayscale(90%) blur(2px);
+    -moz-transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.blur-off {
+    -webkit-filter: grayscale(0%) blur(0);
+    -moz-filter: grayscale(0%) blur(0);
+    -ms-filter: grayscale(0%) blur(0);
+    -o-filter: grayscale(0%) blur(0);
+    filter: grayscale(0%) blur(0);
+    -moz-transition: all 0.15s ease-in-out;
+    -webkit-transition: all 0.15s ease-in-out;
+    -ms-transition: all 0.15s ease-in-out;
+    -o-transition: all 0.15s ease-in-out;
+    transition: all 0.15s ease-in-out;
+}
+
+.blurred-shadow-small {
+    box-shadow: 0 2.5px 10px 5px rgba(0, 0, 0, 0.4)
+}
+
+.blurred-shadow {
+    box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.4);
+}
+
+div.node .hover {
+    font-weight: bold;
+    color: #000000;
+}
+
+.border { border: 1px solid #888888; }
+.border-none { border: 0; }
+.border-left { border-left: 1px solid #888888; }
+.border-bottom { border-bottom: 1px solid #888888; }
+.border-top { border-top: 1px solid #888888; }
+.border-top-none { border-top: none !important; }
+.border-right { border-right: 1px solid #888888; }
+
+.header {
+    border-bottom: 1px solid #999999;
+}
+
+/* Special styles for the commentary fields */
+div.commentary {
+    margin: 0 15px 10px 20px;
+}
+
+div.commentary blockquote {
+    margin-left: 35px;
+}
+
+div.commentary ol,
+div.commentary ul {
+    margin: 5px 20px;
+}
+
+/* Some styles for the cursor style */
+.mouse-pointer { cursor: pointer !important; }
+.mouse-default { cursor: default !important; }
+.mouse-move { cursor: move !important; }
+.mouse-move-vertically { cursor: ns-resize !important; }
+.mouse-move-horizontally { cursor: ew-resize !important; }
+.mouse-move-n { cursor: n-resize !important; }
+.mouse-move-ne { cursor: ne-resize !important; }
+.mouse-move-e { cursor: e-resize !important; }
+.mouse-move-se { cursor: se-resize !important; }
+.mouse-move-s { cursor: s-resize !important; }
+.mouse-move-sw { cursor: sw-resize !important; }
+.mouse-move-w { cursor: w-resize !important; }
+.mouse-move-nw { cursor: nw-resize !important; }
+.mouse-crosshair { cursor: crosshair !important; }
+.mouse-help { cursor: help !important; }
+
+/* This marker can be used to highlight certain stuff like numbers */
+.marker {
+    border-radius: 50%;
+    border: 2px solid #e64117;
+}
+
+.cmdb-marker {
+    width: 8px;
+    height: 12px;
+    display: block;
+    float: left;
+    margin: 2px 5px 2px 0;
+    border-radius: 2px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.bullet {
+    width: 5px;
+    height: 5px;
+    display: block;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.bullet.bullet-xl {
+    width: 8px;
+    height: 8px;
+}
+
+/* Here we alter the cmdb-marker for a few different views */
+.room-view .cmdb-marker,
+.tooltip .cmdb-marker {
+    height: 7px;
+    margin: 1px 5px 1px 0;
+}
+
+/* Greyscale classes */
+.greyscale {
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 10+, Firefox on Android */
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(100%); /* Chrome 19+, Safari 6+, Safari 6+ iOS */
+}
+.greyscale:hover {
+    filter: none;
+    -webkit-filter: grayscale(0%);
+}
+.greyscale.disabled {
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0\'/></filter></svg>#grayscale");
+    -webkit-filter: grayscale(0%);
+}
+
+/* Transparency classes */
+.opacity-100 {
+    opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=100);
+}
+
+.opacity-70 {
+    opacity: .7;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+    filter: alpha(opacity=70);
+}
+
+.opacity-50 {
+    opacity: .5;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    filter: alpha(opacity=50);
+}
+
+.opacity-30 {
+    opacity: .3;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+    filter: alpha(opacity=30);
+}
+
+.opacity-0 {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+}
+
+.strcut {
+    display: block;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.progress {
+    border: 1px solid #aaaaaa;
+    height: 10px;
+    border-radius: 2px;
+    background: #666666;
+}
+
+.non-clickable {
+    pointer-events: none !important;
+}
+
+.progress-bar {
+    background: #d4ecff url('[{$dir_images}]gradient.png') repeat-x scroll 0 -5px;
+    height: 10px;
+}
+
+.flex-container-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-container-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex {
+    flex: 1;
+}

@@ -1,0 +1,43 @@
+#breadcrumb {
+    background: url('[{$dir_images}]bc_bg.gif') repeat-x;
+    border-bottom: 1px solid #888888;
+    color: #9b9b9b;
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    height: 34px;
+    line-height: 34px;
+    white-space: nowrap;
+}
+
+#breadcrumb li {
+    list-style-type: none;
+    float: left;
+    padding-left: 10px;
+    font-weight: bold;
+    text-shadow: 0 1px 0 #ffffff;
+}
+
+#breadcrumb li a {
+    line-height: 34px;
+    height: 34px;
+    display: inline-block;
+    background: url('[{$dir_images}]bc_separator.png') no-repeat right;
+    padding-right: 15px;
+    text-decoration: none;
+    color: #454545;
+}
+
+.home a {
+    border: none;
+}
+
+.home a img {
+    margin: 11px;
+}
+
+#breadcrumb a:hover {
+    color: #cc0000;
+}
+

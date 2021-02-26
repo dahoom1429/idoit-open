@@ -1,0 +1,1238 @@
+.noprint,
+.navBarTable,
+.tooltip,
+#navBar,
+#banner,
+#reqDebugLog,
+#mainNavi,
+#searchModule,
+#barcode,
+#menuTreeOn,
+#menuTreeOnContent,
+#menuTreeJS,
+#infoBox,
+#contentButtons,
+#debugLink,
+#top,
+#data-grid-mainList-pager,
+#data-grid-mainList-options,
+#logged-user-panel,
+#searchBar,
+#ContentHeaderSwitch,
+#rackview #side_box,
+#rackview img.object-icon,
+#rackview select.rack-switcher,
+#rackview .slot-options,
+#rack_stats,
+#draggableBar,
+#child_racks img,
+h3#recurse_racks,
+h3#clicker,
+#logged-in-user-container,
+#logged-in-user-popdown-wrapper,
+.user-image,
+.mainTableFilterInput,
+.mainTableConfigLink,
+.mainTablePager,
+.mainTableCheckbox {
+    display: none !important;
+}
+
+body {
+    font-family: "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+    color: #000000;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 11px;
+    background-color: #ffffff;
+}
+
+h1 {
+    font-size: 16px;
+    color: #6c6c6c;
+}
+
+a img {
+    display: none;
+}
+
+hr {
+    border: 1px solid black;
+}
+
+#contentHeader {
+    background-color: #efefef;
+    border-bottom: 1px solid #888888;
+    min-height: 100px;
+}
+
+#contentHeader.contentHeaderSmall {
+    min-height: auto;
+    height: 28px;
+}
+
+#contentHeader h1 {
+    font-size: 17px;
+}
+
+#contentHeader h2 {
+    margin: 5px 0 0 5px !important;
+    font-size: 11pt;
+    cursor: default;
+}
+
+#contentHeader .contentHeaderImage {
+    margin-right: 10px;
+}
+
+#contentHeaderInnerTable {
+    font-size: 7pt;
+    display: block;
+}
+
+#contentHeaderInnerTable td {
+    padding: 3px;
+}
+
+#contentHeaderArea h1 {
+    margin: 0;
+    padding: 0;
+}
+
+#contentHeaderArea table {
+    margin: 0;
+    padding: 0;
+}
+
+#ContentHeaderSwitch {
+    text-align: center;
+    height: 5px;
+}
+
+#contentButtons {
+    margin: 0 0 10px 5px;
+}
+
+.mainTable {
+    border: 1px solid #cccccc;
+    border-right: none;
+    white-space: nowrap;
+    width: 100%;
+    text-align: left;
+    border-spacing: 0;
+    user-select: none;
+    table-layout: fixed;
+}
+
+* html .mainTable {
+    width: 100%;
+}
+
+.mainTable input {
+    margin: 0 2px 0 2px;
+}
+
+.mainTable th {
+    background: #e4e4e4 url('[{$dir_images}]gradient.png') repeat-x;
+    cursor: default;
+    border-right: 1px solid #cccccc;
+    border-bottom: 1px solid #999999;
+    padding: 5px 4px 5px 4px;
+    line-height: 20px;
+    color: #dd3333;
+}
+
+.mainTable td {
+    border-right: 1px solid #dddddd;
+    padding: 4px;
+}
+
+table.mainTable th,
+table.mainTable td {
+    text-align: left;
+}
+
+.mainTable th .overflowable,
+.mainTable td .overflowable {
+    width: 100%;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.advanced-filters {
+    display: none;
+}
+
+.mainTable th a {
+    color: #dd3333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.mainTable th a:hover {
+    color: #666666;
+}
+
+/*------------------------------------------------------------------------*/
+/* Forms                                                                  */
+/*------------------------------------------------------------------------*/
+
+div.nicEdit-selected,
+textarea:focus,
+select:focus,
+input:focus {
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+    -moz-box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+    box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+    border: 1px solid #5897fb;
+    /* This is used for some browsers which already display a border (webkit). */
+    outline: 0;
+}
+
+.input-dual-large {
+    width: 385px !important;
+}
+
+.input-dual-small {
+    width: 154px !important;
+}
+
+/* Deprecated Please use "btn" */
+a.button,
+input.button,
+button.button {
+    padding: 2px;
+    border: 1px solid #aaaaaa;
+    background: #dddddd url('[{$dir_images}]gradient.png') repeat-x;
+    text-shadow: 0 1px 0 #ffffff;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -khtml-border-radius: 2px;
+    color: #000000;
+    cursor: pointer;
+}
+
+/* Deprecated Please use "btn" - Special CSS for removing the dotted lines inside buttons (Firefox) */
+a.button::-moz-focus-inner,
+input.button::-moz-focus-inner,
+button.button::-moz-focus-inner {
+    border: 0;
+}
+
+/* Deprecated Please use "btn" */
+a.button {
+    display: inline-block;
+}
+
+/* Deprecated Please use "btn" */
+a.button:hover,
+a.button:focus,
+input.button:hover,
+input.button:focus,
+button.button:hover,
+input.button:focus {
+    border: 1px solid #bbbbbb;
+    background: #eeeeee;
+    color: #cc0000;
+}
+
+/* Deprecated Please use "btn" */
+a.button.disabled,
+a.button.disabled:hover,
+a.button.disabled:focus,
+a.button.disabled:active,
+input.button.disabled,
+input.button.disabled:hover,
+input.button.disabled:focus,
+input.button.disabled:active,
+button.button.disabled,
+button.button.disabled:hover,
+button.button.disabled:focus,
+button.button.disabled:active {
+    top: 0;
+    left: 0;
+    color: #000000;
+    background: #dddddd url('[{$dir_images}]gradient.png') repeat-x;
+    opacity: .5;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    filter: alpha(opacity=50);
+}
+
+/* Deprecated Please use "btn" */
+a.button:active,
+input.button:active,
+button.button:active {
+    top: 1px;
+    left: 1px;
+    position: relative;
+}
+
+/* Deprecated Please use "btn" */
+button.button img,
+button.button span {
+    margin-top: 1px;
+    vertical-align: middle;
+}
+
+/* Deprecated Please use "btn" */
+a.button img,
+a.button span {
+    vertical-align: top;
+    margin-top: -1px !important;
+}
+
+.input {
+    border: 1px solid #aaaaaa;
+    background: #fbfbfb;
+    -moz-box-shadow: inset 1px 1px 2px rgba(200, 200, 200, 0.3);
+    -webkit-box-shadow: inset 1px 1px 2px rgba(200, 200, 200, 0.3);
+    box-shadow: inset 1px 1px 2px rgba(200, 200, 200, 0.3);
+    padding: 2px 5px 2px 5px;
+}
+
+/* Special case for file upload fields */
+.input-file {
+    cursor: pointer !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.input-file:focus,
+input[type="file"]:focus {
+    box-shadow: none !important;
+    border: none !important;
+}
+
+.contentTable .chosen-container-single {
+    width: 555px;
+}
+
+optgroup[disabled],
+option[disabled] {
+    color: #777777;
+}
+
+textarea.noresize {
+    resize: none;
+}
+
+input.small,
+button.small,
+select.small,
+textarea.small,
+input.counterSmall {
+    width: 100px !important;
+}
+
+input.normal,
+button.normal,
+select.normal,
+textarea.normal {
+    width: 250px !important;
+}
+
+table.contentInfoTable thead td,
+table.contentInfoTable thead th {
+    font-weight: bold;
+    background: #dedede;
+    border-bottom: 1px solid #898989;
+}
+
+table.contentInfoTable td {
+    padding: .33em .5em;
+    vertical-align: top;
+    border-right: 1px dotted #cccccc;
+    border-bottom: 1px solid #cccccc;
+}
+
+table.contentInfoTable tr {
+    background: #ffffff;
+}
+
+table.contentInfoTable tbody tr:hover {
+    background: #ecedff;
+}
+
+table.contentInfoTable td.value {
+    color: #676767;
+}
+
+.contentTable .value {
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+input {
+    display: none;
+}
+
+.mainTable th {
+    color: #000000;
+    /*font-size: 15px;*/
+    font-weight: bold;
+    border-bottom: 1px solid #cccccc;
+}
+
+.contentTable {
+    width: 100%;
+    padding: 5px 0 5px 0;
+    border-spacing: 0;
+    border-collapse: separate;
+    color: #606060;
+}
+
+.contentTable td hr {
+    margin: 0;
+    border-color: #dddddd;
+}
+
+.contentTable td {
+    padding: 2px 0 2px 0;
+    vertical-align: middle;
+}
+
+.contentTable td.key {
+    text-align: right;
+    width: 205px;
+}
+
+.contentTable td.value input,
+.contentTable td.value select {
+    font-weight: normal;
+}
+
+table.contentInfoTable thead td,
+table.contentInfoTable thead th {
+    font-weight: bold;
+    background: #dedede;
+    border-bottom: 1px solid #898989;
+}
+
+table.contentInfoTable td {
+    padding: .33em .5em;
+    vertical-align: top;
+    border-bottom: 1px solid #cccccc;
+}
+
+table.contentInfoTable tr {
+    background: #ffffff;
+}
+
+table.contentInfoTable tbody tr:hover {
+    background: #ecedff;
+}
+
+table.contentInfoTable td.value {
+    color: #676767;
+}
+
+.contentTable .value {
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+/* for having different colours for each row */
+.CMDBListElementsEven,
+.CMDBListElementsOdd {
+    cursor: pointer;
+}
+
+.CMDBListElementsEven {
+    background-color: #ffffff;
+}
+
+.CMDBListElementsOdd {
+    background-color: #f4f4f4;
+}
+
+.CMDBListElementsEven:hover,
+.CMDBListElementsOdd:hover {
+    background-color: #eeeeee;
+}
+
+.CMDBListElementsEvenHighlight, .CMDBListElementsOddHighlight, .LogbookListElement0Highlight {
+    background-color: #eeeeee;
+}
+
+.contentHeaderImage {
+    position: relative;
+    max-width: 100%;
+    float: left;
+}
+
+.contentHeaderImage::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-shadow: inset 0 -10px 10px -10px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: inset 0 -10px 10px -10px rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: inset 0 -10px 10px -10px rgba(0, 0, 0, 0.25);
+}
+
+.contentHeaderImage img {
+    float: left;
+}
+
+#contentHeaderTable h1 {
+    position: absolute;
+    left: 120px;
+    top: 5px;
+}
+
+#contentHeaderTable table {
+    position: absolute;
+    left: 120px;
+    top: 30px;
+}
+
+div.container div img {
+    display: none;
+}
+
+div.container {
+    clear: both;
+}
+
+a.close {
+    display: none;
+}
+
+.toolbar a {
+    padding: 2px 3px 2px 3px;
+    border: 1px solid #cccccc;
+    background: #dddddd;
+}
+
+.toolbar a:hover,
+.toolbar a:active {
+    border: 1px solid #bbbbbb;
+    background: #eeeeee;
+}
+
+.green {
+    color: Green;
+}
+
+.red {
+    color: Red;
+}
+
+.grey {
+    color: #999999;
+}
+
+.sortable ul li {
+    border: 1px solid #cccccc;
+    margin: 0 0 5px;
+    line-height: 1.6em;
+    vertical-align: middle;
+    font-style: normal;
+}
+
+.sortable tr {
+    background: #eeeeee;
+    padding: 5px;
+    margin: 5px 0;
+    font-style: normal;
+}
+
+html > body .sortable .draggable {
+    background-color: #cccccc;
+}
+
+.sortable .unused {
+    background: #eeeeee;
+}
+
+a.close {
+    display: block;
+    padding: 2px 4px 2px 4px;
+    background: #efefef;
+    border-left: 1px solid #999999;
+}
+
+a.close:hover {
+    border-left-color: #555555;
+    background: #ffffff;
+}
+
+/*------------------------------------------------------------------------*/
+/* Category overview and general fieldsets */
+/*------------------------------------------------------------------------*/
+fieldset {
+    border: 1px dotted #cccccc;
+    margin-top: 1.4em;
+    padding: 0.8em;
+}
+
+fieldset.overview {
+    position: relative;
+    margin: 0;
+    padding: 25px 0 0 0;
+    border: 0;
+    color: #606060;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 1);
+}
+
+/* Remove top border for overview fieldsets */
+fieldset.border-top-none legend span {
+    border-top: none !important;
+}
+
+fieldset.overview legend > span {
+    position: absolute;
+    display: block;
+    left: 0;
+    top: 0;
+    color: #444444;
+    width: 100%;
+    font-size: 12px;
+    padding: 5px;
+    background: #eeeeee;
+    text-shadow: 0 1px 1px #ffffff;
+    border-bottom: 1px solid #888888;
+    border-top: 1px solid #888888;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#eeeeee));
+    background: -moz-linear-gradient(top, #ffffff, #eeeeee);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#eeeeee');
+}
+
+fieldset.overview legend > span.border-top-none {
+    border-top: none;
+}
+
+fieldset.overview legend > span:after, fieldset.overview legend > span:before {
+    top: 100%;
+    left: 20px;
+    border: solid transparent;
+    content: "";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+fieldset.overview legend > span:after {
+    border-color: rgba(255, 255, 255, 0);
+    border-top-color: #eeeeee;
+    border-width: 6px;
+    margin-left: -6px;
+}
+
+fieldset.overview legend > span:before {
+    border-color: rgba(0, 0, 0, 0);
+    border-top-color: #888888;
+    border-width: 7px;
+    margin-left: -7px;
+}
+
+fieldset.overview legend {
+    font-weight: bold;
+    display: block;
+    width: 100%;
+}
+
+fieldset.overview table {
+    border: 0;
+    background: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+fieldset.overview .mainTable .CMDBListElementsOdd,
+fieldset.overview .mainTable .CMDBListElementsEven {
+    background-color: #ffffff;
+}
+
+fieldset.overview .mainTable tr:hover {
+    background-color: #f5f5f5;
+}
+
+fieldset.overview .mainTable tr:first-child:hover {
+    background-color: transparent !important;
+}
+
+fieldset.overview .mainTable td,
+fieldset.overview .mainTable th {
+    padding-left: 7px;
+    background: transparent !important;
+}
+
+fieldset.overview .mainTable td {
+    border: 0;
+}
+
+fieldset.overview .mainTable th:last-child {
+    border-right: 0;
+}
+
+fieldset.overview .mainTable th {
+    border-color: #eeeeee;
+    line-height: 15px;
+}
+
+fieldset.overview div.list {
+    padding: 5px;
+}
+
+* html fieldset.tips p {
+    margin: 7px 0 0 5px;
+}
+
+fieldset.tips ul {
+    margin-left: 25px;
+}
+
+fieldset.tips ul li {
+    margin-top: 2px;
+}
+
+ul.browser-tabs {
+    height: 26px;
+    list-style: none;
+    border-bottom: 1px solid #888888;
+    padding-top: 8px;
+    font-size: 10px;
+    padding-left: 0;
+}
+
+ul.browser-tabs li {
+    float: left;
+    font-weight: bold
+}
+
+ul.browser-tabs a {
+    float: left;
+    padding: 5px 8px;
+    margin-left: 6px;
+    text-decoration: none;
+    height: 15px;
+    color: #555555;
+}
+
+ul.browser-tabs li.disabled a {
+    color: #999999;
+}
+
+ul.browser-tabs a:hover {
+    color: #000000;
+}
+
+ul.browser-tabs a.active {
+    background-color: #ffffff;
+    border: 1px solid #888888;
+    border-bottom: 1px solid transparent !important;
+    color: #333333;
+}
+
+.prototools-table {
+    width: 100%;
+    text-align: left;
+    border-spacing: 0;
+    margin-top: 5px;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    table-layout: fixed;
+}
+
+.prototools-table td,
+.prototools-table th {
+    border-right: 1px solid #d6d6d6;
+    padding: 1px 3px 1px 3px;
+    line-height: 18px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.prototools-table th {
+    border-bottom: 1px solid #cccccc;
+    background: #dddddd url('[{$dir_images}]gradient.png') repeat-x;
+    text-shadow: 0 1px 0 #ffffff;
+    line-height: 20px;
+    font-size: 10px;
+    cursor: default;
+}
+
+.prototools-table tr.line0 {
+    background-color: #ffffff;
+}
+
+.prototools-table tr.line1 {
+    background-color: #f3f3f3;
+}
+
+.prototools-table tr.on {
+    background-color: #eeeeee;
+    cursor: pointer;
+}
+
+.prototools-table tr.selected {
+    background-color: #dddddd;
+    cursor: pointer;
+}
+
+.prototools-table tr.selected td {
+    font-weight: bold;
+}
+
+div.prototools-pager {
+    margin: 10px;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+div.prototools-pager .currentpage {
+    padding-left: 5px;
+    padding-right: 5px;
+    font-weight: bold;
+}
+
+div.prototools-pager .totalpages {
+    padding: 0;
+}
+
+div.prototools-pager a {
+    margin: 0 3px;
+    cursor: default;
+    padding: 2px 4px 2px 4px;
+    text-shadow: none;
+}
+
+.prototools-table th.desc {
+    background: #dddddd url('[{$dir_images}]list/desc.gif') no-repeat right center;
+    user-select: none;
+}
+
+.prototools-table th.asc {
+    background: #dddddd url('[{$dir_images}]list/asc.gif') no-repeat right center;
+    border-right: 1px solid #d6d6d6;
+}
+
+ul.tabs {
+    height: 26px;
+    list-style: none;
+    border-bottom: 1px solid #888888;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+ul.tabs li {
+    float: left;
+}
+
+ul.tabs a {
+    float: left;
+    padding: 5px 8px;
+    margin-left: 6px;
+    border: 1px solid #888888;
+    text-decoration: none;
+    height: 15px;
+    line-height: 15px;
+    color: #000000;
+    -moz-border-radius: 5px 5px 0 0;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    border-radius: 5px 5px 0 0;
+}
+
+ul.tabs a:hover {
+    color: #444444;
+}
+
+ul.tabs a.active {
+    background-color: #ffffff;
+    border: 1px solid #888888;
+    border-bottom: 1px solid transparent !important;
+    color: #333333;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+table.two-col th, table.two-col td {
+    width: 50%;
+}
+
+table.three-col th, table.three-col td {
+    width: 33%;
+}
+
+table.four-col th, table.four-col td {
+    width: 25%;
+}
+
+table.five-col th, table.five-col td {
+    width: 20%;
+}
+
+.fl {float: left;}
+.fr {float: right;}
+.cb {clear: both;}
+
+.m0 {margin: 0;}
+.m5 {margin: 5px;}
+.m10 {margin: 10px;}
+.m15 {margin: 15px;}
+.m20 {margin: 20px;}
+
+.ml5 {margin-left: 5px;}
+.mr5 {margin-right: 5px;}
+
+.mt5 {margin-top: 5px;}
+.mt10 {margin-top: 10px;}
+.mt15 {margin-top: 15px;}
+
+.mb5 {margin-bottom: 5px;}
+.mb10 {margin-bottom: 10px;}
+.mb15 {margin-bottom: 15px;}
+
+.p5 {padding: 5px;}
+.p10 {padding: 10px;}
+.pl5 {padding-left: 5px;}
+.pl15 {padding-left: 15px;}
+.pr5 {padding-left: 5px;}
+.pt5 {padding-top: 5px;}
+
+.toolbar a {
+    padding: 5px 3px 5px 3px;
+    border: 1px solid #cccccc;
+    background: #dddddd url('[{$dir_images}]gradient.png') repeat-x;
+    text-shadow: 0 1px 0 #ffffff;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    color: #000000;
+}
+
+.toolbar a:hover,
+.toolbar a:active {
+    border: 1px solid #bbbbbb;
+    background: #eeeeee;
+    color: #0000aa
+}
+
+.bold {font-weight: bold;}
+.underline {text-decoration: underline;}
+.vat {vertical-align: top;}
+.vam {vertical-align: middle;}
+.vab {vertical-align: bottom;}
+.center {text-align: center;}
+.black {color: #000000;}
+.green {color: #009900;}
+.grey {color: #999999;}
+.red {color: #aa0000;}
+
+.text-shadow {text-shadow: 0 1px 0 #ffffff;}
+.text-shadow-black {text-shadow: 0 1px 0 #000000;}
+
+.gradient {
+    background: #dddddd url('[{$dir_images}]gradient.png') repeat-x;
+}
+
+.hover {
+    background-color: #eeeeee;
+    border: 1px dashed #888888;
+    font-weight: bold;
+}
+
+.border-left {
+    border-left: 1px solid #888888;
+}
+
+.header {
+    border-bottom: 1px solid #999999;
+}
+
+/* Special styles for the rack-view */
+#rackview,
+#rackview table {
+    width: 100%;
+}
+
+#rackview h3 {
+    margin-bottom: 0;
+    text-shadow: none;
+}
+
+#rackview .chassis {
+    border-collapse: separate;
+    border-spacing: 1px;
+    table-layout: fixed;
+}
+
+#rackview .chassis .edge-top,
+#rackview .chassis .edge-first {
+    height: 0;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+}
+
+#rackview .chassis .slot {
+    border: 1px solid #888888 !important;
+}
+
+#rackview .chassis .title {
+    display: none;
+}
+
+#rackview .expanded .chassis .title {
+    display: block;
+    position: relative;
+    background-color: #000000;
+    color: #ffffff;
+    text-shadow: none;
+    font-size: 9px;
+    padding: 1px;
+}
+
+#rackview .chassis td {
+    padding: 0;
+    margin: 0;
+}
+
+#rackview .chassis .device-container {
+    max-height: 38px;
+    overflow: hidden;
+}
+
+#rackview .chassis .device-container div.device {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 8px;
+    padding: 1px;
+    border-bottom: 1px dotted #444444;
+}
+
+#rackview .chassis .device-container div.device:last-of-type {
+    border-bottom: none;
+}
+
+#rack_front,
+#rack_rear,
+.rack {
+    display: inline-block;
+    border: 1px solid #b7b7b7;
+    border-top: none;
+    width: 315px;
+    padding: 10px 0;
+    background: #ffffff !important;
+}
+
+#rackview tr.row {
+    height: 28px;
+}
+
+/* @see  ID-7132  Splitting up row and object heights */
+#rackview .slot-object {
+    height: 26px;
+}
+
+#rackview.expanded tr.row,
+#rackview.expanded .slot-object {
+    height: 84px;
+}
+
+/* Special styles for vertical slots */
+#rackview .left-slots .slot-object,
+#rackview .right-slots .slot-object {
+    height: 17px;
+}
+
+tr.row td:last-of-type {
+    text-align: right;
+}
+
+#rackview div.slot,
+#rackview td.slot {
+    background-color: #eeeeee;
+    background-image: repeating-linear-gradient(-45deg, #eeeeee, #eeeeee 10px, #e0e0e0 10px, #e0e0e0 20px);
+    cursor: default;
+    border: 1px solid #b7b7b7;
+    font-size: 11px;
+    position: relative;
+}
+
+#rackview .main-slots div.slot,
+#rackview .main-slots td.slot {
+    width: 90%;
+}
+
+/* This should only apply to the "room"-view */
+table.room-view,
+table.room-view table {
+    table-layout: fixed;
+}
+
+table.room-view div.slot,
+table.room-view td.slot {
+    background-image: repeating-linear-gradient(-45deg, #eeeeee, #eeeeee 5px, #e5e5e5 5px, #e5e5e5 10px);
+}
+
+table.room-view tr.odd td.slot {
+    background-position: 10px 0;
+}
+
+table.room-view td.slot .object-title {
+    margin: -1px 0 1px 3px;
+}
+
+table.room-view .left-slots .slot,
+table.room-view .right-slots .slot {
+    margin: 2px;
+}
+
+table.room-view .cmdb-marker {
+    margin: 1px !important;
+}
+
+table.room-view div.slot-object {
+    max-height: 11px;
+    overflow: hidden;
+}
+
+table.room-view tr.row {
+    height: 12px;
+}
+
+table.room-view .rotated .object-title {
+    width: 120px;
+    font-size: 8px;
+}
+
+.expanded table.room-view tr.row {
+    height: 41px;
+}
+
+.expanded table.room-view div.slot-object {
+    max-height: 400px;
+}
+
+td.slot .object-title {
+    margin: 5px 0 5px 5px;
+    float: left;
+}
+
+td.slot .object-title {
+    width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.room-view td.slot .object-title {
+    width: 150px;
+}
+
+td.last.slot:empty {
+    border: 1px solid #b7b7b7;
+}
+
+.left-slots, .right-slots {
+    width: 53px;
+    position: relative;
+}
+
+.left-slots .slot,
+.right-slots .slot {
+    display: inline-block;
+    height: 220px;
+    width: 20px;
+    margin: 2px;
+}
+
+.main-slots td {
+    color: #000000;
+    text-shadow: 1px 1px #ffffff;
+    font-size: 10px;
+    vertical-align: middle;
+}
+
+td.slot {
+    border-bottom: none;
+    vertical-align: top;
+}
+
+#rackview td.slot div[data-object-height] {
+    overflow: hidden;
+    height: 24px;
+}
+
+#rackview.expanded td.slot div[data-object-height] {
+    overflow: hidden;
+    height: 100%;
+}
+
+#rackview td.slot div span {
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 2px
+}
+
+#rackview .clear {
+    clear: both;
+}
+
+#rackview .rotated {
+    bottom: 104px;
+    right: -100px;
+    width: 220px;
+    height: 17px;
+    position: absolute;
+    writing-mode: lr-tb;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+
+#rackview .rotated .object-title {
+    width: 160px;
+    height: 17px;
+    overflow: hidden;
+    display: inline-block;
+    float: left;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.rotated .cmdb-marker {
+    margin-top: 1px;
+}
+
+/* Special styles for the rack-view inside locations */
+#child_racks div.rack.rear,
+#child_racks div.rack.front,
+#rackview_scroller div.rack.rear,
+#rackview_scroller div.rack.front {
+    display: inline-block !important;
+}
+
+#child_racks,
+#rackview_scroller {
+    width: auto !important;
+}
+
+#child_racks div.rack-container,
+#rackview_scroller div.rack-container {
+    display: block !important;
+}
+
+#rackview {
+    overflow: auto !important;
+}

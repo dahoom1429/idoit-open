@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE isys [
+        <!ELEMENT isys (info|queries)*>
+        <!ELEMENT info (title|version|requirement|directory|revision|release)*>
+        <!ELEMENT title (#PCDATA)>
+        <!ELEMENT version (#PCDATA)>
+        <!ELEMENT requirement (revision|version)*>
+        <!ELEMENT revision (#PCDATA)>
+        <!ELEMENT directory (#PCDATA)>
+        <!ELEMENT release (#PCDATA)>
+        <!ELEMENT queries (query)*>
+        <!ELEMENT query (id|title|check|errmsg|sql)*>
+        <!ELEMENT id (#PCDATA)>
+        <!ELEMENT check (#PCDATA)>
+        <!ATTLIST check ident CDATA #REQUIRED>
+        <!ELEMENT errmsg (#PCDATA)>
+        <!ELEMENT sql (exec)*>
+        <!ELEMENT exec (#PCDATA)>
+        <!ATTLIST exec ident CDATA #REQUIRED>
+        ]>
+<isys>
+    <info>
+        <title>i-doit v1.16</title>
+        <version>1.16</version>
+        <requirement>
+            <revision>202011500</revision>
+            <version>1.15</version>
+        </requirement>
+        <directory>v1.16</directory>
+        <revision>202011600</revision>
+        <release>2021-01-18</release>
+    </info>
+    <queries>
+        <!-- @see ID-7471 -->
+        <query>
+            <title>Modify isys_report__query_row field of table isys_report to be nullable</title>
+            <check ident="C_CHANGE_FIELD">isys_report, isys_report__query_row</check>
+            <sql>
+                <exec ident="true">
+                    ALTER TABLE `isys_report` CHANGE `isys_report__query_row` `isys_report__query_row` TEXT CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL;
+                </exec>
+            </sql>
+        </query>
+        <!-- END @see ID-7471 -->
+        <!-- @see ID-7198 -->
+        <query>
+            <title>Add field to isys_catg_identifier_list</title>
+            <check ident="C_ADD_FIELD">isys_catg_identifier_list, isys_catg_identifier_list__last_updated</check>
+            <sql>
+                <exec ident="false">
+                    ALTER TABLE `isys_catg_identifier_list` ADD COLUMN `isys_catg_identifier_list__last_updated` DATETIME DEFAULT NULL;
+                </exec>
+            </sql>
+        </query>
+        <!-- END @see ID-7198 -->
+        <!-- @see ID-7724. Default 1 = RECEIVER_CALC_STRATEGY__ONLY_PERSONS constant -->
+        <query>
+            <title>Add field to isys_notification</title>
+            <check ident="C_ADD_FIELD">isys_notification, isys_notification__receiver_calc_strategy</check>
+            <sql>
+                <exec ident="false">
+                    ALTER TABLE `isys_notification` ADD COLUMN `isys_notification__receiver_calc_strategy` tinyint(1) unsigned DEFAULT 1;
+                </exec>
+            </sql>
+        </query>
+        <!-- END @see ID-7724 -->
+        <!-- @see ID-7653 -->
+        <query>
+            <title>Adding field: isys_catg_cards_list__isys_connection__id</title>
+            <check ident="C_ADD_FIELD">isys_catg_cards_list, isys_catg_cards_list__isys_connection__id</check>
+            <sql>
+                <exec ident="false">
+                    ALTER TABLE `isys_catg_cards_list` ADD isys_catg_cards_list__isys_connection__id int(10) unsigned DEFAULT NULL;
+                </exec>
+            </sql>
+        </query>
+        <query>
+            <title>Add constraint isys_catg_cards_list__isys_connection__id</title>
+            <check ident="C_ADD_FOREIGN_KEY">isys_catg_cards_list,isys_catg_cards_list__isys_connection__id</check>
+            <sql>
+                <exec ident="false">
+                    ALTER TABLE `isys_catg_cards_list` ADD CONSTRAINT `isys_catg_cards_list__isys_connection__id` FOREIGN KEY (`isys_catg_cards_list__isys_connection__id`) REFERENCES
+                    `isys_connection` (`isys_connection__id`) ON DELETE SET NULL ON UPDATE CASCADE;
+                </exec>
+            </sql>
+        </query>
+        <query>
+            <title>Adding field: isys_catg_cards_list__isys_catg_relation_list__id</title>
+            <check ident="C_ADD_FIELD">isys_catg_cards_list, isys_catg_cards_list__isys_catg_relation_list__id</check>
+            <sql>
+                <exec ident="false">
+                    ALTER TABLE `isys_catg_cards_list` ADD isys_catg_cards_list__isys_catg_relation_list__id int(10) unsigned DEFAULT NULL;
+                </exec>
+            </sql>
+        </query>
+        <query>
+            <title>Add constraint isys_catg_cards_list__isys_connection__id</title>
+            <check ident="C_ADD_FOREIGN_KEY">isys_catg_cards_list,isys_catg_cards_list__isys_catg_relation_list__id</check>
+            <sql>
+                <exec ident="false">
+                    ALTER TABLE `isys_catg_cards_list` ADD CONSTRAINT `isys_catg_cards_list__isys_catg_relation_list__id` FOREIGN KEY (`isys_catg_cards_list__isys_catg_relation_list__id`) REFERENCES
+                    `isys_catg_relation_list` (`isys_catg_relation_list__id`) ON DELETE SET NULL ON UPDATE CASCADE;
+                </exec>
+            </sql>
+        </query>
+        <query>
+            <title></title>
+            <check ident="C_VALUE_EXISTS">SELECT isysgui_catg__id FROM isysgui_catg WHERE isysgui_catg__const = 'C__CATG__ASSIGNED_SIM_CARDS' AND isysgui_catg__source_table = 'isys_catg_cards_list_2_isys_obj';</check>
+            <errmsg></errmsg>
+            <sql>
+                <exec ident="true">
+                    UPDATE isysgui_catg SET isysgui_catg__source_table = 'isys_catg_cards' WHERE isysgui_catg__const = 'C__CATG__ASSIGNED_SIM_CARDS' AND isysgui_catg__source_table = 'isys_catg_cards_list_2_isys_obj';
+                </exec>
+            </sql>
+        </query>
+        <query>
+            <title></title>
+            <check ident="C_VALUE_EXISTS">SELECT isys_relation_type__id FROM isys_relation_type WHERE isys_relation_type__const = 'C__RELATION_TYPE__ASSIGNED_SIM_CARDS';</check>
+            <errmsg></errmsg>
+            <sql>
+                <exec ident="false">
+                    SET @LASTSORT = (SELECT MAX(isys_relation_type__sort) + 1 FROM isys_relation_type LIMIT 1);
+                    INSERT INTO `isys_relation_type` (
+                    `isys_relation_type__title`,
+                    `isys_relation_type__master`,
+                    `isys_relation_type__slave`,
+                    `isys_relation_type__type`,
+                    `isys_relation_type__default`,
+                    `isys_relation_type__const`,
+                    `isys_relation_type__category`,
+                    `isys_relation_type__editable`,
+                    `isys_relation_type__sort`,
+                    `isys_relation_type__status`,
+                    `isys_relation_type__isys_weighting__id`)
+                    VALUES (
+                    'LC__CATG__ASSIGNED_SIM_CARDS',
+                    'LC__RELATION_TYPE__MASTER__ASSIGNED_SIM_CARDS',
+                    'LC__RELATION_TYPE__SLAVE__ASSIGNED_SIM_CARDS',
+                    1,
+                    2,
+                    'C__RELATION_TYPE__ASSIGNED_SIM_CARDS',
+                    'C__CATG__ASSIGNED_SIM_CARDS',
+                    0,
+                    @LASTSORT,
+                    2,
+                    5
+                    );
+                </exec>
+            </sql>
+        </query>
+        <!-- END @see ID-7653 -->
+        <!-- @see PACKAGER-24 -->
+        <query>
+            <title>Add field to isys_net_protocol</title>
+            <check ident="C_ADD_FIELD">isys_net_protocol, isys_net_protocol__sort</check>
+            <sql>
+                <exec ident="false">
+                    ALTER TABLE `isys_net_protocol` ADD COLUMN `isys_net_protocol__sort` Int( 10 ) unsigned DEFAULT NULL;
+                </exec>
+            </sql>
+        </query>
+        <query>
+            <title>Add field to isys_net_protocol_layer_5</title>
+            <check ident="C_ADD_FIELD">isys_net_protocol_layer_5, isys_net_protocol_layer_5__sort</check>
+            <sql>
+                <exec ident="false">
+                    ALTER TABLE `isys_net_protocol_layer_5` ADD COLUMN `isys_net_protocol_layer_5__sort` Int( 10 ) unsigned DEFAULT NULL;
+                </exec>
+            </sql>
+        </query>
+        <!-- END @see PACKAGER-24 -->
+
+        <!-- @see ID-7769 -->
+        <query>
+            <title>Add new relation type</title>
+            <check ident="C_VALUE_EXISTS">SELECT isys_relation_type__id FROM isys_relation_type
+                WHERE isys_relation_type__const = 'C__RELATION_TYPE__LAYER3_2_LAYER2' LIMIT 1;</check>
+            <sql>
+                <exec ident="false">
+                    INSERT INTO `isys_relation_type` VALUES (
+                        (SELECT t.id FROM (SELECT (MAX(isys_relation_type__id) + 1) id FROM isys_relation_type) AS t),
+                        'LC__RELATION_TYPE__NET_2_LAYER2',
+                        'LC__RELATION_TYPE__MASTER__NET_2_LAYER2',
+                        'LC__RELATION_TYPE__SLAVE__NET_2_LAYER2',
+                        1,
+                        1,
+                        'C__RELATION_TYPE__LAYER3_2_LAYER2',
+                        'C__CATS__NET',
+                        0,
+                        (SELECT z.sortCnt FROM (SELECT (MAX(isys_relation_type__sort) + 1) sortCnt FROM isys_relation_type) AS z),
+                        2,
+                        5
+                    );
+                </exec>
+            </sql>
+        </query>
+        <!-- END @see ID-7769 -->
+        <!-- @see ID-7573 -->
+        <query>
+            <title>Add field to isys_report</title>
+            <check ident="C_ADD_FIELD">isys_report, isys_report__keep_description_format</check>
+            <sql>
+                <exec ident="false">
+                    ALTER TABLE `isys_report` ADD COLUMN `isys_report__keep_description_format` tinyint(1) unsigned DEFAULT 0;
+                </exec>
+            </sql>
+        </query>
+        <!-- END @see ID-7573 -->
+        <!-- @see ID-7760 -->
+        <query>
+            <title>add field to isys_cats_person_list</title>
+            <check ident="C_ADD_FIELD">isys_person_2_group, isys_person_2_group__isys_contact_tag__id</check>
+            <sql>
+                <exec ident="false">
+                    ALTER TABLE `isys_person_2_group` ADD COLUMN `isys_person_2_group__isys_contact_tag__id` int(10) unsigned DEFAULT NULL;
+                </exec>
+            </sql>
+        </query>
+        <query>
+            <title>Add constraint isys_person_2_group__isys_contact_tag__id</title>
+            <check ident="C_ADD_FOREIGN_KEY">isys_person_2_group, isys_person_2_group__isys_contact_tag__id</check>
+            <sql>
+                <exec ident="false">
+                    ALTER TABLE `isys_person_2_group` ADD CONSTRAINT `isys_person_2_group_ibfk_3` FOREIGN KEY (`isys_person_2_group__isys_contact_tag__id`) REFERENCES
+                    `isys_contact_tag` (`isys_contact_tag__id`) ON DELETE SET NULL ON UPDATE CASCADE;
+                </exec>
+            </sql>
+        </query>
+        <!-- END @see ID-7760 -->
+        <query>
+            <title></title>
+            <check ident="C_CREATE_TABLE">isys_catg_support_entitlement_list</check>
+            <sql>
+                <exec ident="false">
+                    CREATE TABLE `isys_catg_support_entitlement_list` (
+                    `isys_catg_support_entitlement_list__id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+                    `isys_catg_support_entitlement_list__isys_obj__id` int(10) unsigned DEFAULT NULL,
+                    `isys_catg_support_entitlement_list__partnumber` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+                    `isys_catg_support_entitlement_list__start_date` date DEFAULT NULL,
+                    `isys_catg_support_entitlement_list__end_date` date DEFAULT NULL,
+                    `isys_catg_support_entitlement_list__status` int(10) unsigned DEFAULT 2,
+                    `isys_catg_support_entitlement_list__description` longtext COLLATE utf8_unicode_ci DEFAULT NULL,
+                    PRIMARY KEY (`isys_catg_support_entitlement_list__id`),
+                    KEY `isys_catg_support_entitlement_list__isys_obj__id` (`isys_catg_support_entitlement_list__isys_obj__id`),
+                    CONSTRAINT `isys_catg_support_entitlement_list_ibfk_1` FOREIGN KEY (`isys_catg_support_entitlement_list__isys_obj__id`) REFERENCES `isys_obj` (`isys_obj__id`) ON DELETE CASCADE ON UPDATE CASCADE
+                    ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+                </exec>
+            </sql>
+        </query>
+        <query>
+            <title></title>
+            <check ident="C_VALUE_EXISTS">SELECT * FROM isysgui_catg WHERE isysgui_catg__const = 'C__CATG__SUPPORT_ENTITLEMENT' Limit 1;</check>
+            <sql>
+                <exec ident="false">
+                    INSERT INTO `isysgui_catg` VALUES (
+                        (SELECT a.i FROM (SELECT (MAX(isysgui_catg__id) + 1) AS i FROM isysgui_catg) AS a),
+                        null,
+                        2,
+                        'LC__CMDB__CATG__SUPPORT_ENTITLEMENT',
+                        NULL,
+                        'C__CATG__SUPPORT_ENTITLEMENT',
+                        'isys_catg_support_entitlement',
+                        'isys_cmdb_dao_category_g_support_entitlement',
+                        (SELECT b.i FROM (SELECT (MAX(isysgui_catg__sort) + 1) AS i FROM isysgui_catg) AS b),
+                        NULL,
+                        1,
+                        0,
+                        1,
+                        2,
+                        0,
+                        1
+                    );
+                </exec>
+            </sql>
+        </query>
+        <query>
+            <title></title>
+            <check ident="C_CREATE_TABLE">isys_catg_connection_endpoint_list</check>
+            <sql>
+                <exec ident="false">
+                    CREATE TABLE `isys_catg_connection_endpoint_list` (
+                    `isys_catg_connection_endpoint_list__id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+                    `isys_catg_connection_endpoint_list__isys_obj__id` int(10) unsigned DEFAULT NULL,
+                    `isys_catg_connection_endpoint_list__title` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+                    `isys_catg_connection_endpoint_list__isys_catg_netp_list__id` int(10) unsigned DEFAULT NULL,
+                    `isys_catg_connection_endpoint_list__isys_port_type__id` int(10) unsigned DEFAULT NULL,
+                    `isys_catg_connection_endpoint_list__speed` bigint(32) unsigned DEFAULT NULL,
+                    `isys_catg_connection_endpoint_list__isys_port_speed__id` int(10) unsigned DEFAULT NULL,
+                    `isys_catg_connection_endpoint_list__title__connectedto` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+                    `isys_catg_connection_endpoint_list__isys_obj__id__connectedto` int(10) unsigned DEFAULT NULL,
+                    `isys_catg_connection_endpoint_list__isys_catg_relation_list__id` int(10) unsigned DEFAULT NULL,
+                    `isys_catg_connection_endpoint_list__status` int(10) unsigned DEFAULT 2,
+                    `isys_catg_connection_endpoint_list__description` longtext COLLATE utf8_unicode_ci DEFAULT NULL,
+                    PRIMARY KEY (`isys_catg_connection_endpoint_list__id`),
+                    KEY `isys_catg_connection_endpoint_list__isys_obj__id` (`isys_catg_connection_endpoint_list__isys_obj__id`),
+                    KEY `isys_catg_connection_endpoint_list__isys_obj__id__connectedto` (`isys_catg_connection_endpoint_list__isys_obj__id__connectedto`),
+                    KEY `isys_catg_connection_endpoint_list__isys_catg_relation_list__id` (`isys_catg_connection_endpoint_list__isys_catg_relation_list__id`),
+                    CONSTRAINT `isys_catg_connection_endpoint_list_ibfk_1` FOREIGN KEY (`isys_catg_connection_endpoint_list__isys_obj__id`) REFERENCES `isys_obj` (`isys_obj__id`) ON DELETE CASCADE ON UPDATE CASCADE,
+                    CONSTRAINT `isys_catg_connection_endpoint_list_ibfk_2` FOREIGN KEY (`isys_catg_connection_endpoint_list__isys_port_type__id`) REFERENCES `isys_port_type` (`isys_port_type__id`) ON DELETE SET NULL ON UPDATE CASCADE,
+                    CONSTRAINT `isys_catg_connection_endpoint_list_ibfk_3` FOREIGN KEY (`isys_catg_connection_endpoint_list__isys_port_speed__id`) REFERENCES `isys_port_speed` (`isys_port_speed__id`) ON DELETE SET NULL ON UPDATE CASCADE,
+                    CONSTRAINT `isys_catg_connection_endpoint_list_ibfk_4` FOREIGN KEY (`isys_catg_connection_endpoint_list__isys_catg_netp_list__id`) REFERENCES `isys_catg_netp_list` (`isys_catg_netp_list__id`) ON DELETE SET NULL ON UPDATE CASCADE,
+                    CONSTRAINT `isys_catg_connection_endpoint_list_ibfk_5` FOREIGN KEY (`isys_catg_connection_endpoint_list__isys_obj__id__connectedto`) REFERENCES `isys_obj` (`isys_obj__id`) ON DELETE CASCADE ON UPDATE CASCADE,
+                    CONSTRAINT `isys_catg_connection_endpoint_list__isys_catg_relation_list__id` FOREIGN KEY (`isys_catg_connection_endpoint_list__isys_catg_relation_list__id`) REFERENCES `isys_catg_relation_list` (`isys_catg_relation_list__id`) ON DELETE SET NULL ON UPDATE CASCADE
+                    ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+                </exec>
+            </sql>
+        </query>
+        <query>
+            <title></title>
+            <check ident="C_VALUE_EXISTS">SELECT * FROM isysgui_catg WHERE isysgui_catg__const = 'C__CATG__CONNECTION_ENDPOINT' Limit 1;</check>
+            <sql>
+                <exec ident="false">
+                    INSERT INTO `isysgui_catg` VALUES (
+                    (SELECT a.lastId FROM (SELECT (MAX(isysgui_catg__id) + 1) AS lastId FROM isysgui_catg) AS a),
+                    null,
+                    4,
+                    'LC__CMDB__CATG__CONNECTION_ENDPOINT',
+                    NULL,
+                    'C__CATG__CONNECTION_ENDPOINT',
+                    'isys_catg_connection_endpoint',
+                    'isys_cmdb_dao_category_g_connection_endpoint',
+                    (SELECT b.lastSort FROM (SELECT (MAX(isysgui_catg__sort) + 1) AS lastSort FROM isysgui_catg) AS b),
+                    (SELECT c.parentId FROM (SELECT isysgui_catg__id AS parentId FROM isysgui_catg WHERE isysgui_catg__const = 'C__CATG__NETWORK') AS c),
+                    1,
+                    0,
+                    1,
+                    2,
+                    0,
+                    1
+                    );
+                </exec>
+            </sql>
+        </query>
+        <query>
+            <title></title>
+            <check ident="C_VALUE_EXISTS">SELECT isys_relation_type__id FROM isys_relation_type WHERE isys_relation_type__const = 'C__RELATION_TYPE__CONNECTION_ENDPOINT';</check>
+            <errmsg></errmsg>
+            <sql>
+                <exec ident="false">
+                    SET @LASTSORT = (SELECT MAX(isys_relation_type__sort) + 1 AS lastSort FROM isys_relation_type as a);
+                    INSERT INTO `isys_relation_type` (
+                    `isys_relation_type__title`,
+                    `isys_relation_type__master`,
+                    `isys_relation_type__slave`,
+                    `isys_relation_type__type`,
+                    `isys_relation_type__default`,
+                    `isys_relation_type__const`,
+                    `isys_relation_type__category`,
+                    `isys_relation_type__editable`,
+                    `isys_relation_type__sort`,
+                    `isys_relation_type__status`,
+                    `isys_relation_type__isys_weighting__id`)
+                    VALUES (
+                    'LC__CMDB__CATG__CONNECTION_ENDPOINT',
+                    'LC__RELATION_TYPE__MASTER__CONNECTION_ENDPOINT',
+                    'LC__RELATION_TYPE__SLAVE__CONNECTION_ENDPOINT',
+                    1,
+                    2,
+                    'C__RELATION_TYPE__CONNECTION_ENDPOINT',
+                    'C__CATG__CONNECTION_ENDPOINT',
+                    0,
+                    @LASTSORT,
+                    2,
+                    5
+                    );
+                </exec>
+            </sql>
+        </query>
+        <query>
+            <title>Add field to isys_jdisc_profile</title>
+            <check ident="C_ADD_FIELD">isys_jdisc_profile, isys_jdisc_profile__import_connection_endpoint</check>
+            <sql>
+                <exec ident="false">
+                    ALTER TABLE `isys_jdisc_profile` ADD COLUMN `isys_jdisc_profile__import_connection_endpoint` TINYINT(1) UNSIGNED DEFAULT '0';
+                </exec>
+            </sql>
+        </query>
+        <query>
+            <title></title>
+            <check ident="C_VALUE_EXISTS">
+                SELECT isys_custom_properties__id
+                FROM isys_custom_properties
+                LEFT JOIN isysgui_cats ON isysgui_cats__id = isys_custom_properties__isysgui_cats__id
+                WHERE isysgui_cats__const = 'C__CATS__PERSON'
+                LIMIT 1;
+            </check>
+            <errmsg></errmsg>
+            <sql>
+                <exec ident="true">
+                    UPDATE isys_custom_properties AS p
+                    LEFT JOIN isysgui_cats AS c ON c.isysgui_cats__id = p.isys_custom_properties__isysgui_cats__id
+                    SET p.isys_custom_properties__isysgui_cats__id = (SELECT isysgui_cats__id FROM isysgui_cats WHERE isysgui_cats__const = 'C__CATS__PERSON_MASTER' LIMIT 1)
+                    WHERE c.isysgui_cats__const = 'C__CATS__PERSON'
+                </exec>
+            </sql>
+        </query>
+    </queries>
+</isys>

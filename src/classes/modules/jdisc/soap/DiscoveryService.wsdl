@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="Discovery" targetNamespace="http://www.jdisc.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.jdisc.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.jdisc.com" elementFormDefault="unqualified" targetNamespace="http://www.jdisc.com" version="1.0">
+<xs:element name="discoverDevice" type="tns:discoverDevice"/>
+<xs:element name="discoverDeviceReference" type="tns:discoverDeviceReference"/>
+<xs:element name="discoverDeviceReferenceResponse" type="tns:discoverDeviceReferenceResponse"/>
+<xs:element name="discoverDeviceReferences" type="tns:discoverDeviceReferences"/>
+<xs:element name="discoverDeviceReferencesResponse" type="tns:discoverDeviceReferencesResponse"/>
+<xs:element name="discoverDeviceResponse" type="tns:discoverDeviceResponse"/>
+<xs:element name="discoverDevices" type="tns:discoverDevices"/>
+<xs:element name="discoverDevicesResponse" type="tns:discoverDevicesResponse"/>
+<xs:element name="getDiscoveryJobs" type="tns:getDiscoveryJobs"/>
+<xs:element name="getDiscoveryJobsResponse" type="tns:getDiscoveryJobsResponse"/>
+<xs:element name="getStatus" type="tns:getStatus"/>
+<xs:element name="getStatusResponse" type="tns:getStatusResponse"/>
+<xs:element name="startDiscoveryJob" type="tns:startDiscoveryJob"/>
+<xs:element name="startDiscoveryJobResponse" type="tns:startDiscoveryJobResponse"/>
+<xs:element name="stopDiscoveryJob" type="tns:stopDiscoveryJob"/>
+<xs:element name="stopDiscoveryJobResponse" type="tns:stopDiscoveryJobResponse"/>
+<xs:complexType name="discoverDevice">
+<xs:sequence>
+<xs:element minOccurs="0" name="sessionId" type="tns:sessionId"/>
+<xs:element minOccurs="0" name="target" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="sessionId">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+<xs:element name="userId" type="xs:int"/>
+<xs:element minOccurs="0" name="clientHostname" type="xs:string"/>
+<xs:element minOccurs="0" name="username" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="discoverDeviceResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="status" type="tns:webServiceStatus"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getDiscoveryJobs">
+<xs:sequence>
+<xs:element minOccurs="0" name="sessionId" type="tns:sessionId"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getDiscoveryJobsResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="discoveryJobsResult" type="tns:discoveryJobsResult"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="discoveryJobsResult">
+<xs:sequence>
+<xs:element minOccurs="0" name="status" type="tns:webServiceStatus"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="jobs" nillable="true" type="tns:discoveryJob"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="discoveryJob">
+<xs:sequence>
+<xs:element minOccurs="0" name="id" type="xs:int"/>
+<xs:element minOccurs="0" name="name" type="xs:string"/>
+<xs:element minOccurs="0" name="description" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="startDiscoveryJob">
+<xs:sequence>
+<xs:element minOccurs="0" name="sessionId" type="tns:sessionId"/>
+<xs:element minOccurs="0" name="discoveryJob" type="tns:discoveryJob"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="startDiscoveryJobResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="status" type="tns:webServiceStatus"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getStatus">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="getStatusResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="discoveryStatus" type="tns:discoveryStatusResult"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="discoveryStatusResult">
+<xs:sequence>
+<xs:element minOccurs="0" name="licenseStatus" type="tns:licenseStatus"/>
+<xs:element minOccurs="0" name="serverStatus" type="tns:webServiceStatus"/>
+<xs:element minOccurs="0" name="devicesInDatabase" type="xs:int"/>
+<xs:element minOccurs="0" name="discoveryStatus" type="tns:discoveryProcessStatus"/>
+<xs:element minOccurs="0" name="discoveryStatusMessage" type="xs:string"/>
+<xs:element minOccurs="0" name="hostname" type="xs:string"/>
+<xs:element minOccurs="0" name="port" type="xs:int"/>
+<xs:element minOccurs="0" name="productName" type="xs:string"/>
+<xs:element minOccurs="0" name="productMajorVersion" type="xs:int"/>
+<xs:element minOccurs="0" name="productMinorVersion" type="xs:int"/>
+<xs:element minOccurs="0" name="productBuildNr" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="licenseStatus">
+<xs:sequence>
+<xs:element minOccurs="0" name="licenseMessage" type="xs:string"/>
+<xs:element name="isValid" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="stopDiscoveryJob">
+<xs:sequence>
+<xs:element minOccurs="0" name="sessionId" type="tns:sessionId"/>
+<xs:element minOccurs="0" name="discoveryJob" type="tns:discoveryJob"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="stopDiscoveryJobResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="status" type="tns:webServiceStatus"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="discoverDevices">
+<xs:sequence>
+<xs:element minOccurs="0" name="sessionId" type="tns:sessionId"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="targets" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="discoverDevicesResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="status" type="tns:webServiceStatus"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="discoverDeviceReferences">
+<xs:sequence>
+<xs:element minOccurs="0" name="sessionId" type="tns:sessionId"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="targets" type="tns:deviceReference"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="deviceReference">
+<xs:sequence>
+<xs:element minOccurs="0" name="id" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="discoverDeviceReferencesResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="status" type="tns:webServiceStatus"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="discoverDeviceReference">
+<xs:sequence>
+<xs:element minOccurs="0" name="sessionId" type="tns:sessionId"/>
+<xs:element minOccurs="0" name="target" type="tns:deviceReference"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="discoverDeviceReferenceResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="status" type="tns:webServiceStatus"/>
+</xs:sequence>
+</xs:complexType>
+<xs:simpleType name="webServiceStatus">
+<xs:restriction base="xs:string">
+<xs:enumeration value="Success"/>
+<xs:enumeration value="InvalidArgument"/>
+<xs:enumeration value="InvalidUser"/>
+<xs:enumeration value="InvalidPassword"/>
+<xs:enumeration value="InsufficientRights"/>
+<xs:enumeration value="InvalidSession"/>
+<xs:enumeration value="Failure"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="discoveryProcessStatus">
+<xs:restriction base="xs:string">
+<xs:enumeration value="Idle"/>
+<xs:enumeration value="Running"/>
+<xs:enumeration value="Paused"/>
+<xs:enumeration value="Disabled"/>
+<xs:enumeration value="Pausing"/>
+<xs:enumeration value="Stopping"/>
+<xs:enumeration value="Starting"/>
+<xs:enumeration value="Down"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getDiscoveryJobs">
+    <wsdl:part name="parameters" element="tns:getDiscoveryJobs">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="stopDiscoveryJob">
+    <wsdl:part name="parameters" element="tns:stopDiscoveryJob">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="stopDiscoveryJobResponse">
+    <wsdl:part name="parameters" element="tns:stopDiscoveryJobResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="startDiscoveryJobResponse">
+    <wsdl:part name="parameters" element="tns:startDiscoveryJobResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="discoverDeviceReference">
+    <wsdl:part name="parameters" element="tns:discoverDeviceReference">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDiscoveryJobsResponse">
+    <wsdl:part name="parameters" element="tns:getDiscoveryJobsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="startDiscoveryJob">
+    <wsdl:part name="parameters" element="tns:startDiscoveryJob">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getStatus">
+    <wsdl:part name="parameters" element="tns:getStatus">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getStatusResponse">
+    <wsdl:part name="parameters" element="tns:getStatusResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="discoverDeviceReferencesResponse">
+    <wsdl:part name="parameters" element="tns:discoverDeviceReferencesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="discoverDeviceReferences">
+    <wsdl:part name="parameters" element="tns:discoverDeviceReferences">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="discoverDevice">
+    <wsdl:part name="parameters" element="tns:discoverDevice">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="discoverDevices">
+    <wsdl:part name="parameters" element="tns:discoverDevices">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="discoverDeviceResponse">
+    <wsdl:part name="parameters" element="tns:discoverDeviceResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="discoverDeviceReferenceResponse">
+    <wsdl:part name="parameters" element="tns:discoverDeviceReferenceResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="discoverDevicesResponse">
+    <wsdl:part name="parameters" element="tns:discoverDevicesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="DiscoveryWebService">
+    <wsdl:operation name="discoverDevice">
+      <wsdl:input name="discoverDevice" message="tns:discoverDevice">
+    </wsdl:input>
+      <wsdl:output name="discoverDeviceResponse" message="tns:discoverDeviceResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDiscoveryJobs">
+      <wsdl:input name="getDiscoveryJobs" message="tns:getDiscoveryJobs">
+    </wsdl:input>
+      <wsdl:output name="getDiscoveryJobsResponse" message="tns:getDiscoveryJobsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="startDiscoveryJob">
+      <wsdl:input name="startDiscoveryJob" message="tns:startDiscoveryJob">
+    </wsdl:input>
+      <wsdl:output name="startDiscoveryJobResponse" message="tns:startDiscoveryJobResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStatus">
+      <wsdl:input name="getStatus" message="tns:getStatus">
+    </wsdl:input>
+      <wsdl:output name="getStatusResponse" message="tns:getStatusResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="stopDiscoveryJob">
+      <wsdl:input name="stopDiscoveryJob" message="tns:stopDiscoveryJob">
+    </wsdl:input>
+      <wsdl:output name="stopDiscoveryJobResponse" message="tns:stopDiscoveryJobResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="discoverDevices">
+      <wsdl:input name="discoverDevices" message="tns:discoverDevices">
+    </wsdl:input>
+      <wsdl:output name="discoverDevicesResponse" message="tns:discoverDevicesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="discoverDeviceReferences">
+      <wsdl:input name="discoverDeviceReferences" message="tns:discoverDeviceReferences">
+    </wsdl:input>
+      <wsdl:output name="discoverDeviceReferencesResponse" message="tns:discoverDeviceReferencesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="discoverDeviceReference">
+      <wsdl:input name="discoverDeviceReference" message="tns:discoverDeviceReference">
+    </wsdl:input>
+      <wsdl:output name="discoverDeviceReferenceResponse" message="tns:discoverDeviceReferenceResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DiscoverySoapBinding" type="tns:DiscoveryWebService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="discoverDevice">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="discoverDevice">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="discoverDeviceResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDiscoveryJobs">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getDiscoveryJobs">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getDiscoveryJobsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="startDiscoveryJob">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="startDiscoveryJob">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="startDiscoveryJobResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStatus">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getStatus">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getStatusResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="stopDiscoveryJob">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="stopDiscoveryJob">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="stopDiscoveryJobResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="discoverDevices">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="discoverDevices">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="discoverDevicesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="discoverDeviceReferences">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="discoverDeviceReferences">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="discoverDeviceReferencesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="discoverDeviceReference">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="discoverDeviceReference">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="discoverDeviceReferenceResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Discovery">
+    <wsdl:port name="DiscoveryWebServicePort" binding="tns:DiscoverySoapBinding">
+      <soap:address location="http://localhost:9090/DiscoveryWebServicePort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

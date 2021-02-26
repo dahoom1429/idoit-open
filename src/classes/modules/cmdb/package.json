@@ -1,0 +1,29 @@
+{
+  "title": "CMDB",
+  "name": "CMDB",
+  "identifier": "cmdb",
+  "author": "synetics GmbH",
+  "version": "1.5",
+  "description": "CMDB module for i-doit.",
+  "type": "core",
+  "files": [],
+  "sql-tables": [],
+  "requirements": {
+    "core": ">= 1.0"
+  },
+  "dependencies": {
+    "php": [
+      "session",
+      "zlib",
+      "mysqli",
+      "pcre",
+      "xml",
+      "json",
+      "spl",
+      "mbstring"
+    ],
+    "apache": [
+      "mod_rewrite"
+    ]
+  }
+}

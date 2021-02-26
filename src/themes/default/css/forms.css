@@ -1,0 +1,389 @@
+/*------------------------------------------------------------------------*/
+/* Forms                                                                  */
+/*------------------------------------------------------------------------*/
+
+/* Some CSS reset going on here */
+input,
+textarea,
+select,
+button {
+    background: #fbfbfb;
+    margin: 0;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+}
+
+select,
+button,
+input[type='button'],
+input[type='submit'],
+input[type='checkbox'],
+input[type='radio'] {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid #aaaaaa;
+    padding: 2px 5px;
+    box-sizing: border-box;
+    height: 24px;
+    border-radius: 0;
+    color: #444444;
+    font: inherit;
+    margin: 0 1px 0 0;
+    outline: none;
+    -webkit-transition: border-color 200ms;
+    -moz-transition: border-color 200ms;
+    transition: border-color 200ms;
+}
+
+/* This seems to be necessary for "appearance" in IE */
+select::-ms-expand {
+    display: none;
+}
+
+select {
+    min-width: 4em;
+    appearance: none;
+    -ms-appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background: #fbfbfb url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAKCAYAAAC9vt6cAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwQAADsEBuJFr7QAAABh0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC45bDN+TgAAAFVJREFUKFOljEEKwDAIBPO24kf1o9vuQYjtJlRyGNDBcQA4QsoOUnYoi5ld7v6M9SiJCPBmduWArJ6omJQleT9ZxeQjEgYMdzGRMmG4i4mUHaT8D8YN2tzKESQPsV4AAAAASUVORK5CYII=') no-repeat right center;
+    cursor: pointer;
+}
+
+input:hover,
+textarea:hover,
+select:hover {
+    border-color: #999999;
+    color: black;
+}
+
+select option {
+    color: #666666;
+    padding: 3px;
+}
+
+select option[disabled] {
+    color: #888888;
+    background: #eee;
+}
+
+select option:hover {
+    color: #ffffff;
+    background: #3399ff;
+    text-shadow: none;
+}
+
+input[type='radio'],
+input[type='checkbox'] {
+    border: none;
+    padding: 0;
+}
+
+label {
+    line-height: 24px;
+    height: 24px;
+    font-weight: normal;
+}
+
+label > * {
+    /* Align all direct children vertically! */
+    vertical-align: middle;
+}
+
+div.nicEdit-selected,
+textarea:focus,
+select:active,
+select:focus,
+input[type='text']:active,
+input[type="text"]:focus,
+input[type='search']:active,
+input[type="search"]:focus,
+input[type='number']:active,
+input[type="number"]:focus,
+input[type="email"]:active,
+input[type="email"]:focus,
+input[type="file"]:active,
+input[type="file"]:focus,
+input[type="password"]:active,
+input[type="password"]:focus,
+input[type="tel"]:active,
+input[type="tel"]:focus,
+input[type="url"]:active,
+input[type="url"]:focus,
+input[type="time"]:active,
+input[type="time"]:focus,
+input[type="range"]:active,
+input[type="range"]:focus {
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+    -moz-box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+    box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+    border: 1px solid #5897fb;
+    outline: none;
+}
+
+select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000000;
+}
+
+select:active,
+select:focus {
+    background: #fbfbfb url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAKCAYAAAC9vt6cAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwQAADsEBuJFr7QAAABh0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC45bDN+TgAAAF5JREFUKFOlkFEKgDAMQ3dMb+ABdhgP60dtwICpUSx+PFjfksI2IuIXVnawsoMMy7avSR41RHCHzNVJAGRguiVneVYvA6lLnsrgJgiXvJWBlSSL+BN5c8XKDlZ+J8YBxbHXIFS97iAAAAAASUVORK5CYII=') no-repeat right center;
+}
+
+/* New money-appendix style */
+.money-appendix {
+    position: relative;
+}
+
+.money-appendix strong.money-sign {
+    position: absolute;
+    right: 5px;
+    top: 1px;
+}
+
+.input-dual-radio {
+    width: 563px !important;
+}
+
+/* Deprecated Please use "btn" */
+a.button,
+input.button,
+button.button {
+    padding: 2px;
+    border: 1px solid #aaaaaa;
+    background: #dddddd url('[{$dir_images}]gradient.png') repeat-x;
+    text-shadow: 0 1px 0 #ffffff;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -khtml-border-radius: 2px;
+    color: #000000;
+    cursor: pointer;
+}
+
+/* Deprecated Please use "btn" - Special CSS for removing the dotted lines inside buttons (Firefox) */
+a.button::-moz-focus-inner,
+input.button::-moz-focus-inner,
+button.button::-moz-focus-inner {
+    border: 0;
+}
+
+/* Deprecated Please use "btn" */
+a.button {
+    display: inline-block;
+}
+
+/* Deprecated Please use "btn" */
+a.button:hover,
+a.button:focus,
+input.button:hover,
+input.button:focus,
+button.button:hover,
+input.button:focus {
+    border: 1px solid #bbbbbb;
+    background: #eeeeee;
+    color: #cc0000;
+}
+
+/* Deprecated Please use "btn" */
+a.button.disabled,
+a.button.disabled:hover,
+a.button.disabled:focus,
+a.button.disabled:active,
+input.button.disabled,
+input.button.disabled:hover,
+input.button.disabled:focus,
+input.button.disabled:active,
+button.button.disabled,
+button.button.disabled:hover,
+button.button.disabled:focus,
+button.button.disabled:active {
+    top: 0;
+    left: 0;
+    color: #000000;
+    background: #dddddd url('[{$dir_images}]gradient.png') repeat-x;
+    opacity: .5;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    filter: alpha(opacity=50);
+}
+
+/* Deprecated Please use "btn" */
+a.button:active,
+input.button:active,
+button.button:active {
+    top: 1px;
+    left: 1px;
+    position: relative;
+}
+
+/* Deprecated Please use "btn" */
+button.button img,
+button.button span {
+    margin-top: -1px !important;
+    vertical-align: middle;
+}
+
+/* Deprecated Please use "btn" */
+a.button img,
+a.button span {
+    vertical-align: top;
+    margin-top: -1px !important;
+}
+
+.input[readonly],
+.input.readonly {
+    background-color: #eeeeee;
+    cursor: default;
+}
+
+.input {
+    border: 1px solid #aaaaaa;
+    -moz-box-shadow: inset 1px 1px 2px rgba(200, 200, 200, 0.3);
+    -webkit-box-shadow: inset 1px 1px 2px rgba(200, 200, 200, 0.3);
+    box-shadow: inset 1px 1px 2px rgba(200, 200, 200, 0.3);
+    padding: 2px 5px;
+    box-sizing: border-box;
+    height: 24px;
+    vertical-align: middle;
+    transition-duration: 250ms;
+    -o-transition-duration: 250ms;
+    -moz-transition-duration: 250ms;
+    -webkit-transition-duration: 250ms;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.input[type="checkbox"] {
+    -webkit-appearance: checkbox;
+    -moz-appearance: checkbox;
+    appearance: checkbox;
+}
+
+.input[type="radio"] {
+    -webkit-appearance: radio;
+    -moz-appearance: radio;
+    appearance: radio;
+}
+
+/* This is necessary for the "drop-down-arrow" on the right side */
+select.input {
+    padding-right: 15px;
+}
+
+/* Standard width of a content form-element */
+.input,
+.input-size-normal,
+.contentTable .chosen-container-single {
+    width: 600px;
+}
+
+/* Refs ID-713 - But this should be refactored in further versions */
+.contentTable .property-selector .chosen-container-single {
+    width: 100%;
+}
+
+.chosen-container {
+    font-weight: normal;
+}
+
+textarea.input {
+    height: auto;
+}
+
+.input-size-block,
+.input.input-block {
+    width: 100%;
+    display: block;
+}
+
+/* 3/4 witdh of a default content form-element */
+.input-size-dual-large, /* @deprecated use "input-size-medium" */
+.input-dual-large, /* @deprecated use "input-size-medium" */
+.input-size-medium,
+.input.input-medium {
+    width: 445px;
+}
+
+/* 1/2 witdh of a default content form-element */
+.input-size-small,
+.input.input-small {
+    width: 290px;
+}
+
+/* 1/4 witdh of a default content form-element */
+.input-dual-small, /* @deprecated  Use "input-size-mini" */
+.input-dual-mini, /* @deprecated  Use "input-size-mini" */
+.input-size-dual-small, /* @deprecated  Use "input-size-mini" */
+.input-size-mini,
+.input.input-mini {
+    width: 135px;
+}
+
+/* Special treatment for textareas */
+textarea.input {
+    height: auto;
+}
+
+textarea.noresize {
+    resize: none;
+}
+
+/* @todo  Consider inheriting from .box-red? */
+.input.input-error {
+    color: #ff0000;
+    background: #ffdddd;
+    border: 1px #ff0000 solid;
+}
+
+select.input.input-error {
+    background: #ffdddd url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAKCAYAAAC9vt6cAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwAAADsABataJCQAAABh0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC45bDN+TgAAAE9JREFUKFOlzMENACAIBEHqtP8+MBcjgh5G4mMeLoKo6hcaK2isiEGkjeSahxn+uLaGU3aELEN4mP1IsgxHMPPIZRloNONIugw0VtD4TqUDJEHF0I2edq8AAAAASUVORK5CYII=') no-repeat right center;
+}
+
+optgroup[disabled],
+option[disabled] {
+    color: #777777;
+}
+
+optgroup option {
+    padding-left: 10px;
+}
+
+.input.disabled,
+.input[disabled],
+.input[disabled="disabled"] {
+    background: #f0f0f0;
+    opacity: .5;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    filter: alpha(opacity=50);
+}
+
+input[type=checkbox],
+input[type=radio] {
+    width: 13px;
+    height: 13px;
+}
+
+/* @deprecated */
+input.small,
+button.small,
+select.small,
+textarea.small,
+input.counterSmall {
+    width: 100px !important;
+}
+
+/* @deprecated */
+input.normal,
+button.normal,
+select.normal,
+textarea.normal {
+    width: 250px !important;
+}

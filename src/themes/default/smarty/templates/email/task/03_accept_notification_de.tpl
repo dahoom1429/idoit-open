@@ -1,0 +1,1 @@
+[{$g_processors}] hat den Auftrag [{$g_task}] am [{$smarty.now|date_format:"%d.%m.%Y"}] um [{$smarty.now|date_format:"%H:%M:%S"}] angenommen.

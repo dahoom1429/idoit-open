@@ -1,0 +1,156 @@
+body {
+	font-family: Verdana, Lucida Grande, sans-serif;
+	color:#000;
+	height: 100%;
+	background-color:#ffffff;
+	font-size:11px;
+	/*padding-bottom:15px;*/
+}
+
+#banner {
+	border-bottom:1px solid #000;
+	height: 50px;
+	margin-bottom:20px;
+	padding-bottom:5px;
+}
+
+#banner img {
+	float:left;
+	height:50px;
+	width:125px;
+	margin-right:25px;
+	/*margin-left:-20px;*/
+}
+
+#head {
+	float:left;
+}
+
+#objects {
+	padding:0px;
+}
+
+.object {
+	border:1px solid #555;
+	margin-bottom:25px;
+	padding:0;
+	background-color:#fff;
+}
+
+.object h2 {
+	margin-left:5px;
+}
+
+.category h3 {
+	margin-left:5px;
+}
+
+.obj_title {
+	background:#dedede;
+	padding-top:5px;
+	padding-bottom:5px;
+}
+
+.category {
+	border-top:1px solid #555;		
+}
+
+.cat_title {
+	background:#e5e9ff;
+	border-bottom:1px solid #555;	
+}
+
+.cat_data {
+	padding:5px;
+}
+
+.cat_data ul {
+	list-style:none;
+	margin:0 0 0 5px;
+	padding:0;
+}
+
+.cat_data .value {
+	font-weight:bold;
+}
+
+.port {
+
+}
+
+.ports {
+
+}
+
+.content_table {
+	width:100%;
+}
+
+table.keyvalue td {
+	min-width:150px;
+}
+
+table.keyvalue td.key {
+    text-align: right;
+}
+
+table.keyvalue td.value {
+    padding-left: 10px
+}
+
+.content_table th {
+	background:#dedede;
+	text-align:left;
+	margin:0;
+}
+
+.primary {
+	background:#B7FFB7;
+}
+
+.m0 {
+	margin:0px;
+}
+
+.mb10 {
+	margin-bottom:10px;
+}
+
+table.listing {
+ clear: both;
+ border-bottom: 1px solid #d7d7d7;
+ border-collapse: collapse;
+ border-spacing: 0;
+ width: 100%;
+}
+table.listing th { text-align: left; padding: 0 1em .1em 0; text-transform: capitalize; }
+table.listing thead { background: #f7f7f0 }
+table.listing thead th {
+ border: 1px solid #BDBDBD;
+ border-bottom-color: #474747;
+ font-weight: bold;
+ padding: 2px .5em;
+ vertical-align: bottom;
+}
+table.listing thead th :link:hover, table.listing thead th :visited:hover {
+ background-color: transparent;
+}
+table.listing thead th a { border: none; padding-right: 12px }
+table.listing tbody td, table.listing tbody th {
+ border: 1px dotted #ddd;
+ padding: .33em .5em;
+ vertical-align: top;
+}
+table.listing tbody td a:hover, table.listing tbody th a:hover {
+ background-color: transparent;
+}
+table.listing tbody tr { border-top: 1px solid #ddd }
+table.listing tbody tr.even { background-color: #fcfcfc }
+table.listing tbody tr.odd { background-color: #F7F7F7; }
+table.listing tbody tr:hover { 
+ background: #e5e9ff !important;
+}
+
+fieldset {
+ border: 1px solid #BDBDBD;
+}

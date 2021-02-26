@@ -1,0 +1,459 @@
+#rackview table {
+    width: 100%;
+    overflow: hidden;
+}
+
+#rackview .box-closer {
+    float: right;
+    cursor: pointer;
+    margin-top: 1px;
+}
+
+#rackview .chassis {
+    border-collapse: separate;
+    border-spacing: 1px;
+    table-layout: fixed;
+}
+
+#rackview .chassis .edge-top,
+#rackview .chassis .edge-first {
+    height: 0;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+}
+
+#rackview .chassis .slot {
+    border: 1px solid #888888 !important;
+}
+
+#rackview .chassis .title {
+    display: none;
+}
+
+#rackview .expanded .chassis .title {
+    display: block;
+    position: relative;
+    background-color: #000000;
+    color: #ffffff;
+    text-shadow: none;
+    font-size: 9px;
+    padding: 1px;
+}
+
+#rackview .chassis td {
+    padding: 0;
+    margin: 0;
+}
+
+#rackview .chassis .device-container {
+    max-height: 38px;
+    overflow: hidden;
+}
+
+#rackview .chassis .device-container div.device {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 8px;
+    padding: 1px;
+    border-bottom: 1px dotted #444444;
+}
+
+#rackview .chassis .device-container div.device:last-of-type {
+    border-bottom: none;
+}
+
+#rackview .slot-options {
+    position: absolute;
+    top: 4px;
+    right: 2px;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 100;
+}
+
+#rackview .slot:hover .slot-options {
+    opacity: 1;
+}
+
+#rack_front,
+#rack_rear,
+.rack {
+    display: inline-block;
+    border: 1px solid #b7b7b7;
+    border-top: none;
+    width: 400px;
+    padding: 10px 0;
+    background: #eeeeee;
+}
+
+#rackview tr.row {
+    height: 27px;
+    transition: height 400ms;
+    -moz-transition: height 400ms;
+    -webkit-transition: height 400ms;
+}
+
+/* @see  ID-7132  Splitting up row and object heights */
+#rackview .slot-object {
+    height: 26px;
+    transition: height 400ms;
+    -moz-transition: height 400ms;
+    -webkit-transition: height 400ms;
+}
+
+#rackview.expanded tr.row,
+#rackview.expanded .slot-object {
+    height: 84px;
+}
+
+/* Special styles for vertical slots */
+#rackview .left-slots .slot-object,
+#rackview .right-slots .slot-object {
+    height: 17px;
+}
+
+#rackview tr.row td:last-of-type {
+    text-align: right;
+}
+
+#rackview div.slot,
+#rackview td.slot {
+    width: 90%;
+    background-color: #eeeeee;
+    background-image: repeating-linear-gradient(-45deg, #eeeeee, #eeeeee 10px, #e0e0e0 10px, #e0e0e0 20px);
+    cursor: default;
+    border: 1px solid #b7b7b7;
+    font-size: 11px;
+    position: relative;
+}
+
+/* This should only apply to the "room"-view */
+table.room-view,
+table.room-view table {
+    table-layout: fixed;
+}
+
+table.room-view div.slot,
+table.room-view td.slot {
+    background-image: repeating-linear-gradient(-45deg, #eeeeee, #eeeeee 5px, #e5e5e5 5px, #e5e5e5 10px);
+}
+
+table.room-view tr.odd td.slot {
+    background-position: 10px 0;
+}
+
+table.room-view td.slot .object-icon,
+table.room-view td.slot .object-title {
+    margin: -1px 0 1px 3px;
+}
+
+table.room-view .left-slots .slot,
+table.room-view .right-slots .slot {
+    margin: 2px;
+}
+
+table.room-view .cmdb-marker {
+    margin: 1px !important;
+}
+
+table.room-view div.slot-object {
+    max-height: 11px;
+    overflow: hidden;
+
+    transition: max-height 400ms;
+    -moz-transition: max-height 400ms;
+    -webkit-transition: max-height 400ms;
+}
+
+table.room-view tr.row {
+    height: 12px;
+
+    transition: height 400ms;
+    -moz-transition: height 400ms;
+    -webkit-transition: height 400ms;
+}
+
+table.room-view .rotated .object-title {
+    width: 120px;
+    font-size: 8px;
+}
+
+.expanded table.room-view tr.row {
+    height: 41px;
+}
+
+.expanded table.room-view div.slot-object {
+    max-height: 400px;
+}
+
+td.slot .object-icon,
+td.slot .object-title {
+    margin: 5px 0 5px 5px;
+    float: left;
+}
+
+td.slot .object-icon {
+    width: 16px;
+    height: 16px;
+}
+
+td.slot .object-title {
+    width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.room-view td.slot .object-title {
+    width: 150px;
+}
+
+td.last.slot:empty {
+    border: 1px solid #b7b7b7;
+}
+
+.left-slots, .right-slots {
+    width: 53px;
+    position: relative;
+}
+
+.left-slots .slot,
+.right-slots .slot {
+    display: inline-block;
+    height: 220px;
+    width: 20px;
+    margin: 2px;
+}
+
+.main-slots td {
+    color: #000000;
+    text-shadow: 1px 1px #ffffff;
+    font-size: 10px;
+    vertical-align: middle;
+}
+
+td.slot {
+    border-bottom: none;
+    vertical-align: top;
+}
+
+#rackview td.slot div[data-object-height] {
+    overflow: hidden;
+    height: 24px;
+}
+
+#rackview.expanded td.slot div[data-object-height] {
+    overflow: hidden;
+    height: 100%;
+}
+
+td.slot div span {
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 2px
+}
+
+.clear {
+    clear: both;
+}
+
+#side_box {
+    position: relative;
+    width: 270px;
+}
+
+#unassigned_objects .list > div {
+    border-bottom: 1px solid #b7b7b7;
+    position: relative;
+    display: block;
+}
+
+#unassigned_objects .object-item {
+    width: 245px;
+    overflow: hidden;
+    cursor: pointer;
+    padding: 5px 0 5px 5px;
+}
+
+#unassigned_objects .object-item.active {
+    background: transparent url('[{$dir_images}]gradient_x.png') repeat-y left top;
+    color: #cc0000;
+}
+
+#unassigned_objects strong {
+    border: 1px solid rgba(0, 0, 0, .5);
+    padding: 2px;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.5);
+    margin: 5px 5px 0 0;
+    float: left;
+}
+
+#unassigned_objects .list div p {
+    width: 205px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    float: left;
+}
+
+#unassigned_objects .list div .mouse-pointer {
+    position: relative;
+    float: right;
+    margin-right: 5px;
+    top: 4px;
+    display: none;
+}
+
+#unassigned_objects .list div:hover .object-item {
+    width: 180px;
+}
+
+#unassigned_objects .list div:hover p {
+    width: 140px;
+}
+
+#unassigned_objects .list div:hover .mouse-pointer {
+    display: block;
+}
+
+img.object_option {
+    float: right;
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 3px;
+}
+
+#unassigned_objects div.list {
+    overflow-x: visible;
+    overflow-y: auto;
+    height: 170px;
+    display: block;
+    position: relative;
+}
+
+.row.selected .slot,
+.left-slots .slot.selected,
+.right-slots .slot.selected {
+    color: #ffffff;
+    background-color: #3e3e3e;
+    background-image: repeating-linear-gradient(-45deg, #303030, #303030 10px, #3e3e3e 10px, #3e3e3e 20px);
+}
+
+/* This is for chassis slots */
+#rackview .chassis .slot.selected {
+    border: 3px solid #333333 !important;
+}
+
+a#new {
+    display: block;
+    padding: 3px;
+    margin: 5px;
+}
+
+a#new img {
+    position: relative;
+    top: 3px;
+}
+
+#rack_stats {
+    width: 100%;
+}
+
+#rack_stats table {
+    width: 475px;
+}
+
+#rack_stats div.bar {
+    height: 3px;
+    width: 100%;
+    background: #888888;
+    position: relative;
+}
+
+#rack_stats div.bar div {
+    position: absolute;
+    height: 3px;
+}
+
+.rotated {
+    bottom: 104px;
+    right: -100px;
+    width: 220px;
+    height: 17px;
+    /*overflow: hidden;*/
+    position: absolute;
+    writing-mode: lr-tb;
+
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+
+.rotated img {
+    margin: 1px 5px 0 1px;
+    width: 16px;
+    height: 16px;
+    float: left;
+}
+
+.rotated img.object_option {
+    margin-top: 2px;
+}
+
+.rotated .object-title {
+    width: 160px;
+    height: 17px;
+    overflow: hidden;
+    display: inline-block;
+    float: left;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.rotated .cmdb-marker {
+    margin-top: 1px;
+}
+
+.rackOptionsPopup {
+    position: fixed;
+    width: 200px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-color: #888888;
+    z-index: 110;
+}
+
+.rackOptionsPopup h4 {
+    text-shadow: 0 1px 0 #ffffff;
+    white-space: nowrap;
+    overflow: hidden;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+    border-bottom: 1px solid #888888;
+}
+
+.rackOptionsPopup li {
+    border-bottom: 1px solid #cccccc;
+}
+
+.rackOptionsPopup li:last-of-type {
+    border-bottom: none;
+}
+
+.rackOptionsPopup li a {
+    display: block;
+    padding: 4px;
+}
+
+.rackOptionsPopup img,
+.rackOptionsPopup span {
+    vertical-align: middle;
+}

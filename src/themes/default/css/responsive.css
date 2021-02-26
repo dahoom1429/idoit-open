@@ -1,0 +1,154 @@
+@media screen and (max-width: 1280px) {
+    /* Shrinking all these large form input fields */
+    .input,
+    .contentTable .chosen-container-single,
+    .contentTable textarea {
+        width: 400px;
+    }
+
+    /* 3/4 witdh of a default content form-element */
+    .input-size-medium,
+    .input.input-medium {
+        width: 295px;
+    }
+
+    /* 1/2 witdh of a default content form-element */
+    .input-size-small,
+    .input.input-small {
+        width: 190px;
+    }
+
+    /* 1/4 witdh of a default content form-element */
+    .input-size-mini,
+    .input.input-mini {
+        width: 85px;
+    }
+
+    .contentTable td.value .input-dual-small {
+        width: 20% !important;
+    }
+
+    .contentTable td.value .input-dual-large {
+        width: 60% !important;
+    }
+
+    .mainTableFilterInput {
+        width: 120px;
+    }
+
+    .mainTableFilterInput.search {
+        width: 190px;
+    }
+
+    #advanced-filters {
+        width: 336px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    /* Shrinking width of the key description in contentTable */
+    .contentTable td.key {
+        text-align: right;
+        width: 150px;
+    }
+
+    /* Hiding qr code */
+    #contentHeader .qr-code {
+        display: none;
+    }
+
+    /* Decreasing font size in object's head overview */
+    #contentHeaderInnerTable {
+        font-size: 6pt;
+    }
+
+    /* Prevent horizontal scrollbars because of a high min-width for #top */
+    div#top {
+        min-width: 0;
+    }
+
+    /* Prevent horizontal scrollbars for contentWrapper as well */
+    div#contentWrapper {
+        min-width: 400px;
+    }
+
+    .mainTableFilterInput {
+        width: 90px;
+    }
+
+    .mainTableFilterInput.search {
+        width: 120px;
+    }
+
+    #advanced-filters {
+        width: 266px;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    /* Hide input Filter and Page x of y info */
+    #contentHeader div.paging div:nth-child(2), #contentHeader div.paging div:nth-child(3), #contentHeader div.paging div:nth-child(4) {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    /* Disabling CKEditor's header */
+    .contentTable .cke_inner .cke_top {
+        display: none;
+    }
+
+    /* Removing commentary's margin */
+    .contentTable div.commentary {
+        margin: 0 0 0 8px !important;;
+    }
+
+    /* Shrinking key description in contentTable */
+    #scroller .contentTable td.key {
+        text-align: right;
+        width: 100px;
+    }
+
+    /* Decreasing content font size */
+    #scroller .contentTable {
+        font-size: 10px !important;
+    }
+
+    /* Shrinking info icons */
+    img.infoIcon {
+        width: 2px;
+    }
+
+    /* Hiding global search box */
+    #searchBar .sbox {
+        display: none;
+    }
+
+    /* Hiding list filter */
+    #mainList > div.mainTable-options {
+        display: none;
+    }
+
+    #cSpanRecFilter > div.paging > div.pager-results,
+    #cSpanRecFilter > div.paging > div.pager-filter {
+        display: none;
+    }
+
+    /* Hide top menu's downarray */
+    .arrowsprite {
+        display: none;
+    }
+
+    /* Shrink the "logged in as" window */
+    #logged-in-user-tenant {
+        display: none;
+    }
+
+    #logged-in-user-popdown::before {
+        right: 19px !important;
+    }
+
+    #logged-in-user-popdown::after {
+        right: 20px !important;
+    }
+}

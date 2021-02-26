@@ -1,0 +1,46 @@
+@media screen and (max-width: 1240px) {
+	#header {
+		min-height: 45px;
+		height:45px;
+		overflow:hidden;
+	}
+	.navigation li:last-child {
+		visibility: hidden;
+	}
+	.navigation li {
+		padding: 0;
+		min-width:0;
+		width:13.33%;
+		text-align:center;
+	}
+	.navigation li span {
+		visibility: hidden;
+	}
+	ul.navigation li a:link,
+	ul.navigation li a:active,
+	ul.navigation li a:visited {
+		padding:    10px 0 10px 0;
+		font:    bold 1.2em "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	}
+}
+@media screen and (max-width: 1024px) {
+	ul.navigation li a:link,
+	ul.navigation li a:active,
+	ul.navigation li a:visited {
+		font:    bold 1em "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	}
+}
+@media screen and (max-width: 820px) {
+	ul.navigation {
+		padding-left: 10px;
+	}
+	.navigation li {
+		min-width:45px;
+	}
+	ul.navigation li a:link,
+	ul.navigation li a:active,
+	ul.navigation li a:visited {
+		padding:    13px 0 10px 0;
+		font:    bold 0.8em "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	}
+}

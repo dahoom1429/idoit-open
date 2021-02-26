@@ -1,0 +1,52 @@
+.wysiwyg :first-child {
+    margin-top: 0 !important;
+}
+
+.wysiwyg :last-child {
+    margin-bottom: 0 !important;
+}
+
+.wysiwyg h1 {
+    margin: 17px 0;
+    font-size: 25px;
+}
+
+.wysiwyg h2 {
+    margin: 16px 0;
+    font-size: 20px;
+}
+
+.wysiwyg h3 {
+    margin: 15px 0;
+    font-size: 15px;
+}
+
+.wysiwyg h4 {
+    margin: 17px 0;
+    font-size: 13px;
+}
+
+.wysiwyg h5 {
+    margin: 18px 0;
+    font-size: 10px;
+}
+
+.wysiwyg h6 {
+    margin: 20px 0;
+    font-size: 9px;
+}
+
+.wysiwyg p {
+    margin: 10px 0;
+    font-size: 11px;
+}
+
+.wysiwyg a {
+    color: #aa0000;
+    border-bottom: 1px dotted transparent;
+}
+
+.wysiwyg a:hover {
+    color: #cc0000;
+    border-color: #cc0000;
+}

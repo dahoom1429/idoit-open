@@ -1,0 +1,124 @@
+.sanmatrix {
+    border-collapse: collapse;
+    background-color: #ffffff;
+}
+
+.sanmatrix th {
+    text-align: left;
+    height: 46px;
+}
+
+.sanmatrix td,
+.sanmatrix th {
+    padding-left: 4px;
+    padding-right: 4px;
+    width: 120px;
+    min-height: 1px;
+    max-height: 97px;
+    min-width: 120px;
+    max-width: 120px;
+    overflow: hidden;
+    vertical-align: middle;
+    border: 1px solid #b6babf;
+}
+
+.sanmatrix .maxheight {
+    height: 97px;
+}
+
+.portgroup td {
+    padding-left: 4px;
+    padding-right: 4px;
+    height: 30px;
+    width: 140px;
+    min-width: 100px;
+    max-width: 140px;
+    min-height: 1px;
+    max-height: 40px;
+    vertical-align: middle;
+    overflow: hidden;
+    border: 0 solid #b6babf;
+    border-spacing: 0;
+}
+
+.portgroup_head {
+    height: 25px;
+    max-height: 60px;
+}
+
+.sanmatrix .maxheight {
+    height: 97px;
+}
+
+.sanmatrix .minheight {
+    height: 47px;
+}
+
+.sanmatrix .hideit {
+    display: none !important;
+}
+
+.sanmatrix .p_red {
+    color: #cc0000;
+}
+
+.sanmatrix .p_yellow {
+    color: #ff9900;
+}
+
+.sanmatrix .p_green {
+    color: #009900;
+}
+
+.sanmatrix td.clusterdienst_aktiv {
+    background-color: #d3e1f0 !important;
+}
+
+.sanmatrix td.clusterdienst_passiv {
+    background-color: #e3e9f0 !important;
+}
+
+.sanmatrix td.clusterdienst_hpc {
+    background-color: #f2efd8 !important;
+}
+
+.sanmatrix .clusterdienst_inactive {
+    -webkit-animation: clusterdienstInactive 1s infinite; /* Safari 4+ */
+    -moz-animation: clusterdienstInactive 1s infinite; /* Fx 5+ */
+    -o-animation: clusterdienstInactive 1s infinite; /* Opera 12+ */
+    animation: clusterdienstInactive 1s infinite; /* IE 10+, Fx 29+ */
+}
+
+.sanmatrix td.clusterdienst_virtualmachine {
+    background-color: #e8def0;
+}
+
+.sanmatrix .backcolor {
+    background-color: #d4f0d6;
+}
+
+.matrixvalues {
+    border-collapse: collapse;
+}
+
+.matrixvalues td {
+    border: 0;
+    min-width: 130px;
+}
+
+@-webkit-keyframes clusterdienstInactive {
+    from { background-color: inherit; }
+    to { background-color: #fa9894; }
+}
+@-moz-keyframes clusterdienstInactive {
+    from { background-color: inherit; }
+    to { background-color: #fa9894; }
+}
+@-o-keyframes clusterdienstInactive {
+    from { background-color: inherit; }
+    to { background-color: #fa9894; }
+}
+@keyframes clusterdienstInactive {
+    from { background-color: inherit; }
+    to { background-color: #fa9894; }
+}

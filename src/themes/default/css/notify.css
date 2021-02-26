@@ -1,0 +1,32 @@
+/*------------------------------------------------------------------------*
+ * Notify                                                                 *
+ *------------------------------------------------------------------------*/
+#Notify .item {
+    position: relative;
+    float: right;
+    clear: right;
+    margin: 0 0 10px;
+    width: 226px;
+    overflow: hidden;
+    padding: 10px;
+    line-height: 18px;
+    font-size: 11px;
+    color: #333333;
+    background-clip: padding-box;
+    border: 1px solid;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+#Notify .item .head {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+#Notify .item .exit {
+    position: absolute;
+    top: 2px;
+    right: 5px;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
+}

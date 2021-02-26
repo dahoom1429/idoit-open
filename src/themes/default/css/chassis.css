@@ -1,0 +1,107 @@
+#chassis .canvas {
+    width: 700px;
+    overflow: auto;
+    background: #ffffff;
+}
+
+#chassis .canvas td {
+    width: 15px;
+    height: 15px;
+    vertical-align: top;
+    text-align: left;
+    background-color: #eeeeee;
+    border: 1px solid transparent;
+    position: relative;
+}
+
+#chassis .canvas td.edit {
+    vertical-align: middle;
+    text-align: center;
+}
+
+#chassis .canvas td.selected {
+    background-color: #888888;
+}
+
+#chassis .canvas td.edge-first {
+    height: 0;
+    width: 0;
+    background-color: transparent;
+}
+
+#chassis .canvas td.edge-top {
+    height: 0;
+    background-color: transparent;
+}
+
+#chassis .canvas td.edge-side {
+    width: 0;
+    background-color: transparent;
+}
+
+#chassis .canvas td.slot {
+    border-color: #7b7b7b;
+}
+
+#chassis .canvas td.slot.device {
+    background-color: #ffffff;
+}
+
+#chassis .canvas td.slot.hover, #chassis .canvas td.slot.selected {
+    background-color: #aaaaaa;
+    border-color: #5897fb;
+    box-shadow: 0 0 5px #5897fb;
+}
+
+#chassis .canvas td.slot img.option,
+#chassis .canvas td.slot img.info {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    position: absolute;
+    top: 2px;
+    right: 1px;
+    margin: 0;
+    background: none;
+    border: none
+}
+
+#chassis .canvas td.slot div {
+    padding: 2px;
+    overflow: hidden;
+}
+
+#chassis .canvas td.slot div.title {
+    background: #ffffff;
+    border-bottom: 1px solid #aaaaaa;
+    position: relative;
+    height: 16px;
+}
+
+#unassigned-slot-list {
+    height: 225px;
+    overflow-y: auto;
+}
+
+#unassigned-slot-list div.unassigned-slot, #slot_options div.navbar_item {
+    display: block;
+    float: none;
+}
+
+#unassigned-slot-list div.unassigned-slot.selected {
+    background: #dddddd url('[{$dir_images}]gradient.png') repeat-x;
+    border: 1px solid #5897fb;
+}
+
+#chassisContextPopup {
+    position: fixed;
+    z-index: 1001;
+}
+
+#chassisContextPopup li {
+    margin-bottom: 2px;
+}
+
+#chassisContextPopup li:last-child {
+    margin-bottom: 0;
+}
